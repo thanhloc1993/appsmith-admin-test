@@ -1,0 +1,24 @@
+{
+  "unpublishedCollection": {
+    "name": "jsmain",
+    "pageId": "list-course",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tmyVar1: [],\n\tmyVar2: {},\n\tinitData: async () => {\n\t\t//use async-await or promises\n\t\tpostMessageHandler(\n\t\t\t\"http://localhost:3001\", \n\t\t\t(message) => { \n\t\t\t\tstoreValue(\"token\", message);\n\t\t\t}\n\t\t)\n\t}\n}",
+    "variables": [
+      {
+        "name": "myVar1",
+        "value": "[]"
+      },
+      {
+        "name": "myVar2",
+        "value": "{}"
+      }
+    ]
+  },
+  "id": "list-course_jsmain",
+  "deleted": false,
+  "gitSyncId": "633e5568cbe08b4e8c85c3d3_633e5701d8f7c225a30ed834"
+}
