@@ -293,7 +293,7 @@
               "rightColumn": 64,
               "textSize": "0.875rem",
               "widgetId": "4px7wby4to",
-              "tableData": "{{courses.data.data.courses}}",
+              "tableData": "{{courses.data.data.courses.map((x) => return {\n\t\t\t\t\"course_id\": x.course_id,\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"name\": x.course_name\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n)}}",
               "label": "Data",
               "searchKey": "",
               "parentId": "0",
