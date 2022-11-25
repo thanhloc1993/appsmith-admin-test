@@ -1,0 +1,36 @@
+
+drivers/* @manabie-com/squad-platform-purple
+squad-tags.json @manabie-com/squad-platform-purple
+jprep-squad-tags.json @manabie-com/squad-platform-purple
+
+./step-definitions/* @manabie-com/squad-platform-purple 
+
+test-suites/squads/adobo/features  @manabie-com/func-qa
+test-suites/squads/adobo/step-definitions @manabie-com/squad-adobo
+
+test-suites/squads/lesson/features  @manabie-com/func-qa
+test-suites/squads/lesson/step-definitions @manabie-com/squad-lesson
+
+test-suites/squads/payment/features  @manabie-com/func-qa
+test-suites/squads/payment/step-definitions @manabie-com/squad-payment
+
+test-suites/squads/syllabus/features  @manabie-com/func-qa
+test-suites/squads/syllabus/step-definitions @manabie-com/squad-syllabus
+
+test-suites/squads/timesheet/features  @manabie-com/func-qa
+test-suites/squads/timesheet/step-definitions @manabie-com/squad-timesheet
+
+test-suites/squads/platform/features  @manabie-com/func-qa
+test-suites/squads/platform/step-definitions @manabie-com/squad-platform-purple
+
+test-suites/squads/architecture/features  @manabie-com/func-qa
+test-suites/squads/architecture/step-definitions @manabie-com/squad-architecture
+
+test-suites/squads/communication/features  @manabie-com/func-qa
+test-suites/squads/communication/step-definitions @manabie-com/squad-communication
+
+test-suites/squads/user-management/features  @manabie-com/func-qa
+test-suites/squads/user-management/step-definitions @manabie-com/squad-user-management
+
+test-suites/squads/virtual-classroom/features  @manabie-com/func-qa
+test-suites/squads/virtual-classroom/step-definitions @manabie-com/squad-virtual-classroom

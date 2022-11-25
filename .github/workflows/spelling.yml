@@ -1,0 +1,40 @@
+name: Spell checking
+
+on:
+  pull_request:
+    branches:
+      - develop
+    types: [opened, synchronize, ready_for_review]
+
+jobs:
+    spelling:
+        if: github.event.pull_request.draft == false
+        name: Spell checking
+        runs-on: [self-hosted, custom-runner, small-runner]
+        steps:
+            - name: checkout-merge
+              if: "contains(github.event_name, 'pull_request')"
+              uses: actions/checkout@v3
+              with:
+                  ref: refs/pull/${{github.event.pull_request.number}}/merge
+            
+            - uses: check-spelling/check-spelling@main
+              id: spelling
+              with:
+                  experimental_apply_changes_via_bot: 0 #@check-spelling-bot is not allow to push code to our repo
+                  extra_dictionaries:
+                    cspell:cpp/cpp.txt
+                    cspell:npm/npm.txt
+                    cspell:django/django.txt
+                    cspell:aws/aws.txt
+                    cspell:html/html.txt
+                    cspell:css/css.txt
+                    cspell:golang/go.txt
+                    cspell:fullstack/fullstack.txt
+                    cspell:dotnet/dotnet.txt
+                    cspell:csharp/csharp.txt
+                    cspell:scala/scala.txt
+                    cspell:rust/rust.txt
+                    cspell:php/php.txt
+                    cspell:java/java.txt
+                    cspell:filetypes/filetypes.txt

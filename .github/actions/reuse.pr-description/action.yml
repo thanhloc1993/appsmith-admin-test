@@ -1,0 +1,95 @@
+name: "reuse.pr-description"
+description: "composite action reuse.pr-description"
+
+outputs:
+  pullNumber:
+    description: "Get PR's description to run extra tests"
+    value: ${{ steps.pr-description.outputs.pullNumber }}
+  owner:
+    description: "Get PR's description to run extra tests"
+    value: ${{ steps.pr-description.outputs.owner }}
+  repo:
+    description: "Get PR's description to run extra tests"
+    value: ${{ steps.pr-description.outputs.repo }}
+  tags:
+    description: "Get PR's description to run extra tests"
+    value: ${{ steps.pr-description.outputs.tags }}
+  featureFiles:
+    description: "Get PR's description to run extra tests"
+    value: ${{ steps.pr-description.outputs.featureFiles }}
+  eibanamRef:
+    description: "Get PR's description to run extra tests"
+    value: ${{ steps.pr-description.outputs.eibanamRef }}
+  feRef:
+    description: "Get PR's description to run extra tests"
+    value: ${{ steps.pr-description.outputs.feRef }}
+  meRef:
+    description: "Get PR's description to run extra tests"
+    value: ${{ steps.pr-description.outputs.meRef }}
+  environment:
+    description: "Get PR's description to run extra tests"
+    value: ${{ steps.pr-description.outputs.environment }}
+  organization:
+    description: "Get PR's description to run extra tests"
+    value: ${{ steps.pr-description.outputs.organization }}
+  body:
+    description: "Get PR's description to run extra tests"
+    value: ${{ steps.pr-description.outputs.body }}
+
+inputs:
+  BUILD_GITHUB_TOKEN:
+    required: true
+    description: "secrets.BUILD_GITHUB_TOKEN"
+
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/github-script@v6
+      id: pr-description
+      env: 
+        EIBANAM_REPO: eibanam
+        FE_REPO: school-portal-admin
+        ME_REPO: student-app
+      with:
+        github-token: ${{ inputs.BUILD_GITHUB_TOKEN }}
+        script: |
+          let getOwner = require('${{github.workspace}}/scripts/trigger-e2e-in-PR/get-info-owner.js');
+          const {
+            pullNumber,
+            owner,
+            repo,
+            body,
+            branch,
+          } = await getOwner({github, context});
+
+          let parsing = require('${{github.workspace}}/scripts/trigger-e2e-in-PR/parsing-body.js');
+          const {
+              tags,
+              featureFiles,
+              organization,
+              meRef,
+              feRef,
+              eibanamRef,
+              environment,
+          } = parsing(body, repo, branch)
+          console.log({
+              tags,
+              featureFiles,
+              organization,
+              meRef,
+              feRef,
+              eibanamRef,
+              environment,
+          })
+          core.setOutput('pullNumber', pullNumber);
+          core.setOutput('owner', owner);
+          core.setOutput('repo', repo);
+          core.setOutput('tags', tags);
+          core.setOutput('featureFiles', featureFiles);
+          core.setOutput('organization', organization);
+          core.setOutput('meRef', meRef);
+          core.setOutput('feRef', feRef);
+          core.setOutput('eibanamRef', eibanamRef);
+          core.setOutput('environment', environment);
+          core.setOutput('body', body);
