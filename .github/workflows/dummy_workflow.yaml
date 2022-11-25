@@ -1,17 +1,19 @@
-name: dummy_workflow
+name: Run record test
 
 on:
-  workflow_dispatch:
-    inputs:
-      user_input:
-        required: true
-        default: "Hello, world."
-
+  push:
+    branches:
+      - master
 jobs:
-  log-input:
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            console.log( ${{ inputs.user_input }} )
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Pull Metadata
+      id: run-recorder test
+      run: |
+          echo "Hello"
