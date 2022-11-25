@@ -1,0 +1,19 @@
+# syntax = docker/dockerfile:1.2
+
+FROM asia.gcr.io/student-coach-e1e95/node_eibanam:1.27.1-focal
+
+ARG GITHUB_TOKEN
+ENV GITHUB_TOKEN $GITHUB_TOKEN
+RUN git config --global --add url."https://${GITHUB_TOKEN}:x-oauth-basic@github.com/manabie-com".insteadOf "https://github.com/manabie-com"
+
+WORKDIR cms
+
+COPY packages/cms/.npmrc .
+COPY packages/cms/package.json .
+COPY packages/cms/yarn.lock .
+
+RUN --mount=type=cache,sharing=locked,target=/yarn yarn install
+
+COPY ./packages/cms .
+
+RUN DISABLE_ESLINT_PLUGIN=true yarn build

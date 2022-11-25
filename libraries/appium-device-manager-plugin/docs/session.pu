@@ -1,0 +1,24 @@
+@startuml
+title Creating and Launching Emulator/Simulator
+
+start
+:Client requests creating an appium session;
+if (If number of free devices < 1?) then (yes)
+    :Creating an emulator;
+
+else (no)
+    stop
+endif
+:Launching an emulator;
+if (If an emulator launched?) then (yes)
+else (throw error)
+    stop
+endif
+
+if (If an appium session created?) then (yes)
+    :Increasing one number of busy devices;
+    stop
+else (throw error)
+    stop
+endif
+@enduml

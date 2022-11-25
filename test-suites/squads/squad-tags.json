@@ -1,0 +1,355 @@
+{
+    "syllabus-1": {
+        "time": "00 17 * * *",
+        "name": "syllabus",
+        "features": [
+            {
+                "tag": "@syllabus-multi-tenant"
+            },
+            {
+                "tag": "@course"
+            },
+            {
+                "tag": "@course-statistics"
+            },
+            {
+                "tag": "@retry-mode"
+            },
+            {
+                "tag": "@assignment-common"
+            },
+            {
+                "tag": "@task-assignment-common"
+            },
+            {
+                "tag": "@learning-objective-common"
+            },
+            {
+                "tag": "@exam-lo-common"
+            },
+            {
+                "tag": "@question-common"
+            },
+            {
+                "tag": "@question-handwriting"
+            },
+            {
+                "tag": "@flashcard-common"
+            },
+            {
+                "tag": "@book-common"
+            }
+        ]
+    },
+    "syllabus-2": {
+        "time": "00 18 * * *",
+        "name": "syllabus",
+        "features": [
+            {
+                "tag": "@studyplan-tracking"
+            },
+            {
+                "tag": "@studyplan-course"
+            },
+            {
+                "tag": "@studyplan-book"
+            },
+            {
+                "tag": "@studyplan-item-view"
+            },
+            {
+                "tag": "@studyplan-item-delete"
+            },
+            {
+                "tag": "@studyplan-item-admin-edit"
+            },
+            {
+                "tag": "@studyplan-item-teacher-edit-p1"
+            },
+            {
+                "tag": "@studyplan-item-teacher-edit-p2"
+            },
+            {
+                "tag": "@studyplan-item-teacher-edit"
+            },
+            {
+                "tag": "@studyplan-item-teacher-edit-v2"
+            },
+            {
+                "tag": "@studyplan-item-bulk-edit"
+            },
+            {
+                "tag": "@studyplan-item-do-quiz"
+            }
+        ]
+    },
+    "adobo": {
+        "time": "00 23 * * *",
+        "features": [
+            {
+                "tag": "@student-entry-exit-backoffice"
+            },
+            {
+                "tag": "@generate-student-qr-pdf"
+            }
+        ]
+    },
+    "architecture": {
+        "time": "00 16 * * *",
+        "features": [
+            {
+                "tag": "@architecture-location"
+            },
+            {
+                "tag": "@course"
+            }
+        ]
+    },
+    "communication": {
+        "time": "00 15 * * *",
+        "features": [
+            {
+                "tag": "@assignment-returned-notification"
+            },
+            {
+                "tag": "@compose-notification"
+            },
+            {
+                "tag": "@scheduled-notification"
+            },
+            {
+                "tag": "@support-chat"
+            },
+            {
+                "tag": "@live-lesson-chat"
+            },
+            {
+                "tag": "@communication-multi-tenant"
+            },
+            {
+                "tag": "@questionnaire-notification"
+            }
+        ]
+    },
+    "user": {
+        "time": "00 20 * * *",
+        "features": [
+            {
+                "tag": "@student-info"
+            },
+            {
+                "tag": "@never-logged-in"
+            },
+            {
+                "tag": "@student-list"
+            },
+            {
+                "tag": "@reissue-password"
+            },
+            {
+                "tag": "@student-search-filter"
+            },
+            {
+                "tag": "@student-location"
+            },
+            {
+                "tag": "@student-comment"
+            },
+            {
+                "tag": "@student-course"
+            },
+            {
+                "tag": "@parent-info"
+            },
+            {
+                "tag": "@staff-info"
+            },
+            {
+                "tag": "@login"
+            },
+            {
+                "tag": "@user-multi-tenant"
+            },
+            {
+                "tag": "@user-group-info"
+            },
+            {
+                "tag": "@import-students"
+            },
+            {
+                "tag": "@import-parents"
+            },
+            {
+                "tag": "@student-school-history"
+            },
+            {
+                "tag": "@user-import-master-data"
+            },
+            {
+                "tag": "@user-tag"
+            },
+            {
+                "tag": "@sibling"
+            }
+        ]
+    },
+    "lesson": {
+        "time": "00 00 * * *",
+        "features": [
+            {
+                "tag": "@lesson-individual-upsert"
+            },
+            {
+                "tag": "@lesson-individual-delete"
+            },
+            {
+                "tag": "@lesson-group-delete"
+            },
+            {
+                "tag": "@lesson-report-submit"
+            },
+            {
+                "tag": "@lesson-report-draft"
+            },
+            {
+                "tag": "@lesson-report-previous-report"
+            },
+            {
+                "tag": "@lesson-group-upsert"
+            }
+        ]
+    },
+    "platform": {
+        "time": "10 15 * * 0",
+        "features": [
+            {
+                "tag": "@unleash-custom-strategies"
+            }
+        ]
+    },
+    "virtual-classroom": {
+        "time": "00 22 * * *",
+        "features": [
+            {
+                "tag": "@virtual-classroom-polling-create"
+            },
+            {
+                "tag": "@virtual-classroom-polling-join-and-leave"
+            },
+            {
+                "tag": "@virtual-classroom-polling-statistics"
+            },
+            {
+                "tag": "@virtual-classroom-polling-stop-and-end"
+            },
+            {
+                "tag": "@virtual-classroom-share-screen"
+            },
+            {
+                "tag": "@virtual-classroom-streaming"
+            },
+            {
+                "tag": "@virtual-classroom-white-board"
+            },
+            {
+                "tag": "@virtual-classroom-white-board-zoom"
+            },
+            {
+                "tag": "@virtual-classroom-raise-hand"
+            },
+            {
+                "tag": "@virtual-classroom-share-material"
+            },
+            {
+                "tag": "@virtual-classroom-join-leave"
+            },
+            {
+                "tag": "@virtual-classroom-pin-user"
+            },
+            {
+                "tag": "@virtual-classroom-spotlight"
+            },
+            {
+                "tag": "@virtual-classroom-jump-page"
+            },
+            {
+                "tag": "@virtual-classroom-lesson-list"
+            },
+            {
+                "tag": "@virtual-classroom-user-manager-list"
+            }
+        ]
+    },
+    "payment": {
+        "features": [
+            {
+                "tag": "@one-time-material-order"
+            },
+            {
+                "tag": "@one-time-fee-order"
+            },
+            {
+                "tag": "@order-detail-one-time-material"
+            },
+            {
+                "tag": "@order-list"
+            },
+            {
+                "tag": "@search-and-filter-order"
+            },
+            {
+                "tag": "@student-billing"
+            }
+        ]
+    },
+    "calendar": {
+        "time": "00 19 * * *",
+        "name": "calendar",
+        "features": [
+            {
+                "tag": "@calendar-weekly-view"
+            }
+        ]
+    },
+    "timesheet": {
+        "time": "30 21 * * *",
+        "features": [
+            {
+                "tag": "@transportation-expense"
+            },
+            {
+                "tag": "@timesheet-list-approver"
+            },
+            {
+                "tag": "@timesheet-list-requestor"
+            },
+            {
+                "tag": "@timesheet-locations-list"
+            },
+            {
+                "tag": "@timesheet-auto-create"
+            },
+            {
+                "tag": "@timesheet-pages-view-as-requestor"
+            },
+            {
+                "tag": "@timesheet-pages-view-as-confirmer"
+            },
+            {
+                "tag": "@timesheet-pages-view-as-approver"
+            },
+            {
+                "tag": "@timesheet-detail-page"
+            }
+        ]
+    },
+    "timesheet-weekly": {
+        "time": "00 21 * * 1",
+        "name": "timesheet",
+        "features": [
+            {
+                "tag": "@timesheet-locations-weekly"
+            }
+        ]
+    }
+}

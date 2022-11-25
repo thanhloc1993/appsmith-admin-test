@@ -1,0 +1,23 @@
+# syntax = docker/dockerfile:1.2
+
+FROM asia.gcr.io/student-coach-e1e95/flutter_web:3.3.6 as build
+
+ARG GITHUB_TOKEN
+ARG FLAVOR
+
+RUN git config --global url."https://${GITHUB_TOKEN}:x-oauth-basic@github.com/".insteadOf git@github.com: \
+  && git config --global url."https://".insteadOf git://
+
+WORKDIR eibanam
+
+COPY . .
+
+RUN --mount=type=cache,sharing=locked,target=/flutter cd packages/student-app/manabie_learner && flutter pub get
+
+RUN cd packages/student-app/manabie_learner && flutter build web --web-renderer html --release --dart-define=flavor=${FLAVOR} --dart-define=isTest=true
+
+FROM nginx:1.21.1-alpine
+COPY --from=build eibanam/packages/student-app/manabie_learner/build/web /usr/share/nginx/html
+COPY nginx-config/learner/nginx.conf /etc/nginx/
+EXPOSE 3003
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

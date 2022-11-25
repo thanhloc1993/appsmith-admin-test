@@ -1,0 +1,4 @@
+FROM mcr.microsoft.com/playwright:v1.27.1-focal
+
+RUN apt-get update ; apt-get install ca-certificates \ 
+  && apt-get -y install gpg-agent wget build-essential

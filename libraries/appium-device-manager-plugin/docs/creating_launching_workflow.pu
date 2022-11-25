@@ -1,0 +1,21 @@
+@startuml
+title Creating and Launching workflow
+
+start
+:Getting sessions and statuses on Device Farm;
+repeat: Handling esimulator session;
+if (pending Appium sessions + active Appium sessions > active devices + esimulator sessions?) then (yes)
+
+    :Creating the esimulator session;
+
+    fork
+    :Creating the emulator;
+    :Launching the emulator;
+
+    fork again
+    while (What is the emulator status?) is (not launched)
+    endwhile (launched)
+    :Removing the esimulator session;
+    detach
+    end fork
+@enduml

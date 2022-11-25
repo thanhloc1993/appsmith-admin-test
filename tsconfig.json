@@ -1,0 +1,49 @@
+{
+    "exclude": ["packages", "node_modules"],
+    "files": ["global.d.ts"],
+    "include": [
+        "features",
+        "drivers",
+        "flutter-driver-js",
+        "tools",
+        "supports",
+        "step-definitions",
+        "mana.config.ts",
+        "jest.config.js",
+        "cucumber.js",
+        "test-suites",
+        "configurations"
+    ],
+    "ts-node": {
+        "transpileOnly": true
+    },
+    "compilerOptions": {
+        "baseUrl": "./",
+        "target": "es2017",
+        "module": "commonjs",
+        "moduleResolution": "Node",
+        "sourceMap": false,
+        "allowJs": true,
+        "checkJs": true,
+        "strict": true,
+        "noEmit": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "paths": {
+            "@supports/*": ["supports/*"],
+            "@graphql/*": ["supports/graphql/*"],
+            "@services/*": ["supports/services/*"],
+            "@drivers/*": ["drivers/*"],
+            "@legacy-step-definitions/*": ["step-definitions/*"],
+            "@common/*": ["test-suites/common/__generated__/*"],
+            "@user-common/*": ["test-suites/squads/user-management/step-definitions/common/*"],
+            "@syllabus-utils/*": ["test-suites/squads/syllabus/step-definitions/utils/*"]
+        },
+        "types": ["@types/node", "@cucumber/cucumber", "@types/jest"]
+    }
+}

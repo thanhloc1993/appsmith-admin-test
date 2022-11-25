@@ -1,0 +1,123 @@
+version: '3.9'
+
+services:
+    # Sharing network for cucumber connects to VMService
+    alive:
+        container_name: alive
+        image: asia.gcr.io/student-coach-e1e95/node_eibanam:1.27.1-focal
+        command: sh -c "tail -f /dev/null"
+        profiles:
+            - all
+        ports:
+            - "3001:3001"
+            - "3002:3002" #teacher
+            - "3003:3003" #learner
+        environment:
+            &alive-environment
+            DOCKER: 'true'
+            ENV: $ENV
+            ORGANIZATION: $ORGANIZATION
+            TEACHER_FLAVOR: $TEACHER_FLAVOR
+            LEARNER_FLAVOR: $LEARNER_FLAVOR
+            CMS_FLAVOR: $CMS_FLAVOR
+            FE_REF: $FE_REF
+            ME_REF: $ME_REF
+            EIBANAM_REF: $EIBANAM_REF
+            GITHUB_TOKEN: $GITHUB_TOKEN
+            FEATURE_FILES: '$FEATURE_FILES'
+            HOST_PROJECT_PATH: $HOST_PROJECT_PATH
+            CI: $CI
+            FAIL_FAST: $FAIL_FAST
+            RUN_ID: $RUN_ID
+            TAGS: '$TAGS'
+            DEBUG: '$DEBUG'
+            PLATFORM: $PLATFORM
+            BO_HOST: $BO_HOST
+            LEARNER_HOST: $LEARNER_HOST
+            TEACHER_HOST: $TEACHER_HOST
+            UNLEASH_CLIENT_KEY: $UNLEASH_CLIENT_KEY
+            REPORT_HASURA_SECRET: $REPORT_HASURA_SECRET
+            UNLEASH_CREDENTIAL: $UNLEASH_CREDENTIAL
+            GOOGLE_PROJECT_ID: $GOOGLE_PROJECT_ID
+            GOOGLE_IDENTITY_AUTH_DOMAIN: $GOOGLE_IDENTITY_AUTH_DOMAIN
+            REPORT_GRAPHQL_URL: $REPORT_GRAPHQL_URL
+            BUCKET_NAME: $BUCKET_NAME
+            GOOGLE_APPLICATION_CREDENTIALS: $GOOGLE_APPLICATION_CREDENTIALS
+            SQUADS: $SQUADS
+            DURATION_LIMIT: $DURATION_LIMIT
+            ACTOR: $ACTOR
+            REPO: $REPO
+            ISSUE_NUMBER: $ISSUE_NUMBER
+            HEADLESS: $HEADLESS
+            NODE_OPTIONS: $NODE_OPTIONS
+    cucumber:
+        container_name: cucumber
+        environment: *alive-environment
+
+        build:
+            context: .
+            dockerfile: Dockerfile.cucumber
+            args:
+                HEADLESS: 'true'
+                GITHUB_TOKEN: ${GITHUB_TOKEN}
+                FE_REF: ${FE_REF}
+                ME_REF: ${ME_REF}
+        command: sh -c "yarn cucumber $FEATURE_FILES"
+        network_mode: 'service:alive'
+        profiles:
+            - all
+        volumes:
+            - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
+            - /var/log/:/eibanam/report/build-logs/
+
+    cms:
+        container_name: cms
+        environment: *alive-environment
+        build:
+            context: .
+            dockerfile: Dockerfile.backoffice
+            args:
+                GITHUB_TOKEN: ${GITHUB_TOKEN}
+        command: sh -c "./build-cms.sh"
+        network_mode: 'service:alive'
+        depends_on:
+            - alive
+        restart: unless-stopped
+        profiles:
+            - cms
+        volumes:
+            - /var/log/:/cms/report/build-logs/
+
+    teacher-web:
+        container_name: teacher-web
+        environment: *alive-environment
+        build:
+            context: .
+            dockerfile: Dockerfile.teacher
+            args:
+                GITHUB_TOKEN: ${GITHUB_TOKEN}
+                FLAVOR: ${TEACHER_FLAVOR}
+        network_mode: 'service:alive'
+        depends_on:
+            - alive
+        profiles:
+            - teacher-web
+        volumes:
+            - /var/log/:/eibanam/report/build-logs/
+
+    learner-web:
+        container_name: learner-web
+        environment: *alive-environment
+        build:
+            context: .
+            dockerfile: Dockerfile.learner
+            args:
+                GITHUB_TOKEN: ${GITHUB_TOKEN}
+                FLAVOR: ${LEARNER_FLAVOR}
+        network_mode: 'service:alive'
+        depends_on:
+            - alive
+        profiles:
+            - learner-web
+        volumes:
+            - /var/log/:/eibanam/report/build-logs/

@@ -1,0 +1,30 @@
+{
+  "name": "appium-flutter-driver-x-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "appium": {
+    "pluginName": "appium-flutter-driver-x",
+    "mainClass": "AppiumFlutterDriverXPlugin"
+  },
+  "author": "Manabie Automation",
+  "license": "MIT",
+  "devDependencies": {
+    "tslint": "^6.1.3",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@appium/base-driver": "^8.2.2",
+    "@appium/base-plugin": "^1.8.0",
+    "@types/jest": "^27.4.1",
+    "flutter-driver-x-js": "file:../flutter-driver-x-js"
+  }
+}

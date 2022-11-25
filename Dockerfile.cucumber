@@ -1,0 +1,24 @@
+# syntax = docker/dockerfile:1.2
+
+FROM asia.gcr.io/student-coach-e1e95/node_eibanam:1.27.1-focal
+
+ARG GITHUB_TOKEN
+RUN git config --global --add url."https://${GITHUB_TOKEN}:x-oauth-basic@github.com/manabie-com".insteadOf "https://github.com/manabie-com"
+
+WORKDIR eibanam
+
+COPY .npmrc .
+COPY package.json .
+COPY yarn.lock .
+COPY ./libraries/. ./libraries/
+
+RUN --mount=type=cache,sharing=locked,target=/yarn yarn install && npx playwright install chrome
+
+COPY Makefile .
+
+COPY ./scripts/. ./scripts/
+
+
+RUN make setup
+
+COPY . .

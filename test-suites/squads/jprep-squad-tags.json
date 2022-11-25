@@ -1,0 +1,18 @@
+{
+    "user": {
+        "time": "00 20 * * *",
+        "features": [
+            {
+                "tag": "@jprep"
+            }
+        ]
+    },
+    "lesson": {
+        "time": "00 00 * * *",
+        "features": [
+            {
+                "tag": "@jprep"
+            }
+        ]
+    }
+}

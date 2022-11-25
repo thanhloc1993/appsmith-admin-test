@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <script
+            src="https://unpkg.com/unleash-proxy-client@latest/build/main.min.js"
+            type="text/javascript"
+        ></script>
+        <script type="text/javascript">
+            const urlSearchParams = new URLSearchParams(window.location.search);
+            const params = Object.fromEntries(urlSearchParams.entries());
+            var config = {
+                url: `${params['url']}/proxy`,
+                clientKey: '123',
+                appName: 'proxy-client',
+            };
+
+            var client = new unleash.UnleashClient(config);
+            client.start();
+
+            async function myFunction(a, b) {
+                var featureName = document.getElementById('fName').value;
+                var env = document.getElementById('env').value;
+                var org = document.getElementById('org').value;
+                await client.updateContext({
+                    userId: featureName,
+                    properties: {
+                        env: env,
+                        org: org,
+                    },
+                });
+                document.getElementById('isEnable').innerHTML = `${featureName} is ${
+                    client.isEnabled(featureName) ? 'enabled' : 'disabled'
+                }`;
+            }
+
+            function reset(a, b) {
+                document.getElementById('fName').value = '';
+                document.getElementById('env').value = '';
+                document.getElementById('org').value = '';
+            }
+        </script>
+
+        <label for="fname">Feature name:</label>
+        <br />
+        <input type="text" id="fName" name="fname" value="" />
+        <br />
+        <label for="env">Env:</label>
+        <br />
+        <input type="text" id="env" name="env" value="" />
+        <br />
+        <label for="org">Org:</label>
+        <br />
+        <input type="text" id="org" name="org" value="" />
+        <br />
+        <br />
+        <button onclick="myFunction()">Submit</button>
+        <button onclick="reset()">Reset</button>
+        <div id="isEnable"></div>
+    </head>
+</html>

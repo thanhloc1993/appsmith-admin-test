@@ -1,0 +1,245 @@
+{
+    "countScenarios": 29,
+    "features": {
+        "Auto select first granted location": {
+            "countScenarios": 3,
+            "path": "test-suites/squads/architecture/features/auto-select-granted-location/auto-select-first-granted-location.feature",
+            "tags": [
+                "@cms",
+                "@architecture",
+                "@architecture-location"
+            ],
+            "scenarios": {
+                "School admin can see default location is first granted location": {
+                    "tags": [],
+                    "line": 9,
+                    "keyword": "Scenario"
+                },
+                "School admin can see first granted location checkbox is checked": {
+                    "tags": [],
+                    "line": 13,
+                    "keyword": "Scenario"
+                },
+                "School admin can't save empty location on location setting": {
+                    "tags": [],
+                    "line": 17,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "First granted location is automatically selected in teacher app": {
+            "countScenarios": 5,
+            "path": "test-suites/squads/architecture/features/auto-select-granted-location/teacher-sees-first-granted-location-data.feature",
+            "tags": [
+                "@cms",
+                "@teacher",
+                "@architecture",
+                "@architecture-location"
+            ],
+            "scenarios": {
+                "Teacher's location and Location Dialog is updated": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                },
+                "Teacher sees error message when saving without location": {
+                    "tags": [],
+                    "line": 16,
+                    "keyword": "Scenario"
+                },
+                "Teacher can see the course under first granted location": {
+                    "tags": [],
+                    "line": 20,
+                    "keyword": "Scenario"
+                },
+                "Teacher can see the <type> with course under first granted location | student": {
+                    "tags": [],
+                    "line": 25,
+                    "keyword": "Scenario Outline"
+                },
+                "Teacher can see the <type> with course under first granted location | lesson": {
+                    "tags": [],
+                    "line": 25,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "School admin creates a new course": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/architecture/features/course-info/create-course.feature",
+            "tags": [
+                "@cms",
+                "@teacher",
+                "@learner",
+                "@architecture",
+                "@course"
+            ],
+            "scenarios": {
+                "School admin creates a new course": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Edit course": {
+            "countScenarios": 3,
+            "path": "test-suites/squads/architecture/features/course-info/edit-course.feature",
+            "tags": [
+                "@cms",
+                "@teacher",
+                "@learner",
+                "@architecture",
+                "@course"
+            ],
+            "scenarios": {
+                "Edit course <item> | name Course details": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "Edit course <item> | avatar Course details": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "Edit course <item> | avatar Course Settings page": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Paging after change rows of course list": {
+            "countScenarios": 10,
+            "path": "test-suites/squads/architecture/features/course-info/paging-after-change-number-of-row-course-list.feature",
+            "tags": [
+                "@cms",
+                "@course",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Go to the first page of course list when selecting a new rows per page | 5 1 of [10, 25, 50, 100]": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Go to the first page of course list when selecting a new rows per page | 10 1 of [5, 25, 50, 100]": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Go to the first page of course list when selecting a new rows per page | 25 1 of [5, 10, 50, 100]": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Go to the first page of course list when selecting a new rows per page | 50 1 of [5, 10, 25, 100]": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Go to the first page of course list when selecting a new rows per page | 100 1 of [5, 10, 25, 50]": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Still on the current page of course list when selecting the same rows per page | 5": {
+                    "tags": [],
+                    "line": 26,
+                    "keyword": "Scenario Outline"
+                },
+                "Still on the current page of course list when selecting the same rows per page | 10": {
+                    "tags": [],
+                    "line": 26,
+                    "keyword": "Scenario Outline"
+                },
+                "Still on the current page of course list when selecting the same rows per page | 25": {
+                    "tags": [],
+                    "line": 26,
+                    "keyword": "Scenario Outline"
+                },
+                "Still on the current page of course list when selecting the same rows per page | 50": {
+                    "tags": [],
+                    "line": 26,
+                    "keyword": "Scenario Outline"
+                },
+                "Still on the current page of course list when selecting the same rows per page | 100": {
+                    "tags": [],
+                    "line": 26,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "View course list": {
+            "countScenarios": 3,
+            "path": "test-suites/squads/architecture/features/course-info/view-course-list.feature",
+            "tags": [
+                "@cms",
+                "@architecture",
+                "@course"
+            ],
+            "scenarios": {
+                "View course list": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario"
+                },
+                "School admin is able to change page of course list | first previous": {
+                    "tags": [],
+                    "line": 14,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin is able to change page of course list | last next": {
+                    "tags": [],
+                    "line": 14,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Show and disable unauthorized location": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/architecture/features/show-unauthorized-location/show-and-disable-unauthorized-location.feature",
+            "tags": [
+                "@cms",
+                "@cms2",
+                "@architecture",
+                "@architecture-location"
+            ],
+            "scenarios": {
+                "Teacher sees unauthorized locations in location dialog and unable to select | brand 1": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario Outline"
+                },
+                "Teacher sees unauthorized locations in location dialog and unable to select | center 2": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Unauthorized location in location dialog": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/architecture/features/show-unauthorized-location/teacher-check-unauthorized-location-in-location-settings.feature",
+            "tags": [
+                "@cms",
+                "@teacher",
+                "@architecture",
+                "@architecture-location"
+            ],
+            "scenarios": {
+                "Teacher sees unauthorized locations in location dialog and unable to select | brand org": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario Outline"
+                },
+                "Teacher sees unauthorized locations in location dialog and unable to select | center org and brand": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        }
+    }
+}

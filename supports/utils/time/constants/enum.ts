@@ -1,0 +1,17 @@
+export type FormatDateOptions =
+    | 'YYYY/MM/DD, HH:mm'
+    | 'HH'
+    | 'mm'
+    | 'HH:mm'
+    | 'YYYY/MM'
+    | 'YYYY/MM/DD'
+    | 'YYYY/MM/DD, dddd'
+    | 'MM'
+    | 'MM DD, HH:mm'
+    | 'dddd'
+    | 'H:mm A'
+    | 'MM/DD'
+    | 'MMM D'
+    | 'MM/DD, HH:mm'
+    | 'YYYY/MM/DD, HH:mm:ss'
+    | 'M/D H:mm';

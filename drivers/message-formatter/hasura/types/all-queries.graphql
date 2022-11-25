@@ -1,0 +1,120 @@
+mutation mutateFeatures($arg: e2e_features_insert_input!) {
+    insert_e2e_features(
+        objects: [$arg]
+        on_conflict: { constraint: e2e_features_pkey, update_columns: [updated_at] }
+    ) {
+        affected_rows
+        returning {
+            feature_id
+            instance_id
+        }
+    }
+}
+
+mutation finishFeatures($arg: e2e_features_insert_input!) {
+    insert_e2e_features(
+        objects: [$arg]
+        on_conflict: {
+            constraint: e2e_features_pkey
+            update_columns: [updated_at, status, ended_at]
+        }
+    ) {
+        affected_rows
+        returning {
+            feature_id
+            instance_id
+        }
+    }
+}
+mutation mutateInstances($arg: e2e_instances_insert_input!) {
+    insert_e2e_instances(
+        objects: [$arg]
+        on_conflict: {
+            constraint: e2e_instances_pkey
+            update_columns: [updated_at, status, ended_at, duration]
+        }
+    ) {
+        affected_rows
+        returning {
+            instance_id
+        }
+    }
+}
+mutation mutateScenarios($arg: e2e_scenarios_insert_input!) {
+    insert_e2e_scenarios(
+        objects: [$arg]
+        on_conflict: {
+            constraint: e2e_scenarios_pkey
+            update_columns: [
+                updated_at
+                status
+                steps
+                name
+                keyword
+                description
+                started_at
+                ended_at
+                pickle
+                test_case
+            ]
+        }
+    ) {
+        affected_rows
+        returning {
+            scenario_id
+            feature_id
+        }
+    }
+}
+mutation UpdateResultSteps($arg: e2e_steps_insert_input!) {
+    insert_e2e_steps(
+        objects: [$arg]
+        on_conflict: {
+            constraint: e2e_steps_pkey
+            update_columns: [updated_at, duration, ended_at, message, will_be_retried, status]
+        }
+    ) {
+        affected_rows
+        returning {
+            step_id
+            embeddings
+        }
+    }
+}
+
+mutation AppendEmbeddings($arg: e2e_steps_insert_input!) {
+    insert_e2e_steps(
+        objects: [$arg]
+        on_conflict: { constraint: e2e_steps_pkey, update_columns: [updated_at, embeddings] }
+    ) {
+        affected_rows
+        returning {
+            step_id
+            embeddings
+        }
+    }
+}
+
+mutation UpsertSteps($arg: e2e_steps_insert_input!) {
+    insert_e2e_steps(
+        objects: [$arg]
+        on_conflict: {
+            constraint: e2e_steps_pkey
+            update_columns: [
+                updated_at
+                is_hook
+                name
+                uri
+                keyword
+                started_at
+                scenario_id
+                index
+            ]
+        }
+    ) {
+        affected_rows
+        returning {
+            step_id
+        }
+    }
+}

@@ -1,0 +1,664 @@
+{
+    "countScenarios": 79,
+    "features": {
+        "Filter entry and exit records in learner app": {
+            "countScenarios": 4,
+            "path": "test-suites/squads/adobo/features/entry-exit/filter-records-in-learner-app.feature",
+            "tags": [
+                "@cms",
+                "@learner",
+                "@parent",
+                "@entry-exit",
+                "@adobo",
+                "@staging"
+            ],
+            "scenarios": {
+                "Filter all records": {
+                    "tags": [],
+                    "line": 13,
+                    "keyword": "Scenario"
+                },
+                "Filter \"<filter>\" records | this month": {
+                    "tags": [],
+                    "line": 17,
+                    "keyword": "Scenario Outline"
+                },
+                "Filter \"<filter>\" records | last month": {
+                    "tags": [],
+                    "line": 17,
+                    "keyword": "Scenario Outline"
+                },
+                "Filter \"<filter>\" records | this year": {
+                    "tags": [],
+                    "line": 17,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Generate QR Code for student in learner app": {
+            "countScenarios": 5,
+            "path": "test-suites/squads/adobo/features/entry-exit/generate-qrcode.feature",
+            "tags": [
+                "@cms",
+                "@learner",
+                "@entry-exit",
+                "@adobo",
+                "@staging"
+            ],
+            "scenarios": {
+                "Generate QR Code for <status> student | Enrolled": {
+                    "tags": [],
+                    "line": 9,
+                    "keyword": "Scenario Outline"
+                },
+                "Generate QR Code for <status> student | Potential": {
+                    "tags": [],
+                    "line": 9,
+                    "keyword": "Scenario Outline"
+                },
+                "Generate QR Code for <status> student | LOA": {
+                    "tags": [],
+                    "line": 9,
+                    "keyword": "Scenario Outline"
+                },
+                "Generate QR Code for <status> student | Withdrawn": {
+                    "tags": [],
+                    "line": 9,
+                    "keyword": "Scenario Outline"
+                },
+                "Generate QR Code for <status> student | Graduated": {
+                    "tags": [],
+                    "line": 9,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Opens QR Code Scanner screen on a new browser tab": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/adobo/features/entry-exit/open-qrcode-scanner-screen.feature",
+            "tags": [
+                "@cms",
+                "@teacher",
+                "@entry-exit",
+                "@adobo",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Teacher can open QR Code Scanner screen on a new browser tab": {
+                    "tags": [],
+                    "line": 7,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Parent views entry & exit records of multiple students": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/adobo/features/entry-exit/parent-views-entry-exit-records-multiple-students.feature",
+            "tags": [
+                "@cms",
+                "@learner",
+                "@parent",
+                "@entry-exit",
+                "@adobo",
+                "@staging"
+            ],
+            "scenarios": {
+                "Show exact record for parent when they switch their child": {
+                    "tags": [],
+                    "line": 13,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Record entry and exit time in learner app": {
+            "countScenarios": 8,
+            "path": "test-suites/squads/adobo/features/entry-exit/record-entry-exit-time-learner-app.feature",
+            "tags": [
+                "@cms",
+                "@learner",
+                "@parent",
+                "@entry-exit",
+                "@adobo",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Record is saved as entry time": {
+                    "tags": [],
+                    "line": 13,
+                    "keyword": "Scenario"
+                },
+                "Record is saved as exit time": {
+                    "tags": [],
+                    "line": 18,
+                    "keyword": "Scenario"
+                },
+                "New entry record is saved for student": {
+                    "tags": [],
+                    "line": 22,
+                    "keyword": "Scenario"
+                },
+                "New exit record is saved for student": {
+                    "tags": [],
+                    "line": 27,
+                    "keyword": "Scenario"
+                },
+                "New entry record is saved for student in case School admin delete the latest record": {
+                    "tags": [],
+                    "line": 31,
+                    "keyword": "Scenario"
+                },
+                "New entry record is saved for student in case they not scan to exit before": {
+                    "tags": [],
+                    "line": 38,
+                    "keyword": "Scenario"
+                },
+                "New exit record is saved for student in case they not scan to entry before": {
+                    "tags": [],
+                    "line": 45,
+                    "keyword": "Scenario"
+                },
+                "New entry record is saved for student in case they scan the first time at the new day": {
+                    "tags": [],
+                    "line": 50,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Student and parent do not see entry and exit records in learner app": {
+            "countScenarios": 3,
+            "path": "test-suites/squads/adobo/features/entry-exit/records-not-seen-in-learner-app.feature",
+            "tags": [
+                "@cms",
+                "@learner",
+                "@parent",
+                "@entry-exit",
+                "@adobo",
+                "@staging"
+            ],
+            "scenarios": {
+                "Student and parent do not see entry & exit records when student app is first launched": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario"
+                },
+                "Student not see entry & exit record when admin remove all student record": {
+                    "tags": [],
+                    "line": 16,
+                    "keyword": "Scenario"
+                },
+                "Parent not see entry & exit record of student when admin remove their relationship": {
+                    "tags": [],
+                    "line": 23,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Scan QR Code fail with another cases": {
+            "countScenarios": 3,
+            "path": "test-suites/squads/adobo/features/entry-exit/scan-qr-code-fail-with-another-cases.feature",
+            "tags": [
+                "@cms",
+                "@learner",
+                "@entry-exit",
+                "@adobo",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Student fails to scan invalid QR code": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario"
+                },
+                "Student scans QR code without internet connection": {
+                    "tags": [],
+                    "line": 15,
+                    "keyword": "Scenario"
+                },
+                "Student scans again within 1 minute": {
+                    "tags": [],
+                    "line": 19,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Scan QR Code fail": {
+            "countScenarios": 3,
+            "path": "test-suites/squads/adobo/features/entry-exit/scan-qr-code-fail.feature",
+            "tags": [
+                "@cms",
+                "@learner",
+                "@entry-exit",
+                "@adobo",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Student with QUIT status scan QR fail": {
+                    "tags": [],
+                    "line": 9,
+                    "keyword": "Scenario"
+                },
+                "Scan QR fail after editing student status to QUIT | Potential": {
+                    "tags": [],
+                    "line": 15,
+                    "keyword": "Scenario Outline"
+                },
+                "Scan QR fail after editing student status to QUIT | Enrolled": {
+                    "tags": [],
+                    "line": 15,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Scan QR Code successfully": {
+            "countScenarios": 6,
+            "path": "test-suites/squads/adobo/features/entry-exit/scan-qr-code-successfully.feature",
+            "tags": [
+                "@cms",
+                "@learner",
+                "@entry-exit",
+                "@adobo",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Student with <status> status scan QR successfully | Potential": {
+                    "tags": [],
+                    "line": 9,
+                    "keyword": "Scenario Outline"
+                },
+                "Student with <status> status scan QR successfully | Enrolled": {
+                    "tags": [],
+                    "line": 9,
+                    "keyword": "Scenario Outline"
+                },
+                "Scan QR successfully after editing student status to <newStatus> | Potential Enrolled": {
+                    "tags": [],
+                    "line": 19,
+                    "keyword": "Scenario Outline"
+                },
+                "Scan QR successfully after editing student status to <newStatus> | Enrolled Potential": {
+                    "tags": [],
+                    "line": 19,
+                    "keyword": "Scenario Outline"
+                },
+                "Scan QR successfully after editing student status to <newStatus> | Quit Potential": {
+                    "tags": [],
+                    "line": 19,
+                    "keyword": "Scenario Outline"
+                },
+                "Scan QR successfully after editing student status to <newStatus> | Quit Enrolled": {
+                    "tags": [],
+                    "line": 19,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "School admin downloads QR code sheet successfully": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/adobo/features/entry-exit/school-admin-downloads-qr-code-sheet-in-pdf-format.feature",
+            "tags": [
+                "@cms",
+                "@entry-exit",
+                "@ignore"
+            ],
+            "scenarios": {
+                "School admin downloads student card for existing students successfully": {
+                    "tags": [],
+                    "line": 9,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "School admin prints QR code sheet successfully": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/adobo/features/entry-exit/school-admin-prints-qr-code-sheet-in-pdf-format.feature",
+            "tags": [
+                "@cms",
+                "@entry-exit",
+                "@adobo",
+                "@ignore"
+            ],
+            "scenarios": {
+                "School admin prints QR code sheet": {
+                    "tags": [],
+                    "line": 9,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "School admin sees student QRs in PDF format": {
+            "countScenarios": 10,
+            "path": "test-suites/squads/adobo/features/entry-exit/school-admin-sees-qrs-in-pdf-format.feature",
+            "tags": [
+                "@cms",
+                "@entry-exit",
+                "@adobo",
+                "@student-entry-exit-backoffice",
+                "@generate-student-qr-pdf",
+                "@staging"
+            ],
+            "scenarios": {
+                "School admin prints <pdfType> for existing students successfully | Potential student card": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin prints <pdfType> for existing students successfully | Potential qr sheet": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin prints <pdfType> for existing students successfully | Enrolled student card": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin prints <pdfType> for existing students successfully | Enrolled qr sheet": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin prints <pdfType> for existing students successfully | LOA student card": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin prints <pdfType> for existing students successfully | LOA qr sheet": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin prints <pdfType> for existing students successfully | Withdrawn student card": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin prints <pdfType> for existing students successfully | Withdrawn qr sheet": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin prints <pdfType> for existing students successfully | Graduated student card": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin prints <pdfType> for existing students successfully | Graduated qr sheet": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "School admin adds a new entry & exit record in back office": {
+            "countScenarios": 4,
+            "path": "test-suites/squads/adobo/features/entry-exit/student-entry-exit-backoffice/add-entry-exit-record.feature",
+            "tags": [
+                "@cms",
+                "@entry-exit",
+                "@adobo",
+                "@student-entry-exit-backoffice",
+                "@staging"
+            ],
+            "scenarios": {
+                "School admin adds new entry & exit record for student | Enrolled": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin adds new entry & exit record for student | Potential": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin adds new entry record for student | Enrolled": {
+                    "tags": [],
+                    "line": 19,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin adds new entry record for student | Potential": {
+                    "tags": [],
+                    "line": 19,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "School admin cannot add new entry & exit record in back office": {
+            "countScenarios": 5,
+            "path": "test-suites/squads/adobo/features/entry-exit/student-entry-exit-backoffice/cannot-add-entry-exit-record.feature",
+            "tags": [
+                "@cms",
+                "@entry-exit",
+                "@adobo",
+                "@student-entry-exit-backoffice",
+                "@staging"
+            ],
+            "scenarios": {
+                "School admin cannot create new record if exit time is earlier than entry time | Enrolled": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin cannot create new record if exit time is earlier than entry time | Potential": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin cannot add new record for <cannotStatus> student | Withdrawn": {
+                    "tags": [],
+                    "line": 19,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin cannot add new record for <cannotStatus> student | LOA": {
+                    "tags": [],
+                    "line": 19,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin cannot add new record for <cannotStatus> student | Graduated": {
+                    "tags": [],
+                    "line": 19,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "School admin cannot edit entry & exit record": {
+            "countScenarios": 5,
+            "path": "test-suites/squads/adobo/features/entry-exit/student-entry-exit-backoffice/cannot-edit-entry-exit-record.feature",
+            "tags": [
+                "@cms",
+                "@entry-exit",
+                "@adobo",
+                "@student-entry-exit-backoffice",
+                "@staging"
+            ],
+            "scenarios": {
+                "School admin cannot edit record if exit time is earlier than entry time | Enrolled": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin cannot edit record if exit time is earlier than entry time | Potential": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin cannot edit record of <status> student | Withdrawn": {
+                    "tags": [],
+                    "line": 21,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin cannot edit record of <status> student | LOA": {
+                    "tags": [],
+                    "line": 21,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin cannot edit record of <status> student | Graduated": {
+                    "tags": [],
+                    "line": 21,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "School admin deletes an entry & exit record": {
+            "countScenarios": 5,
+            "path": "test-suites/squads/adobo/features/entry-exit/student-entry-exit-backoffice/delete-entry-exit-record.feature",
+            "tags": [
+                "@cms",
+                "@entry-exit",
+                "@adobo",
+                "@student-entry-exit-backoffice",
+                "@staging"
+            ],
+            "scenarios": {
+                "School admin deletes entry & exit record | Enrolled": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin deletes entry & exit record | Potential": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin cannot delete record of <cannotStatus> student | Withdrawn": {
+                    "tags": [],
+                    "line": 25,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin cannot delete record of <cannotStatus> student | LOA": {
+                    "tags": [],
+                    "line": 25,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin cannot delete record of <cannotStatus> student | Graduated": {
+                    "tags": [],
+                    "line": 25,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "School admin edits entry & exit record": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/adobo/features/entry-exit/student-entry-exit-backoffice/edit-entry-exit-record.feature",
+            "tags": [
+                "@cms",
+                "@entry-exit",
+                "@adobo",
+                "@student-entry-exit-backoffice",
+                "@staging"
+            ],
+            "scenarios": {
+                "School admin can edit entry & exit date/time | Enrolled": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario Outline"
+                },
+                "School admin can edit entry & exit date/time | Potential": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "School admin filters entry and exit time record in back office": {
+            "countScenarios": 4,
+            "path": "test-suites/squads/adobo/features/entry-exit/student-entry-exit-backoffice/entry-exit-records-list.feature",
+            "tags": [
+                "@cms",
+                "@entry-exit",
+                "@adobo",
+                "@student-entry-exit-backoffice",
+                "@staging"
+            ],
+            "scenarios": {
+                "Filter all records": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                },
+                "Filter \"<filter>\" records | this month": {
+                    "tags": [],
+                    "line": 16,
+                    "keyword": "Scenario Outline"
+                },
+                "Filter \"<filter>\" records | last month": {
+                    "tags": [],
+                    "line": 16,
+                    "keyword": "Scenario Outline"
+                },
+                "Filter \"<filter>\" records | this year": {
+                    "tags": [],
+                    "line": 16,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Create invoice via Student Detail page": {
+            "countScenarios": 6,
+            "path": "test-suites/squads/adobo/features/invoice/create-manual-invoice-and-view-invoice-list/create-manual-invoice.feature",
+            "tags": [
+                "@ignore",
+                "@invoice",
+                "@adobo",
+                "@create-manual-invoice",
+                "@staging",
+                "@cms"
+            ],
+            "scenarios": {
+                "Admin creates an invoice for billing items with <status> status | Pending": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "Admin creates an invoice for billing items with <status> status | Billed": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "Admin cannot create an invoice without selecting billing items": {
+                    "tags": [],
+                    "line": 22,
+                    "keyword": "Scenario"
+                },
+                "Admin cancels creation of invoice": {
+                    "tags": [],
+                    "line": 27,
+                    "keyword": "Scenario"
+                },
+                "Admin cannot create an invoice for student due to no billing items with applicable status | Cancelled": {
+                    "tags": [],
+                    "line": 34,
+                    "keyword": "Scenario Outline"
+                },
+                "Admin cannot create an invoice for student due to no billing items with applicable status | Invoiced": {
+                    "tags": [],
+                    "line": 34,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "View invoice list": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/adobo/features/invoice/create-manual-invoice-and-view-invoice-list/view-invoice-list.feature",
+            "tags": [
+                "@ignore",
+                "@invoice",
+                "@adobo",
+                "@view-invoice-list",
+                "@staging",
+                "@cms"
+            ],
+            "scenarios": {
+                "Admin views the invoice management page": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario"
+                },
+                "Admin views the invoice tab inside a student record": {
+                    "tags": [],
+                    "line": 16,
+                    "keyword": "Scenario"
+                }
+            }
+        }
+    }
+}

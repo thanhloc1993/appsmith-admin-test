@@ -1,0 +1,43 @@
+make[1]: Entering directory '/eibanam/packages/student-app/manabie_teacher'
+flutter pub get
+Running "flutter pub get" in manabie_teacher...                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Running "flutter pub get" in manabie_teacher...                  1,634ms
+flutter run -d web-server --web-renderer html --flavor=manabie_teacher_staging --dart-define=flavor=manabie_teacher_staging --release --dart-define=isTest=true --web-port=3002 --web-hostname 127.0.0.1
+Launching lib/main.dart on Web Server in release mode...
+Compiling lib/main.dart for the Web...                             69.7s
+lib/main.dart is being served at http://127.0.0.1:3002
+The web-server device requires the Dart Debug Chrome extension for debugging. Consider using the Chrome or Edge devices for an improved development workflow.
+
+🔥  To hot restart changes while running, press "r" or "R".
+For a more detailed help message, press "h". To quit, press "q".

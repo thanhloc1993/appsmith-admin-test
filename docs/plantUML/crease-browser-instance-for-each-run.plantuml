@@ -1,0 +1,30 @@
+@startuml
+start
+  : Start;
+  : each worker 1 chromium instance;
+note right
+  We can keep track of quantity instance when increase worker.
+  EX: we have 4 workers
+end note
+fork
+  : Worker 0;
+  : Create 1 instance in BeforeAll hook;
+fork again
+  : Worker 1;
+  : Create 1 instance in BeforeAll hook;
+fork again
+  : Worker 2;
+  : Create 1 instance in BeforeAll hook;
+fork again
+  : Worker 3;
+  : Create 1 instance in BeforeAll hook;
+end merge
+
+note right
+When using the parallel mode, any BeforeAll and AfterAll hooks you have defined will run once per worker.
+
+end note
+
+
+: We will have 4 driver bypass into all scenarios;
+@enduml

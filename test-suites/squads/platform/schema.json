@@ -1,0 +1,265 @@
+{
+    "countScenarios": 29,
+    "features": {
+        "Custom strategies": {
+            "countScenarios": 9,
+            "path": "test-suites/squads/platform/features/custom-strategies.feature",
+            "tags": [
+                "@platform",
+                "@unleash-admin",
+                "@unleash-custom-strategies"
+            ],
+            "scenarios": {
+                "create new feature then see that feature is <status> on unleash proxy client with \"<env>\" and \"<org>\" when \"<action>\" | disable   disabled  ": {
+                    "tags": [],
+                    "line": 7,
+                    "keyword": "Scenario Outline"
+                },
+                "create new feature then see that feature is <status> on unleash proxy client with \"<env>\" and \"<org>\" when \"<action>\" | disable staging  disabled staging,uat ": {
+                    "tags": [],
+                    "line": 7,
+                    "keyword": "Scenario Outline"
+                },
+                "create new feature then see that feature is <status> on unleash proxy client with \"<env>\" and \"<org>\" when \"<action>\" | enable   disabled staging,uat ": {
+                    "tags": [],
+                    "line": 7,
+                    "keyword": "Scenario Outline"
+                },
+                "create new feature then see that feature is <status> on unleash proxy client with \"<env>\" and \"<org>\" when \"<action>\" | disable  a disabled  a,b": {
+                    "tags": [],
+                    "line": 7,
+                    "keyword": "Scenario Outline"
+                },
+                "create new feature then see that feature is <status> on unleash proxy client with \"<env>\" and \"<org>\" when \"<action>\" | enable   disabled  a,b": {
+                    "tags": [],
+                    "line": 7,
+                    "keyword": "Scenario Outline"
+                },
+                "create new feature then see that feature is <status> on unleash proxy client with \"<env>\" and \"<org>\" when \"<action>\" | disable staging  disabled staging,uat a,b": {
+                    "tags": [],
+                    "line": 7,
+                    "keyword": "Scenario Outline"
+                },
+                "create new feature then see that feature is <status> on unleash proxy client with \"<env>\" and \"<org>\" when \"<action>\" | enable staging b enabled staging,uat a,b": {
+                    "tags": [],
+                    "line": 7,
+                    "keyword": "Scenario Outline"
+                },
+                "create new feature then see that feature is <status> on unleash proxy client with \"<env>\" and \"<org>\" when \"<action>\" | enable staging  enabled staging,uat a,b": {
+                    "tags": [],
+                    "line": 7,
+                    "keyword": "Scenario Outline"
+                },
+                "create new feature then see that feature is <status> on unleash proxy client with \"<env>\" and \"<org>\" when \"<action>\" | enable   disabled staging,uat a,b": {
+                    "tags": [],
+                    "line": 7,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Launch n browsers": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/platform/features/demo/launch-n-chrome.feature",
+            "tags": [
+                "@demo",
+                "@ignore",
+                "@network",
+                "@cms"
+            ],
+            "scenarios": {
+                "Launch n browsers": {
+                    "tags": [],
+                    "line": 5,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Learner Login Demo with feature flag": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/platform/features/demo/learner-login-test-feature-flag.feature",
+            "tags": [
+                "@learner",
+                "@learner-login",
+                "@demo",
+                "@ignore",
+                "@feature_xxxx_v1"
+            ],
+            "scenarios": {
+                "Learner logins with email | phucloi.nguyen+systaging@manabie.com Manabie@2021 e2e": {
+                    "tags": [],
+                    "line": 7,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Learner Login Demo": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/platform/features/demo/learner-login.feature",
+            "tags": [
+                "@learner",
+                "@learner-login",
+                "@demo",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Learner logins with email | phucloi.nguyen+systaging@manabie.com Manabie@2021 e2e": {
+                    "tags": [],
+                    "line": 7,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Login cross testing": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/platform/features/demo/login.feature",
+            "tags": [
+                "@cms",
+                "@teacher",
+                "@learner",
+                "@login",
+                "@demo",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Login with email | product.test+matsuzemi@manabie.com Manabie123 tien.tran05@manabie.com 123456 manabie phucloi.nguyen+systaging@manabie.com Manabie@2021 e2e": {
+                    "tags": [],
+                    "line": 9,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Demo modify study plan items via grpc": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/platform/features/demo/modify-study-plan-item-via-grpc.feature",
+            "tags": [
+                "@cms",
+                "@syllabus",
+                "@demo"
+            ],
+            "scenarios": {
+                "Demo modify study plan items via grpc": {
+                    "tags": [],
+                    "line": 6,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Network environment simulation": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/platform/features/demo/network.feature",
+            "tags": [
+                "@cms",
+                "@demo",
+                "@network"
+            ],
+            "scenarios": {
+                "Network is down": {
+                    "tags": [],
+                    "line": 5,
+                    "keyword": "Scenario"
+                },
+                "Network is back after down": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Teacher search chat groups": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/platform/features/demo/search-chat-group.feature",
+            "tags": [
+                "@ignore"
+            ],
+            "scenarios": {
+                "Teacher searches chat groups by student name and filter popup": {
+                    "tags": [],
+                    "line": 4,
+                    "keyword": "Scenario"
+                },
+                "Teacher searches chat groups by filter popup only": {
+                    "tags": [],
+                    "line": 15,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Test move grpc to eureka": {
+            "countScenarios": 10,
+            "path": "test-suites/squads/platform/features/demo/syllabus-move-grpc.feature",
+            "tags": [
+                "@cms",
+                "@demo",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Create content book eureka": {
+                    "tags": [],
+                    "line": 8,
+                    "keyword": "Scenario"
+                },
+                "Create topic eureka": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                },
+                "Create LO eureka": {
+                    "tags": [],
+                    "line": 17,
+                    "keyword": "Scenario"
+                },
+                "Create quiz by upsertQuizV2 eureka": {
+                    "tags": [],
+                    "line": 21,
+                    "keyword": "Scenario"
+                },
+                "Add book to course eureka | empty": {
+                    "tags": [],
+                    "line": 26,
+                    "keyword": "Scenario Outline"
+                },
+                "Add book to course eureka | has chapter and topic only": {
+                    "tags": [],
+                    "line": 26,
+                    "keyword": "Scenario Outline"
+                },
+                "Add book to course eureka | content": {
+                    "tags": [],
+                    "line": 26,
+                    "keyword": "Scenario Outline"
+                },
+                "Create assignment eureka": {
+                    "tags": [],
+                    "line": 37,
+                    "keyword": "Scenario"
+                },
+                "Create task assignment eureka": {
+                    "tags": [],
+                    "line": 41,
+                    "keyword": "Scenario"
+                },
+                "Create quiz by single quiz eureka": {
+                    "tags": [],
+                    "line": 45,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Teacher Login Demo": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/platform/features/demo/teacher-login.feature",
+            "tags": [
+                "@teacher",
+                "@demo",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Teacher logins with email | tien.tran05@manabie.com 123456 manabie": {
+                    "tags": [],
+                    "line": 6,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        }
+    }
+}

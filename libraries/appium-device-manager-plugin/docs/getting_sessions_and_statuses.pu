@@ -1,0 +1,15 @@
+@startuml
+title Getting sessions and statuses on Device Farm
+
+participant "Device Manager" as DM
+participant "Device Farm" as DF
+
+loop forever
+DM -> DF: Getting appium sessions Request
+DF --> DM: Number of sessions in queue Response
+
+DM -> DF: Getting device statuses Request
+DF --> DM: Device list with busy status Response
+end
+
+@enduml

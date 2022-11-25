@@ -1,0 +1,172 @@
+yarn run v1.22.17
+$ DISABLE_ESLINT_PLUGIN=false yarn build:vite && yarn versioning
+$ node --max_old_space_size=16384 ./node_modules/.bin/vite build
+vite v2.6.13 building for production...
+transforming...
+✓ 12697 modules transformed.
+rendering chunks...
+build/index.html                                       2.50 KiB
+build/statics/index.fa43fb9e.js                        0.09 KiB / gzip: 0.10 KiB
+build/statics/LoginTenantForm.b58b4f3a.js              2.83 KiB / gzip: 1.14 KiB
+build/statics/DoubleDash.107713fa.js                   0.10 KiB / gzip: 0.12 KiB
+build/statics/LoginForm.fb95c9d7.js                    4.49 KiB / gzip: 1.77 KiB
+build/statics/MediaListing.3e6b60c2.js                 5.17 KiB / gzip: 2.36 KiB
+build/statics/index.0d33d67f.js                        10.03 KiB / gzip: 3.70 KiB
+build/statics/useNotificationUserRead.a09dd329.js      10.16 KiB / gzip: 3.79 KiB
+build/statics/FormDialog.785735f5.js                   1.75 KiB / gzip: 0.88 KiB
+build/statics/Editor.351693c4.js                       18.87 KiB / gzip: 7.02 KiB
+build/statics/ChipFileDescription.044f4ae6.js          19.11 KiB / gzip: 7.22 KiB
+build/statics/QRCodeScannerList.f3d96aec.js            0.25 KiB / gzip: 0.20 KiB
+build/statics/ToggleButtonGroupBase.69a88f3d.js        1.28 KiB / gzip: 0.66 KiB
+build/statics/usePagination.a186cd53.js                0.48 KiB / gzip: 0.30 KiB
+build/statics/SchoolAdminList.592fb5ff.js              5.87 KiB / gzip: 2.32 KiB
+build/statics/UploadInput.a6925415.js                  18.95 KiB / gzip: 6.83 KiB
+build/statics/index.abf294a2.js                        5.21 KiB / gzip: 2.16 KiB
+build/statics/useShowSnackbar.ec8f42bb.js              2.55 KiB / gzip: 1.23 KiB
+build/statics/TypographyMaxLines.2abf3a33.js           1.28 KiB / gzip: 0.69 KiB
+build/statics/useConvertMedia.03662bf3.js              4.69 KiB / gzip: 2.29 KiB
+build/statics/usePagination.787a9c8f.js                0.48 KiB / gzip: 0.30 KiB
+build/statics/ListMaterials.40812e92.js                0.63 KiB / gzip: 0.39 KiB
+build/statics/index.3e22e6af.js                        28.28 KiB / gzip: 9.30 KiB
+build/statics/useLocale.4393144f.js                    0.10 KiB / gzip: 0.11 KiB
+build/statics/CentersAutocompleteHF.e22dc0d2.js        0.72 KiB / gzip: 0.42 KiB
+build/statics/last.e1193f3d.js                         0.08 KiB / gzip: 0.10 KiB
+build/statics/FormUploadMaterials.38388680.js          3.64 KiB / gzip: 1.81 KiB
+build/statics/useQueryWithGRPCPagination.b5066394.js   3.06 KiB / gzip: 1.41 KiB
+build/statics/index.4134bce2.js                        8.26 KiB / gzip: 2.94 KiB
+build/statics/LessonManagementUpsert.a0aee223.js       21.17 KiB / gzip: 7.16 KiB
+build/statics/index.be2082bc.js                        12.56 KiB / gzip: 4.10 KiB
+build/statics/useResourceTranslate.63eb804a.js         0.51 KiB / gzip: 0.35 KiB
+build/statics/index.611be89a.js                        4.85 KiB / gzip: 2.11 KiB
+build/statics/WrapperPortalDialogFooter.00f1cbe8.js    0.34 KiB / gzip: 0.25 KiB
+build/statics/index.94b45959.js                        0.28 KiB / gzip: 0.21 KiB
+build/statics/index.5bf2ef17.js                        0.20 KiB / gzip: 0.17 KiB
+build/statics/index.3274c17e.js                        8.75 KiB / gzip: 3.24 KiB
+build/statics/index.59fd2033.js                        5.22 KiB / gzip: 2.01 KiB
+build/statics/index.b1fcdca9.js                        4.10 KiB / gzip: 1.72 KiB
+build/statics/useDeleteAssignment.5356db27.js          0.54 KiB / gzip: 0.37 KiB
+build/statics/time.c4818393.js                         18.97 KiB / gzip: 6.38 KiB
+build/statics/useRedirect.b8e0ae9f.js                  0.88 KiB / gzip: 0.50 KiB
+build/statics/index.b40afa74.js                        43.29 KiB / gzip: 12.04 KiB
+build/statics/useQueryOneV2.8d6c15b6.js                0.76 KiB / gzip: 0.44 KiB
+build/statics/assignment.4c3e7de3.js                   0.26 KiB / gzip: 0.15 KiB
+build/statics/useShowSnackbar.f4fc75f9.js              1.25 KiB / gzip: 0.68 KiB
+build/statics/index.8ac3c611.js                        1.39 KiB / gzip: 0.79 KiB
+build/statics/useMutationV2.1d7f3d00.js                0.84 KiB / gzip: 0.46 KiB
+build/statics/useQueryBaseV2.6c03edb4.js               1.49 KiB / gzip: 0.80 KiB
+build/statics/useHookFormField.52bd64a5.js             0.24 KiB / gzip: 0.20 KiB
+build/statics/useQueryV2.d37ab76c.js                   0.61 KiB / gzip: 0.36 KiB
+build/statics/index.5ac6be1e.js                        1.57 KiB / gzip: 0.85 KiB
+build/statics/AssignmentUpsert.1e77a66a.js             5.12 KiB / gzip: 2.04 KiB
+build/statics/useDialog.7388db67.js                    0.41 KiB / gzip: 0.22 KiB
+build/statics/BooksAutocompleteHF.71234595.js          0.88 KiB / gzip: 0.47 KiB
+build/statics/useBookMutation.6f703603.js              2.83 KiB / gzip: 1.13 KiB
+build/statics/useSwapOrder.083bdb37.js                 2.74 KiB / gzip: 1.38 KiB
+build/statics/useBasicContent.4158fa06.js              0.55 KiB / gzip: 0.32 KiB
+build/statics/useNotifyForm.4ece802a.js                0.91 KiB / gzip: 0.52 KiB
+build/statics/IconButtonBase.05b49317.js               0.78 KiB / gzip: 0.45 KiB
+build/statics/BookList.dc25a289.js                     1.96 KiB / gzip: 1.02 KiB
+build/statics/useQueryPaginationV2.1ca9cf73.js         1.33 KiB / gzip: 0.67 KiB
+build/statics/usePagination.0456a0f7.js                0.48 KiB / gzip: 0.30 KiB
+build/statics/Title.1e131bd6.js                        11.58 KiB / gzip: 3.99 KiB
+build/statics/EntityTitle.3db93f67.js                  1.56 KiB / gzip: 0.83 KiB
+build/statics/ExamLOIcon.11d5a49d.js                   12.28 KiB / gzip: 4.99 KiB
+build/statics/useQueryWithPagination.9dd252d0.js       1.78 KiB / gzip: 0.91 KiB
+build/statics/utils.984493f3.js                        7.09 KiB / gzip: 2.80 KiB
+build/statics/AvatarInput.73527a18.js                  2.74 KiB / gzip: 1.43 KiB
+build/statics/BrightcoveUpload.1d9a4831.js             2.12 KiB / gzip: 1.04 KiB
+build/statics/Create.689af656.js                       2.18 KiB / gzip: 1.11 KiB
+build/statics/CourseForm.65c70a44.js                   2.67 KiB / gzip: 1.33 KiB
+build/statics/FormLayout.80a2c2b0.js                   1.05 KiB / gzip: 0.59 KiB
+build/statics/Edit.f958a2b7.js                         2.20 KiB / gzip: 1.12 KiB
+build/statics/List.2103113e.js                         1.96 KiB / gzip: 1.05 KiB
+build/statics/BookDetails.135a7979.js                  42.98 KiB / gzip: 14.02 KiB
+build/statics/Create.3e1ef361.js                       2.68 KiB / gzip: 1.36 KiB
+build/statics/selectors.26468d5a.js                    14.35 KiB / gzip: 4.98 KiB
+build/statics/Edit.38e2f57f.js                         2.09 KiB / gzip: 1.12 KiB
+build/statics/ShowV2.78fee720.js                       37.90 KiB / gzip: 12.87 KiB
+build/statics/TeacherDetail.c74f842e.js                2.92 KiB / gzip: 1.25 KiB
+build/statics/TeacherUpsert.39d877e0.js                4.90 KiB / gzip: 2.11 KiB
+build/statics/TeacherList.7299a8a2.js                  1.51 KiB / gzip: 0.74 KiB
+build/statics/Show.b15f45d5.js                         27.93 KiB / gzip: 9.10 KiB
+build/statics/index.a1419c49.css                       0.10 KiB / gzip: 0.09 KiB
+build/statics/index.ce5803a7.css                       0.81 KiB / gzip: 0.40 KiB
+build/statics/Editor.833696f4.css                      3.89 KiB / gzip: 0.76 KiB
+build/statics/Schedule.9edaef66.css                    10.09 KiB / gzip: 2.31 KiB
+build/statics/Show.91076990.js                         72.62 KiB / gzip: 23.67 KiB
+build/statics/Schedule.7d2743bc.js                     163.44 KiB / gzip: 49.19 KiB
+build/statics/useStrictQuiz.afa1b91e.js                482.83 KiB / gzip: 130.35 KiB
+build/statics/index.6bfcfb6a.js                        1708.65 KiB / gzip: 431.85 KiB
+build/statics/vendor.cd14ec61.js                       7470.82 KiB / gzip: 1373.99 KiB
+
+✨ [vite-plugin-compression]:algorithm=brotliCompress - compressed file successfully: 
+build//cms/statics/BrightcoveUpload.1d9a4831.js.br             2.12kb / brotliCompress: 0.94kb
+build//cms/index.html.br                                       2.50kb / brotliCompress: 0.80kb
+build//cms/statics/AssignmentUpsert.1e77a66a.js.br             5.12kb / brotliCompress: 1.92kb
+build//cms/statics/CourseForm.65c70a44.js.br                   2.67kb / brotliCompress: 1.22kb
+build//cms/statics/AvatarInput.73527a18.js.br                  2.74kb / brotliCompress: 1.32kb
+build//cms/statics/Create.3e1ef361.js.br                       2.68kb / brotliCompress: 1.31kb
+build//cms/statics/BookList.dc25a289.js.br                     1.96kb / brotliCompress: 0.97kb
+build//cms/statics/Create.689af656.js.br                       2.18kb / brotliCompress: 1.03kb
+build//cms/statics/Edit.38e2f57f.js.br                         2.09kb / brotliCompress: 1.07kb
+build//cms/statics/Edit.f958a2b7.js.br                         2.20kb / brotliCompress: 1.05kb
+build//cms/statics/ChipFileDescription.044f4ae6.js.br          19.11kb / brotliCompress: 6.94kb
+build//cms/statics/Editor.833696f4.css.br                      3.89kb / brotliCompress: 0.64kb
+build//cms/statics/BookDetails.135a7979.js.br                  42.98kb / brotliCompress: 13.39kb
+build//cms/statics/EntityTitle.3db93f67.js.br                  1.56kb / brotliCompress: 0.75kb
+build//cms/statics/FormDialog.785735f5.js.br                   1.75kb / brotliCompress: 0.80kb
+build//cms/statics/FormLayout.80a2c2b0.js.br                   1.05kb / brotliCompress: 0.53kb
+build//cms/statics/Editor.351693c4.js.br                       18.87kb / brotliCompress: 6.59kb
+build//cms/statics/FormUploadMaterials.38388680.js.br          3.64kb / brotliCompress: 1.69kb
+build//cms/statics/ExamLOIcon.11d5a49d.js.br                   12.28kb / brotliCompress: 4.63kb
+build//cms/statics/List.2103113e.js.br                         1.96kb / brotliCompress: 0.97kb
+build//cms/statics/LoginTenantForm.b58b4f3a.js.br              2.83kb / brotliCompress: 1.03kb
+build//cms/statics/LoginForm.fb95c9d7.js.br                    4.49kb / brotliCompress: 1.60kb
+build//cms/statics/LessonManagementUpsert.a0aee223.js.br       21.17kb / brotliCompress: 6.86kb
+build//cms/statics/MediaListing.3e6b60c2.js.br                 5.17kb / brotliCompress: 2.23kb
+build//cms/statics/Schedule.9edaef66.css.br                    10.09kb / brotliCompress: 2.10kb
+build//cms/statics/SchoolAdminList.592fb5ff.js.br              5.87kb / brotliCompress: 2.18kb
+build//cms/statics/TeacherDetail.c74f842e.js.br                2.92kb / brotliCompress: 1.15kb
+build//cms/statics/Show.b15f45d5.js.br                         27.93kb / brotliCompress: 8.76kb
+build//cms/statics/TeacherList.7299a8a2.js.br                  1.51kb / brotliCompress: 0.68kb
+build//cms/statics/ShowV2.78fee720.js.br                       37.90kb / brotliCompress: 12.23kb
+build//cms/statics/TeacherUpsert.39d877e0.js.br                4.90kb / brotliCompress: 1.98kb
+build//cms/statics/ToggleButtonGroupBase.69a88f3d.js.br        1.28kb / brotliCompress: 0.59kb
+build//cms/statics/TypographyMaxLines.2abf3a33.js.br           1.28kb / brotliCompress: 0.62kb
+build//cms/statics/Title.1e131bd6.js.br                        11.58kb / brotliCompress: 3.63kb
+build//cms/statics/index.3274c17e.js.br                        8.75kb / brotliCompress: 3.10kb
+build//cms/statics/index.0d33d67f.js.br                        10.03kb / brotliCompress: 3.55kb
+build//cms/statics/UploadInput.a6925415.js.br                  18.95kb / brotliCompress: 6.56kb
+build//cms/statics/index.59fd2033.js.br                        5.22kb / brotliCompress: 1.87kb
+build//cms/statics/index.5ac6be1e.js.br                        1.57kb / brotliCompress: 0.80kb
+build//cms/statics/index.4134bce2.js.br                        8.26kb / brotliCompress: 2.81kb
+build//cms/statics/index.8ac3c611.js.br                        1.39kb / brotliCompress: 0.74kb
+build//cms/statics/index.611be89a.js.br                        4.85kb / brotliCompress: 2.00kb
+build//cms/statics/index.b1fcdca9.js.br                        4.10kb / brotliCompress: 1.62kb
+build//cms/statics/index.abf294a2.js.br                        5.21kb / brotliCompress: 2.03kb
+build//cms/statics/index.3e22e6af.js.br                        28.28kb / brotliCompress: 8.93kb
+build//cms/statics/index.be2082bc.js.br                        12.56kb / brotliCompress: 3.90kb
+build//cms/statics/useBookMutation.6f703603.js.br              2.83kb / brotliCompress: 1.02kb
+build//cms/statics/selectors.26468d5a.js.br                    14.35kb / brotliCompress: 4.73kb
+build//cms/statics/time.c4818393.js.br                         18.97kb / brotliCompress: 6.11kb
+build//cms/statics/useConvertMedia.03662bf3.js.br              4.69kb / brotliCompress: 2.19kb
+build//cms/statics/index.b40afa74.js.br                        43.29kb / brotliCompress: 11.51kb
+build//cms/statics/useQueryBaseV2.6c03edb4.js.br               1.49kb / brotliCompress: 0.75kb
+build//cms/statics/useQueryPaginationV2.1ca9cf73.js.br         1.33kb / brotliCompress: 0.63kb
+build//cms/statics/useQueryWithGRPCPagination.b5066394.js.br   3.06kb / brotliCompress: 1.33kb
+build//cms/statics/useShowSnackbar.f4fc75f9.js.br              1.25kb / brotliCompress: 0.63kb
+build//cms/statics/useQueryWithPagination.9dd252d0.js.br       1.78kb / brotliCompress: 0.86kb
+build//cms/statics/useNotificationUserRead.a09dd329.js.br      10.16kb / brotliCompress: 3.57kb
+build//cms/statics/useShowSnackbar.ec8f42bb.js.br              2.55kb / brotliCompress: 1.17kb
+build//cms/statics/Show.91076990.js.br                         72.62kb / brotliCompress: 22.77kb
+build//cms/statics/useSwapOrder.083bdb37.js.br                 2.74kb / brotliCompress: 1.30kb
+build//cms/statics/utils.984493f3.js.br                        7.09kb / brotliCompress: 2.64kb
+build//cms/statics/Schedule.7d2743bc.js.br                     163.44kb / brotliCompress: 46.29kb
+build//cms/statics/useStrictQuiz.afa1b91e.js.br                482.83kb / brotliCompress: 115.64kb
+build//cms/statics/index.6bfcfb6a.js.br                        1708.65kb / brotliCompress: 171.52kb
+build//cms/statics/vendor.cd14ec61.js.br                       7470.84kb / brotliCompress: 1154.25kb
+
+
+$ export VITE_BUILD_VERSION=$(echo ${version:=$(git rev-parse --short HEAD)}) && sed -i -- 's/%VITE_BUILD_VERSION%/'$VITE_BUILD_VERSION'/g' ./build/index.html && echo Build Version = $VITE_BUILD_VERSION
+Build Version = e8b94f6ab
+Done in 39.88s.

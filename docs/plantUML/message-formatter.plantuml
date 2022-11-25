@@ -1,0 +1,501 @@
+@startjson message-formatter
+{
+    "meta": {
+        "protocolVersion": "16.0.1",
+        "implementation": { "name": "cucumber-js", "version": "7.3.1" },
+        "cpu": { "name": "x64" },
+        "os": { "name": "linux", "version": "5.11.0-38-generic" },
+        "runtime": { "name": "node.js", "version": "14.17.3" }
+    },
+
+    "source": {
+        "data": "fully BDD",
+        "uri": "features/user-management/filter-not-logged-in-student.feature",
+        "mediaType": "text/x.cucumber.gherkin+plain"
+    },
+    "gherkinDocument": {
+        "feature": {
+            "tags": [
+                {
+                    "location": { "line": 1, "column": 1 },
+                    "name": "@cms",
+                    "id": "ba46a4ae-6de5-4b24-be38-266b2adc04ce"
+                },
+                {
+                    "location": { "line": 2, "column": 1 },
+                    "name": "@user",
+                    "id": "b0214029-11b9-46f7-a58f-971c52f9ebdb"
+                },
+                {
+                    "location": { "line": 2, "column": 7 },
+                    "name": "@student-info",
+                    "id": "62e43b2f-dfd7-4b0b-ad66-93f8cf8cab53"
+                }
+            ],
+            "location": { "line": 4, "column": 1 },
+            "language": "en",
+            "keyword": "Feature",
+            "name": "School admin can filter never logged in student",
+            "description": "",
+            "children": [
+                {
+                    "background": {
+                        "id": "46dc3d55-6dcb-4e0b-93e2-6312ce0a9f4b",
+                        "location": { "line": 6, "column": 5 },
+                        "keyword": "Background",
+                        "name": "",
+                        "description": "",
+                        "steps": [
+                            {
+                                "id": "48eea435-74a7-44b1-8b61-bf2bd0220d7d",
+                                "location": { "line": 7, "column": 9 },
+                                "keyword": "Given ",
+                                "text": "\"school admin\" logins CMS"
+                            },
+                            {
+                                "id": "66cd7e1e-9f1e-46ac-95f8-f52217586f44",
+                                "location": { "line": 8, "column": 9 },
+                                "keyword": "And ",
+                                "text": "school admin has created a student with parent info and visible course"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "scenario": {
+                        "id": "05f23228-5aca-4594-ac21-2d4c5d66bb44",
+                        "tags": [],
+                        "location": { "line": 10, "column": 5 },
+                        "keyword": "Scenario Outline",
+                        "name": "School admin can filter never logged in student",
+                        "description": "",
+                        "steps": [
+                            {
+                                "id": "0a3685b2-452e-41f0-934b-543b7bfeb73b",
+                                "location": { "line": 11, "column": 9 },
+                                "keyword": "Given ",
+                                "text": "school admin is on \"<pages>\" page"
+                            },
+                            {
+                                "id": "02dd8e6b-10b6-4f7c-9a2a-59c287410f5c",
+                                "location": { "line": 12, "column": 9 },
+                                "keyword": "When ",
+                                "text": "school admin filters never logged in student"
+                            },
+                            {
+                                "id": "40bfda8e-3fda-4fd4-970e-86798c740c29",
+                                "location": { "line": 13, "column": 9 },
+                                "keyword": "And ",
+                                "text": "school admin filters student by other parameters"
+                            },
+                            {
+                                "id": "ca792087-a2b6-45b6-bae3-208445137704",
+                                "location": { "line": 14, "column": 9 },
+                                "keyword": "Then ",
+                                "text": "school admin sees list of never logged in students who matches above filter"
+                            }
+                        ],
+                        "examples": [
+                            {
+                                "id": "50308d98-6c4b-4647-a0f3-098551397c93",
+                                "tags": [],
+                                "location": { "line": 15, "column": 9 },
+                                "keyword": "Examples",
+                                "name": "",
+                                "description": "",
+                                "tableHeader": {
+                                    "id": "298b405e-232d-45f1-8b78-f3123e6a02ae",
+                                    "location": { "line": 16, "column": 13 },
+                                    "cells": [
+                                        {
+                                            "location": {
+                                                "line": 16,
+                                                "column": 15
+                                            },
+                                            "value": "pages"
+                                        }
+                                    ]
+                                },
+                                "tableBody": [
+                                    {
+                                        "id": "e4340a4c-352c-4963-a270-e4623a48758f",
+                                        "location": {
+                                            "line": 17,
+                                            "column": 13
+                                        },
+                                        "cells": [
+                                            {
+                                                "location": {
+                                                    "line": 17,
+                                                    "column": 15
+                                                },
+                                                "value": "Student List"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": "2f278996-5c7d-4160-adca-8b42c2f29c0f",
+                                        "location": {
+                                            "line": 18,
+                                            "column": 13
+                                        },
+                                        "cells": [
+                                            {
+                                                "location": {
+                                                    "line": 18,
+                                                    "column": 15
+                                                },
+                                                "value": "Add Student on Add Lesson"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": "9c93d25f-d92d-4641-9ac4-cfab9c5d06de",
+                                        "location": {
+                                            "line": 19,
+                                            "column": 13
+                                        },
+                                        "cells": [
+                                            {
+                                                "location": {
+                                                    "line": 19,
+                                                    "column": 15
+                                                },
+                                                "value": "Add Student on Edit Lesson"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "scenario": {
+                        "id": "7f9d2e20-09fa-4af5-bfe4-e622cc9e9c15",
+                        "tags": [
+                            {
+                                "location": { "line": 21, "column": 5 },
+                                "name": "@ignore",
+                                "id": "1d7e0074-a423-4550-856b-e78d0e5b5255"
+                            }
+                        ],
+                        "location": { "line": 22, "column": 5 },
+                        "keyword": "Scenario",
+                        "name": "School admin can filter never logged in student on lesson report",
+                        "description": "",
+                        "steps": [
+                            {
+                                "id": "496ad843-1530-425c-a1bc-9cef4947049e",
+                                "location": { "line": 23, "column": 9 },
+                                "keyword": "Given ",
+                                "text": "school admin is on lesson report page"
+                            },
+                            {
+                                "id": "0e57943c-b288-4f2b-bf98-7a21e5f596ac",
+                                "location": { "line": 24, "column": 9 },
+                                "keyword": "And ",
+                                "text": "school admin creates a new lesson report"
+                            },
+                            {
+                                "id": "581af54c-197b-4666-bafb-3c022463a981",
+                                "location": { "line": 25, "column": 9 },
+                                "keyword": "And ",
+                                "text": "school admin adds student into the lesson report on CMS"
+                            },
+                            {
+                                "id": "cda59ea8-4a1d-40ed-987d-30761e961778",
+                                "location": { "line": 26, "column": 9 },
+                                "keyword": "When ",
+                                "text": "school admin selects to show never logged in student"
+                            },
+                            {
+                                "id": "c40f8e80-d07e-44f3-b426-54c041c7f433",
+                                "location": { "line": 27, "column": 9 },
+                                "keyword": "Then ",
+                                "text": "school admin can see never logged in student"
+                            }
+                        ],
+                        "examples": []
+                    }
+                },
+                {
+                    "scenario": {
+                        "id": "bf3058a3-e025-4be7-86c1-e6a6b7fed109",
+                        "tags": [
+                            {
+                                "location": { "line": 29, "column": 5 },
+                                "name": "@ignore",
+                                "id": "8f3b768a-340e-45d7-966b-e9f8ecfd461c"
+                            }
+                        ],
+                        "location": { "line": 30, "column": 5 },
+                        "keyword": "Scenario",
+                        "name": "School admin can remove filter never logged in student",
+                        "description": "",
+                        "steps": [
+                            {
+                                "id": "e9f64e1d-9067-4ef5-bd54-e97b62ddc785",
+                                "location": { "line": 31, "column": 9 },
+                                "keyword": "Given ",
+                                "text": "\"school admin\" is on student page"
+                            },
+                            {
+                                "id": "af98e824-1bfd-442c-a434-2ee976aba687",
+                                "location": { "line": 32, "column": 9 },
+                                "keyword": "And ",
+                                "text": "\"school admin\" filters never logged in student"
+                            },
+                            {
+                                "id": "090d6d31-3553-44a4-ae2b-041c280c5c6b",
+                                "location": { "line": 33, "column": 9 },
+                                "keyword": "And ",
+                                "text": "\"school admin\" filters student by other parameters"
+                            },
+                            {
+                                "id": "500dde25-6813-4355-80f4-732a7b3b84be",
+                                "location": { "line": 34, "column": 9 },
+                                "keyword": "When ",
+                                "text": "\"school admin\" removes filter never logged in student"
+                            },
+                            {
+                                "id": "4aa39d1e-86a1-47a2-b0df-89ce0ba85cac",
+                                "location": { "line": 35, "column": 9 },
+                                "keyword": "Then ",
+                                "text": "\"school admin\" sees list of students who matches above filter"
+                            }
+                        ],
+                        "examples": []
+                    }
+                }
+            ]
+        },
+        "comments": [],
+        "uri": "features/user-management/filter-not-logged-in-student.feature"
+    },
+    "pickle": {
+        "id": "c5bcb669-0330-4319-b7c8-7717a1296a86",
+        "uri": "features/user-management/filter-not-logged-in-student.feature",
+        "astNodeIds": [
+            "05f23228-5aca-4594-ac21-2d4c5d66bb44",
+            "e4340a4c-352c-4963-a270-e4623a48758f"
+        ],
+        "name": "School admin can filter never logged in student",
+        "language": "en",
+        "steps": [
+            {
+                "id": "4843d930-bdfa-42a6-8327-ca65c18c00e2",
+                "text": "\"school admin\" logins CMS",
+                "astNodeIds": ["48eea435-74a7-44b1-8b61-bf2bd0220d7d"]
+            },
+            {
+                "id": "b2089e3e-e0cc-4bc2-8e17-ce95d1e9740d",
+                "text": "school admin has created a student with parent info and visible course",
+                "astNodeIds": ["66cd7e1e-9f1e-46ac-95f8-f52217586f44"]
+            },
+            {
+                "id": "42edc2c4-4f7a-43ce-8acf-9ae356a608dc",
+                "text": "school admin is on \"Student List\" page",
+                "astNodeIds": [
+                    "0a3685b2-452e-41f0-934b-543b7bfeb73b",
+                    "e4340a4c-352c-4963-a270-e4623a48758f"
+                ]
+            },
+            {
+                "id": "4dd47f4f-97d5-47c0-a02c-ac1e46201946",
+                "text": "school admin filters never logged in student",
+                "astNodeIds": [
+                    "02dd8e6b-10b6-4f7c-9a2a-59c287410f5c",
+                    "e4340a4c-352c-4963-a270-e4623a48758f"
+                ]
+            },
+            {
+                "id": "6a3eaa88-0cf3-4cb5-b6b3-c7153f45895d",
+                "text": "school admin filters student by other parameters",
+                "astNodeIds": [
+                    "40bfda8e-3fda-4fd4-970e-86798c740c29",
+                    "e4340a4c-352c-4963-a270-e4623a48758f"
+                ]
+            },
+            {
+                "id": "a5d74af1-a56d-419f-b4f0-a2e2019e430f",
+                "text": "school admin sees list of never logged in students who matches above filter",
+                "astNodeIds": [
+                    "ca792087-a2b6-45b6-bae3-208445137704",
+                    "e4340a4c-352c-4963-a270-e4623a48758f"
+                ]
+            }
+        ],
+        "tags": [
+            {
+                "name": "@cms",
+                "astNodeId": "ba46a4ae-6de5-4b24-be38-266b2adc04ce"
+            },
+            {
+                "name": "@user",
+                "astNodeId": "b0214029-11b9-46f7-a58f-971c52f9ebdb"
+            },
+            {
+                "name": "@student-info",
+                "astNodeId": "62e43b2f-dfd7-4b0b-ad66-93f8cf8cab53"
+            }
+        ]
+    },
+    "stepDefinition": {
+        "id": "b48eeb28-e12c-4c89-a1d1-c550282297df",
+        "pattern": {
+            "source": "school admin sees message {string}",
+            "type": "CUCUMBER_EXPRESSION"
+        },
+        "sourceReference": {
+            "uri": "step-definitions/cms-common.steps.ts",
+            "location": { "line": 3 }
+        }
+    },
+    "hook": {
+        "id": "bea32bbe-7453-4e7f-acca-b1fbca3d8ab7",
+        "sourceReference": {
+            "uri": "supports/hooks.ts",
+            "location": { "line": 49 }
+        }
+    },
+    "testRunStarted": {
+        "timestamp": { "seconds": 1635131234, "nanos": 87000000 }
+    },
+    "testCase": {
+        "pickleId": "c5bcb669-0330-4319-b7c8-7717a1296a86",
+        "id": "69fa150c-f295-46dc-8e14-db44672fdcdf",
+        "testSteps": [
+            {
+                "id": "d9b3045d-66e4-42d0-9e16-0de5c2bced83",
+                "hookId": "bea32bbe-7453-4e7f-acca-b1fbca3d8ab7"
+            },
+            {
+                "id": "67c04f77-afbd-4f7e-8870-b8c416bdf912",
+                "hookId": "5e73ae87-7f25-4b72-8c68-b35c328f80db"
+            },
+            {
+                "id": "4e084451-5230-4624-9e54-c949447e0ccb",
+                "pickleStepId": "4843d930-bdfa-42a6-8327-ca65c18c00e2",
+                "stepDefinitionIds": ["d6800a83-6622-4dde-9af6-c825f80801b1"],
+                "stepMatchArgumentsLists": [
+                    {
+                        "stepMatchArguments": [
+                            {
+                                "group": {
+                                    "start": 0,
+                                    "value": "\"school admin\"",
+                                    "children": [
+                                        {
+                                            "start": 1,
+                                            "value": "school admin",
+                                            "children": [{ "children": [] }]
+                                        },
+                                        { "children": [{ "children": [] }] }
+                                    ]
+                                },
+                                "parameterTypeName": "string"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "9f036ee1-fc34-4458-a9cc-3836f365bb06",
+                "pickleStepId": "b2089e3e-e0cc-4bc2-8e17-ce95d1e9740d",
+                "stepDefinitionIds": ["91308f28-e923-4051-9582-f2b12c8e1abc"],
+                "stepMatchArgumentsLists": [{ "stepMatchArguments": [] }]
+            },
+            {
+                "id": "c95680e3-1e33-4b6a-80ee-623142234f3d",
+                "pickleStepId": "42edc2c4-4f7a-43ce-8acf-9ae356a608dc",
+                "stepDefinitionIds": ["94bbe3bd-133d-451e-ac2b-981be6df9cdc"],
+                "stepMatchArgumentsLists": [
+                    {
+                        "stepMatchArguments": [
+                            {
+                                "group": {
+                                    "start": 19,
+                                    "value": "\"Student List\"",
+                                    "children": [
+                                        {
+                                            "start": 20,
+                                            "value": "Student List",
+                                            "children": [{ "children": [] }]
+                                        },
+                                        { "children": [{ "children": [] }] }
+                                    ]
+                                },
+                                "parameterTypeName": "string"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "0f1af4f1-d8a9-400c-b7d3-e72fbf5a1cb8",
+                "pickleStepId": "4dd47f4f-97d5-47c0-a02c-ac1e46201946",
+                "stepDefinitionIds": ["629c0c20-a050-4522-bddc-683d42a8f2a9"],
+                "stepMatchArgumentsLists": [{ "stepMatchArguments": [] }]
+            },
+            {
+                "id": "1bd72c77-0a4d-47f4-8d47-35179f776051",
+                "pickleStepId": "6a3eaa88-0cf3-4cb5-b6b3-c7153f45895d",
+                "stepDefinitionIds": ["e3146b70-c346-4d28-bdd6-3a5e27626eef"],
+                "stepMatchArgumentsLists": [{ "stepMatchArguments": [] }]
+            },
+            {
+                "id": "154bd1d5-2c80-4cf2-ae6f-cabafb066391",
+                "pickleStepId": "a5d74af1-a56d-419f-b4f0-a2e2019e430f",
+                "stepDefinitionIds": ["d331c0ae-51a6-47c5-890d-52403bdc8613"],
+                "stepMatchArgumentsLists": [{ "stepMatchArguments": [] }]
+            },
+            {
+                "id": "fa6ab625-c777-4d8c-83db-b5dd6a4232d9",
+                "hookId": "44213ae0-7d05-4fdc-8c56-c6ee93007bfb"
+            },
+            {
+                "id": "31bf421a-3468-4d3e-b60b-8ff7cf474d74",
+                "hookId": "9b83666a-c89b-4a77-b429-53f58c72ad94"
+            }
+        ]
+    },
+    "testCaseStarted": {
+        "attempt": 0,
+        "testCaseId": "69fa150c-f295-46dc-8e14-db44672fdcdf",
+        "id": "0e58751c-8878-4ae3-b377-dddd9ef47271",
+        "timestamp": { "seconds": 1635131234, "nanos": 395000000 }
+    },
+    "testStepStarted": {
+        "testCaseStartedId": "0e58751c-8878-4ae3-b377-dddd9ef47271",
+        "testStepId": "d9b3045d-66e4-42d0-9e16-0de5c2bced83",
+        "timestamp": { "seconds": 1635131234, "nanos": 395000000 }
+    },
+    "attachment": {
+        "body": "User not login yet, see login form",
+        "contentEncoding": "IDENTITY",
+        "mediaType": "text/plain",
+        "testCaseStartedId": "0e58751c-8878-4ae3-b377-dddd9ef47271",
+        "testStepId": "4e084451-5230-4624-9e54-c949447e0ccb"
+    },
+    "testStepFinished": {
+        "testCaseStartedId": "0e58751c-8878-4ae3-b377-dddd9ef47271",
+        "testStepId": "d9b3045d-66e4-42d0-9e16-0de5c2bced83",
+        "testStepResult": {
+            "duration": { "seconds": 0, "nanos": 1000000 },
+            "status": "PASSED",
+            "willBeRetried": false
+        },
+        "timestamp": { "seconds": 1635131234, "nanos": 396000000 }
+    },
+    "testCaseFinished": {
+        "testCaseStartedId": "41cb79c3-c6d2-4b9e-bcf2-27a680035322",
+        "timestamp": { "seconds": 1635131346, "nanos": 630000000 }
+    },
+    "testRunFinished": {
+        "timestamp": { "seconds": 1635131346, "nanos": 800000000 },
+        "success": true
+    }
+}
+
+@endjson
