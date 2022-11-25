@@ -16,4 +16,5 @@ jobs:
     - name: Pull Metadata
       id: run-recorder
       run: |
+          yarn add @playwright/test
           npx playwright test test-suites/squads/architecture/step-definitions/management-configuration.ts
