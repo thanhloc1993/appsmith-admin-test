@@ -16,4 +16,4 @@ jobs:
     - name: Pull Metadata
       id: run-recorder
       run: |
-          echo "Hello"
+          npx playwright test test-suites/squads/architecture/step-definitions/management-configuration.ts
