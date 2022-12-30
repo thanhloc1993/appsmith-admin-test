@@ -1,0 +1,211 @@
+name: "reuse.e2e"
+description: "composite action reuse.e2e"
+
+outputs:
+  status:
+    description: "The e2e status output"
+    value: ${{ steps.end-to-end.outcome }}
+
+inputs:
+  GCR_JSON_KEY:
+    required: true
+    description: "secrets.GCR_JSON_KEY"
+  BUILD_GITHUB_TOKEN:
+    required: true
+    description: "secrets.BUILD_GITHUB_TOKEN"
+  OTLP_ACCESS_TOKEN:
+    required: true
+    description: "secrets.OTLP_ACCESS_TOKEN"
+  REPORT_HASURA_SECRET:
+    required: true
+    description: "secrets.REPORT_HASURA_SECRET"
+  UNLEASH_CLIENT_KEY:
+    required: true
+    description: "secrets.UNLEASH_CLIENT_KEY"
+  # for unleash e2e test
+  UNLEASH_CREDENTIAL:
+    required: false
+    description: "secrets.UNLEASH_CREDENTIAL"
+
+  RUN_ID:
+    required: true
+    description: "github.run_id"
+  DURATION_LIMIT:
+    required: true
+    description: "Timeout"
+  ENV:
+    required: true
+    description: "env"
+  ORGANIZATION:
+    required: true
+    description: "organization"
+  EIBANAM_REF:
+    required: true
+    description: "eibanam_ref"
+  FE_REF:
+    required: false
+    description: "fe_ref"
+  ME_REF:
+    required: false
+    description: "me_ref"
+  FEATURE_FILES:
+    required: false
+    description: "feature_files"
+  TAGS:
+    required: false
+    description: "tags"
+  SQUADS:
+    required: false
+    description: "squads"
+  ISSUE_NUMBER:
+    required: false
+    description: "issue_number"
+  REPO:
+    required: false
+    description: "repo"
+  OWNER:
+    required: false
+    description: "owner"
+  FAIL_FAST:
+    required: false
+    default: "false"
+    description: "Fail fast"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+      with:
+        repository: manabie-com/eibanam
+        ref: develop
+        token: ${{ inputs.BUILD_GITHUB_TOKEN }}
+
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+      with:
+        repository: manabie-com/eibanam
+        persist-credentials: false
+        token: ${{ inputs.BUILD_GITHUB_TOKEN }}
+
+    - name: Login to GCR
+      uses: docker/login-action@v2
+      with:
+        registry: asia.gcr.io
+        username: _json_key
+        password: ${{ inputs.GCR_JSON_KEY }}
+
+    - id: "auth"
+      uses: "google-github-actions/auth@v0"
+      with:
+        workload_identity_provider: "projects/456005132078/locations/global/workloadIdentityPools/eibanam-identity/providers/eibanam-identity"
+        service_account: "stag-identity-hook-runner@staging-manabie-online.iam.gserviceaccount.com"
+
+    - name: Copy credentials
+      run: |
+        cp $GOOGLE_APPLICATION_CREDENTIALS ./application_default_credentials.json
+      shell: bash
+
+    - name: Set Hosts Variables
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const { setHostVariables } = require('${{github.workspace}}/scripts/set-hosts-variables.js');
+          await setHostVariables(core);
+      env:
+        ENV: ${{ inputs.ENV }}
+        ORGANIZATION: ${{ inputs.ORGANIZATION }}
+        ME_REF: ${{ inputs.ME_REF }}
+        FE_REF: ${{ inputs.FE_REF }}
+
+    - name: setup-apps
+      run: ./scripts/dynamic-setup-e2e.sh
+      shell: bash
+      env:
+        ENV: ${{ inputs.ENV }}
+        ORGANIZATION: ${{ inputs.ORGANIZATION }}
+        ME_REF: ${{ inputs.ME_REF }}
+        FE_REF: ${{ inputs.FE_REF }}
+        UNLEASH_CLIENT_KEY: ${{ inputs.UNLEASH_CLIENT_KEY }}
+        GITHUB_TOKEN: ${{ inputs.BUILD_GITHUB_TOKEN }}
+
+    - id: check-test-suites
+      if: env.EIBANAM_REF != 'develop' && env.EIBANAM_REF != 'refs/heads/develop'
+      run: ./scripts/detect-file-changes.sh "test-suites/"
+      shell: bash
+
+    - uses: actions/cache@v3
+      if: steps.check-test-suites.outputs.has_changes == 'true'
+      with:
+        path: |
+          ${{github.workspace}}/node_modules
+          ~/.cache/ms-playwright
+        key: yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: yarn-
+
+    - name: Install root dependencies
+      if: steps.check-test-suites.outputs.has_changes == 'true'
+      env:
+        GITHUB_TOKEN: ${{ inputs.BUILD_GITHUB_TOKEN }}
+      run: |
+        set -eu
+        make setup
+      shell: bash
+
+    - name: Update e2e_scenario_severity
+      if: steps.check-test-suites.outputs.has_changes == 'true'
+      env:
+        GITHUB_TOKEN: ${{ inputs.BUILD_GITHUB_TOKEN }}
+        REPORT_HASURA_SECRET: ${{ inputs.REPORT_HASURA_SECRET }}
+        REPORT_GRAPHQL_URL: "https://admin.staging-green.manabie.io/draft/v1/graphql"
+      run: |
+        echo "Update e2e_scenario_severity table."
+        yarn update-severity-table
+      shell: bash
+
+    - name: End-to-end
+      id: end-to-end
+      run: |
+        make run-3apps
+      env:
+        NODE_OPTIONS: "--max-old-space-size=4096"
+        GOOGLE_APPLICATION_CREDENTIALS: ./application_default_credentials.json
+        HEADLESS: "true"
+        GITHUB_TOKEN: ${{ inputs.BUILD_GITHUB_TOKEN }}
+        BUCKET_NAME: "eibanam-2"
+        GOOGLE_PROJECT_ID: "staging-manabie-online"
+        REPORT_GRAPHQL_URL: "https://admin.staging-green.manabie.io/draft/v1/graphql"
+
+        ENV: ${{ inputs.ENV }}
+        ORGANIZATION: ${{ inputs.ORGANIZATION }}
+        ME_REF: ${{ inputs.ME_REF }}
+        FE_REF: ${{ inputs.FE_REF }}
+        EIBANAM_REF: ${{ inputs.EIBANAM_REF }}
+        DURATION_LIMIT: ${{ inputs.DURATION_LIMIT }}
+
+        FEATURE_FILES: ${{ inputs.FEATURE_FILES }}
+        TAGS: ${{ inputs.TAGS }}
+        SQUADS: ${{ inputs.SQUADS }}
+        RUN_ID: ${{ inputs.RUN_ID }}
+
+        REPORT_HASURA_SECRET: ${{ inputs.REPORT_HASURA_SECRET }}
+        UNLEASH_CREDENTIAL: ${{ inputs.UNLEASH_CREDENTIAL }}
+        UNLEASH_CLIENT_KEY: ${{ inputs.UNLEASH_CLIENT_KEY }}
+
+        ISSUE_NUMBER: ${{ inputs.ISSUE_NUMBER }}
+        ACTOR: ${{ github.actor }}
+        REPO: ${{ inputs.REPO }}
+        FAIL_FAST: ${{ inputs.FAIL_FAST }}
+      shell: bash
+
+    - name: Cleanup docker
+      if: ${{ always() }}
+      env:
+        E2E_STATUS: ${{ steps.end-to-end.outcome }}
+        REPORT_URL: "https://mana-e2e.web.app/"
+        RUN_ID: ${{ inputs.RUN_ID }}
+      run: |
+        ./scripts/docker-compose.sh web_profile
+        echo "Status:      " $E2E_STATUS >> $GITHUB_STEP_SUMMARY 
+        echo "Report link: " $REPORT_URL"?runId="$RUN_ID >> $GITHUB_STEP_SUMMARY
+      shell: bash

@@ -1,24 +1,20 @@
-name: Run record test
+name: e2e.trigger
 
 on:
-  push:
-    branches:
-      - master
-jobs:
-  build:
+  pull_request:
+    types: [labeled]
 
-    runs-on: ubuntu-latest
+jobs:
+  pr-description:
+    if: ${{ contains(github.event.label.name, 'Trigger record test') }}
+
+    runs-on: [self-hosted, custom-runner, small-runner]
 
     steps:
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: 16
     - name: Checkout
       uses: actions/checkout@v1
-
-    - name: Pull Metadata
-      id: run-recorder
+    
+    - name: Run record
+      id: run-record-test
       run: |
-          yarn install
-          npx playwright test test-suites/squads/architecture/step-definitions/management-configuration.ts
+        echo "SUCCESS"
