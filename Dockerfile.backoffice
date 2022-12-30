@@ -16,4 +16,4 @@ RUN --mount=type=cache,sharing=locked,target=/yarn yarn install
 
 COPY ./packages/cms .
 
-RUN DISABLE_ESLINT_PLUGIN=true yarn build
+RUN yarn build

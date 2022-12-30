@@ -23,7 +23,7 @@ start() {
 
         echo "$commit" > $output 
 
-        DISABLE_ESLINT_PLUGIN=true yarn build 
+        yarn build 
     else  
         echo "Keep old version $version"
     fi

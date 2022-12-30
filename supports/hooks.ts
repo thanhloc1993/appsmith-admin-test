@@ -15,8 +15,12 @@ import { featureFlagsHelper } from '@drivers/feature-flags/helper';
 import { CMSJprepPage } from '@supports/cms-jprep';
 
 import { CMSInterface } from './app-types';
+import { CMS } from './cms-world';
 import { initCucumber } from './global';
+import { Learner } from './learner-world';
 import './packages/expect-with-message';
+import { Teacher } from './teacher-world';
+import { UnleashAdmin } from './unleash-world';
 import { timesheetIdsToBeDeletedAlias } from 'test-suites/squads/timesheet/common/alias-keys';
 import { deleteTimesheetGRPC } from 'test-suites/squads/timesheet/common/step-definitions/timesheet-common-definitions';
 
@@ -41,6 +45,7 @@ BeforeAll(async function () {
             '--disable-dev-shm-usage', //[Chrome to crash when rendering large pages](https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#tips)
             '--enable-usermedia-screen-capturing',
             '--auto-select-desktop-capture-source=Entire screen',
+            '--disk-cache-dir=/home/pwuser/.cache/google-chrome/Default',
         ],
     });
     _cucumber.startTime = Date.now();
@@ -116,63 +121,77 @@ async function initialCMS(cms: CMSInterface) {
     if (language !== 'English') {
         await cms.attach('Switch language to English');
         await switcherLocale.click();
-        await page.waitForSelector(
+        const enBtn = await page.locator(
             `[data-testid="MenuComponent__popper"] button:has-text("English")`
         );
+        await enBtn.click({ force: true });
         await cms.attachScreenshot();
     }
 }
 
 // ---CMS---
 Before({ tags: '@cms', timeout: _cucumber.timeout }, async function () {
+    this.cms = new CMS(this.options, {
+        driverName: 'cms',
+    });
     await this.cms.connect({ browser: _cucumber.browser });
 
     await initialCMS(this.cms);
 });
 
 After({ tags: '@cms', timeout: _cucumber.timeout }, async function () {
-    await this.cms.quit();
+    if (this.cms) await this.cms.quit();
     return skipTestOrNot();
 });
 
 // ---CMS2---
 Before({ tags: '@cms2', timeout: _cucumber.timeout }, async function () {
+    this.cms2 = new CMS(this.options, {
+        driverName: 'cms_2',
+    });
     await this.cms2.connect({ browser: _cucumber.browser });
-
     await initialCMS(this.cms2);
 });
 
 After({ tags: '@cms2', timeout: _cucumber.timeout }, async function () {
-    await this.cms2.quit();
+    if (this.cms2) await this.cms2.quit();
     return skipTestOrNot();
 });
 
 // ---CMS3---
 Before({ tags: '@cms3', timeout: _cucumber.timeout }, async function () {
+    this.cms3 = new CMS(this.options, {
+        driverName: 'cms_3',
+    });
     await this.cms3.connect({ browser: _cucumber.browser });
-
     await initialCMS(this.cms3);
 });
 
 After({ tags: '@cms3', timeout: _cucumber.timeout }, async function () {
-    await this.cms3.quit();
+    if (this.cms3) await this.cms3.quit();
     return skipTestOrNot();
 });
 
 // ---CMS4---
 Before({ tags: '@cms4', timeout: _cucumber.timeout }, async function () {
+    this.cms4 = new CMS(this.options, {
+        driverName: 'cms_4',
+    });
     await this.cms4.connect({ browser: _cucumber.browser });
 
     await initialCMS(this.cms4);
 });
 
 After({ tags: '@cms4', timeout: _cucumber.timeout }, async function () {
-    await this.cms4.quit();
+    if (this.cms4) await this.cms4.quit();
     return skipTestOrNot();
 });
 
 // ---CMS for JPREP---
 Before({ tags: '@cms-jprep', timeout: _cucumber.timeout }, async function () {
+    this.cms = new CMS(this.options, {
+        driverName: 'cms',
+    });
     await this.cms.connect({ browser: _cucumber.browser });
 
     const jprepPage = new CMSJprepPage(this.cms);
@@ -180,67 +199,88 @@ Before({ tags: '@cms-jprep', timeout: _cucumber.timeout }, async function () {
 });
 
 After({ tags: '@cms-jprep', timeout: _cucumber.timeout }, async function () {
-    await this.cms.quit();
+    if (this.cms) await this.cms.quit();
     return skipTestOrNot();
 });
 
 // ---Teacher---
 Before({ tags: '@teacher', timeout: _cucumber.timeout }, async function () {
+    this.teacher = new Teacher(this.options, {
+        driverName: 'teacher_1',
+    });
     await this.teacher.connect({ browser: _cucumber.browser });
 });
 
 After({ tags: '@teacher', timeout: _cucumber.timeout }, async function () {
-    await this.teacher.quit();
+    if (this.teacher) await this.teacher.quit();
     return skipTestOrNot();
 });
 
 // ---Teacher 2---
 Before({ tags: '@teacher2', timeout: _cucumber.timeout }, async function () {
+    this.teacher2 = new Teacher(this.options, {
+        driverName: 'teacher_2',
+    });
     await this.teacher2.connect({ browser: _cucumber.browser });
 });
 After({ tags: '@teacher2', timeout: _cucumber.timeout }, async function () {
-    await this.teacher2.quit();
+    if (this.teacher2) await this.teacher2.quit();
     return skipTestOrNot();
 });
 
 // ---Learner---
 Before({ tags: '@learner', timeout: _cucumber.timeout }, async function () {
+    this.learner = new Learner(this.options, {
+        driverName: 'learner_1',
+    });
     await this.learner.connect({ browser: _cucumber.browser });
 });
 After({ tags: '@learner', timeout: _cucumber.timeout }, async function () {
-    await this.learner.quit();
+    if (this.learner) await this.learner.quit();
     return skipTestOrNot();
 });
 
 // ---Learner 2---
 Before({ tags: '@learner2', timeout: _cucumber.timeout }, async function () {
+    this.learner2 = new Learner(this.options, {
+        driverName: 'learner_2',
+    });
     await this.learner2.connect({ browser: _cucumber.browser });
 });
 After({ tags: '@learner2', timeout: _cucumber.timeout }, async function () {
-    await this.learner2.quit();
+    if (this.learner2) await this.learner2.quit();
     return skipTestOrNot();
 });
 
 // ---Learner 3---
 Before({ tags: '@learner3', timeout: _cucumber.timeout }, async function () {
+    this.learner3 = new Learner(this.options, {
+        driverName: 'learner_3',
+    });
     await this.learner3.connect({ browser: _cucumber.browser });
 });
 After({ tags: '@learner3', timeout: _cucumber.timeout }, async function () {
-    await this.learner3.quit();
+    if (this.learner3) await this.learner3.quit();
     return skipTestOrNot();
 });
 
 // ---Parent---
 Before({ tags: '@parent', timeout: _cucumber.timeout }, async function () {
+    this.parent = new Learner(this.options, {
+        driverName: 'parent_1',
+    });
     await this.parent.connect({ browser: _cucumber.browser });
 });
 After({ tags: '@parent', timeout: _cucumber.timeout }, async function () {
-    await this.parent.quit();
+    if (this.parent) await this.parent.quit();
     return skipTestOrNot();
 });
 
 // ---Unleash admin---
 Before({ tags: '@unleash-admin', timeout: _cucumber.timeout }, async function () {
+    this.unleashAdmin = new UnleashAdmin(this.options, {
+        driverName: 'unleash_admin',
+    });
     await this.unleashAdmin.connect({ browser: _cucumber.browser });
 });
 
@@ -251,16 +291,19 @@ After({ tags: '@unleash-admin', timeout: _cucumber.timeout }, async function () 
         await this.unleashAdmin.archiveFeature(featureFlagName);
         context.set('new_feature', '');
     }
-    await this.unleashAdmin.quit();
+    if (this.unleashAdmin) await this.unleashAdmin.quit();
     return skipTestOrNot();
 });
 
 // ---Parent 2---
 Before({ tags: '@parent2', timeout: _cucumber.timeout }, async function () {
+    this.parent2 = new Learner(this.options, {
+        driverName: 'parent_2',
+    });
     await this.parent2.connect({ browser: _cucumber.browser });
 });
 After({ tags: '@parent2', timeout: _cucumber.timeout }, async function () {
-    await this.parent2.quit();
+    if (this.parent2) await this.parent2.quit();
     return skipTestOrNot();
 });
 
@@ -275,3 +318,28 @@ const skipTestOrNot = (): string | undefined => {
         return Status.SKIPPED.toLocaleLowerCase();
     }
 };
+
+After(async function (testCase) {
+    if (testCase.result?.status === Status.FAILED) {
+        const drivers = [
+            this.cms,
+            this.cms2,
+            this.cms3,
+            this.cms4,
+            this.teacher,
+            this.teacher2,
+            this.learner,
+            this.learner2,
+            this.learner3,
+            this.parent,
+            this.parent2,
+        ];
+
+        for (const driver of drivers) {
+            if (driver != undefined) {
+                await driver.attach(driver.driverName);
+                await driver.attachScreenshot();
+            }
+        }
+    }
+});

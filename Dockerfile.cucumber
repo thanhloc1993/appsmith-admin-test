@@ -12,7 +12,7 @@ COPY package.json .
 COPY yarn.lock .
 COPY ./libraries/. ./libraries/
 
-RUN --mount=type=cache,sharing=locked,target=/yarn yarn install && npx playwright install chrome
+RUN --mount=type=cache,sharing=locked,target=/yarn yarn install && npx playwright install chrome --force
 
 COPY Makefile .
 

@@ -1,7 +1,7 @@
 import { Bucket, Storage, UploadOptions } from '@google-cloud/storage';
 
 export default class GoogleCloudStorage {
-    bucketName = process.env.BUCKET_NAME || 'eibanam';
+    bucketName = process.env.BUCKET_NAME || 'eibanam-2';
     storage: Storage;
     bucket?: Bucket;
     projectId: string;

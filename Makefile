@@ -21,7 +21,7 @@ setup-github:
 		&& git config --global url."https://".insteadOf git://
 	git config --global --add url."https://${GITHUB_TOKEN}:x-oauth-basic@github.com/manabie-com".insteadOf "https://github.com/manabie-com"
 
-setup: setup-local-libraries setup-github 
+setup: setup-github setup-local-libraries
 	bash ./scripts/setup.sh
 
 ##### Docker script

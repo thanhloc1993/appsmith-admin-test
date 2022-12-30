@@ -15,7 +15,7 @@ export const createUpsertLearningObjectiveRequest = (
     const request = new UpsertLOsRequest();
 
     const requestLearningObjectives = learningObjectives.map(
-        ({ video, studyGuide, topicId, type, info, timeLimit }) => {
+        ({ video, studyGuide, topicId, type, info, timeLimit, gradeToPass, manualGrading }) => {
             const { id, name, schoolId, displayOrder } = info;
 
             const requestLearningObjective = new LearningObjective();
@@ -32,6 +32,8 @@ export const createUpsertLearningObjectiveRequest = (
             requestLearningObjective.setType(type);
             requestLearningObjective.setInfo(basicInfo);
             requestLearningObjective.setTimeLimit(timeLimit);
+            requestLearningObjective.setGradeToPass(gradeToPass);
+            requestLearningObjective.setManualGrading(manualGrading ?? false);
 
             return requestLearningObjective;
         }

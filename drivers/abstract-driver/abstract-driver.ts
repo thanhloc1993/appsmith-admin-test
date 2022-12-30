@@ -223,11 +223,12 @@ export default abstract class AbstractDriver implements IAbstractDriver {
         bufferScreenshot?: Buffer | string
     ): Promise<void> {
         await this.attach(description);
-
         try {
             await fn.call(this, this as unknown as T);
         } finally {
-            await this.attachScreenshot(bufferScreenshot);
+            if (!this.isOnTrunk()) {
+                await this.attachScreenshot(bufferScreenshot);
+            }
         }
     }
 
@@ -291,4 +292,13 @@ export default abstract class AbstractDriver implements IAbstractDriver {
 
         return;
     }
+
+    isOnTrunk = () => {
+        const { ME_REF, FE_REF, EIBANAM_REF } = process.env;
+        return (
+            (!ME_REF || ME_REF === 'develop') &&
+            (EIBANAM_REF === 'develop' || EIBANAM_REF === 'refs/heads/develop') &&
+            (!FE_REF || FE_REF === 'develop')
+        );
+    };
 }

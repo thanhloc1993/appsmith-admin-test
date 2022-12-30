@@ -17,6 +17,8 @@ export const samplePDFFilePath2 = './assets/sample-pdf2.pdf';
 
 export const sampleImageFilePath = './assets/sample-image.jpeg';
 
+export const sampleAudioFilePath = './assets/sample-audio.mp3';
+
 export const sampleImage12MBFilePath = './assets/sample-image-12MB.jpg';
 
 export const sampleFlashcardCardImg =
@@ -31,8 +33,6 @@ export const emojiList = ['EmojiEnum.laughing', 'EmojiEnum.sad', 'EmojiEnum.smil
 export const emptyValue = '--';
 
 export const lessonLinkingWordMoreMaterial = ',';
-
-export const nameUserGroupTeacher = 'Teacher';
 
 export const samplePdfUrl =
     'https://storage.googleapis.com/stag-manabie-backend/user-upload/sample01GCBNQN1CEQBDNZEXGHJJWK4A.pdf';

@@ -18,8 +18,6 @@ export class VirtualClassroomKeys {
     static liveLessonScreenVisible = (index: number): string =>
         `Live Lesson Screen Visible ${index}`;
 
-    static setUpPollingView = `Set Up Polling View`;
-
     static courseScrollView = `Course Scroll View`;
 
     static liveLessonActionBarView = `Live Lesson Action Bar View`;
@@ -79,11 +77,17 @@ export class VirtualClassroomKeys {
 
     static materialTab = `Material Tab`;
 
-    static pollingStatsTabKey = `Polling Stats Tab`;
-
-    static pollingDetailTabKey = `Polling Detail Tab`;
-
     static liveLessonChatTab = `Live Lesson Chat Tab`;
+
+    static liveLessonPublicChatTab = `Live Lesson Public Chat Tab`;
+
+    static liveLessonPrivateChatTab = `Live Lesson Private Chat Tab`;
+
+    static liveLessonPublicChatView = `Live Lesson Public Chat View`;
+
+    static liveLessonDetailPrivateChatView = `Live Lesson Detail Private Chat View`;
+
+    static liveLessonAllParticipantsPrivateChatView = `Live Lesson All Participants Private Chat View`;
 
     static liveLessonUserTab = `Live Lesson User Tab`;
 
@@ -106,29 +110,15 @@ export class VirtualClassroomKeys {
 
     static endNowButton = `End Now Button`;
 
-    static pollButtonWithActiveStatus = (isActive: boolean): string =>
-        `Polling Button With Active Status ${isActive}`;
-
-    static startPollingButton = `Start Polling Button`;
-
-    static hidePollingButton = `Hide Polling Button`;
-
     static closeAnnotationButton = `Live Lesson White Board Close Annotation Button`;
 
     static annotationButton = `Live Lesson Annotation Button`;
-
-    static stopPollingButtonWithStatus = (pollingStatus: string): string =>
-        `Stop Polling Button With Status ${pollingStatus}`;
 
     static messageLessonButton = `Message Lesson Button`;
 
     static closeEndLiveLessonDialogButton = `Close End Live Lesson Dialog Button`;
 
     static cannotOverlapShareScreenDialogOkButton = `Cannot Overlap Share Screen Dialog Ok Button`;
-
-    static liveLessonAddQuizOptionButtonKey = `Live Lesson Add Quiz Option Button Key`;
-
-    static liveLessonRemoveQuizOptionButtonKey = `Live Lesson Remove Quiz Option Button Key`;
 
     static microButtonLiveLessonInteraction = (enable: boolean): string =>
         `Micro Button Live Lesson Interaction ${enable}`;
@@ -183,7 +173,7 @@ export class VirtualClassroomKeys {
     static joinButton = (enable: boolean, isFirstTeacher: boolean): string =>
         `Join Button ${enable} - Is First Teacher ${isFirstTeacher}`;
 
-    static materialButton = `Material Button`;
+    static materialButton = (lessonId: string): string => `Material Button ${lessonId}`;
 
     static joinLiveLessonButton = (
         lessonId: string,
@@ -228,8 +218,6 @@ export class VirtualClassroomKeys {
 
     static liveLessonScreenShareBar = `Live Lesson Screen Bar View`;
 
-    static pollingOptionsQuizBar = `Polling Options Quiz Bar`;
-
     static waitingRoomBanner = `Waiting Room Banner`;
 
     static studentList = `Student List`;
@@ -241,31 +229,9 @@ export class VirtualClassroomKeys {
 
     static materialItem = (name: string): string => `${name} material item`;
 
-    static liveLessonPollingStatsPageSubmissionTextKey = (submission: string): string =>
-        `Live Lesson Polling Stats Page Submission Text Key ${submission}`;
-
-    static liveLessonPollingStatsPageAccuracyTextKey = (accuracy: string): string =>
-        `Live Lesson Polling Stats Page Accuracy Text Key ${accuracy}`;
-
-    static liveLessonPollingDetailsLearnerAnswerKey = (
-        userId: string,
-        answer: string,
-        isLearnerAnswerCorrectAtLestOneOption: boolean
-    ): string =>
-        `Live Lesson Polling Details Learner Answer Key userId ${userId} answer ${answer} isLearnerAnswerCorrectAtLestOneOption ${isLearnerAnswerCorrectAtLestOneOption}`;
-
-    static setUpPollingOptionKey = (optionName: string, isCorrect: boolean): string =>
-        `SetUp Polling Option Key ${optionName} ${isCorrect}`;
-
-    static liveLessonPollingListAnswerKey = `Live Lesson Polling List Answer Key`;
-
     static lessonPage = `Lesson Page`;
 
     static schedulePage = `Schedule page`;
-
-    static pollingStatsPageKey = `Polling Stats Page`;
-
-    static pollingDetailPageKey = `Polling Detail Page`;
 
     static scheduleTitlePage = `Schedule title page`;
 
@@ -293,30 +259,6 @@ export class VirtualClassroomKeys {
 
     static liveLessonWhiteBoardIndex = (index: number): string =>
         `Live Lesson White Board Index ${index}`;
-
-    static pollingQuizBarOptionKey = (
-        name: string,
-        isCorrect: boolean,
-        isSelected: boolean
-    ): string => `Polling Quiz Bar Option Button ${name} ${isCorrect} ${isSelected}`;
-
-    static liveLessonHidePollingQuizBarButtonKey = `Live Lesson Hide Polling QuizBar Button Key`;
-
-    static liveLessonSubmitPollingButtonKey = (isDisable: boolean): string =>
-        `Live Lesson Submit Polling Button Key ${isDisable}`;
-
-    static liveLessonEndedPollingNotificationOkButton = `Live Lesson Ended Polling Notification Ok Button`;
-
-    static liveLessonPollingQuizBarOptionTextKey = (name: string, isSelected: boolean): string =>
-        `Live Lesson Polling Quiz Bar Option Text ${name} isSelected ${isSelected}`;
-
-    static liveLessonPollingQuizResultBannerKey = (isAnswerCorrect: boolean): string =>
-        `Live Lesson Polling Quiz Result Banner isAnswerCorrect ${isAnswerCorrect} Key`;
-
-    static liveLessonPollingQuizBarOptionContainerKey = (
-        name: string,
-        isCorrect: boolean
-    ): string => `Live Lesson Polling Quiz Bar Option Container ${name} isSelected ${isCorrect}`;
 
     static waitingTeacherJoin = `Waiting Teacher Join`;
 
@@ -369,6 +311,8 @@ export class VirtualClassroomKeys {
 
     static spotlightIconKey = (userId: string): string => `Spotlight Icon Key ${userId}`;
 
+    static previewAnnotatedPdfScreen = `Preview Annotated Pdf Screen`;
+
     static previewButtonKey = (active: boolean): string => `Preview Button Key ${active}`;
 
     static previewThumbnailList = `Preview Thumbnail List`;
@@ -398,4 +342,34 @@ export class VirtualClassroomKeys {
     static cancelConfirmRecordingDialogButton = `Cancel Confirm Recording Dialog Button`;
 
     static startConfirmRecordingDialogButton = `Start Confirm Recording Dialog Button`;
+
+    static annotationBarStrokePathKey = (size: number, selected: boolean): string =>
+        `Live Lesson Annotation Bar Stroke Path size ${size} selected ${selected}`;
+
+    static annotationBarColorPickerColorIndexKey = (
+        colorIndex: number,
+        selected: boolean
+    ): string =>
+        `Live Lesson Annotation Bar Color Picker Color Index ${colorIndex} selected ${selected}`;
+
+    static studentLength = (length: number): string => `Student Length ${length}`;
+
+    static teacherLength = (length: number): string => `Teacher Length ${length}`;
+
+    static conversationItem = (userId: string): string =>
+        `Virtual Classroom Conversation Item ${userId}`;
+
+    static popBackButton = `Pop Back Button`;
+
+    static joinedStudent = (count: number): string => `Joined Student List ${count}`;
+
+    static unJoinStudent = (count: number): string => `UnJoin Student List ${count}`;
+
+    static teacherList = (count: number): string => `Teacher List ${count}`;
+
+    static divider = (position: number): string => `Divider ${position}`;
+
+    static pollButton = (active: boolean): string => `Poll Button ${active}`;
+
+    static submitPollButton = (active: boolean): string => `Submit Poll Button ${active}`;
 }

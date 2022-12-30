@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client/core';
+import { ApolloClient } from '@apollo/client/core';
 
 import { Formatter, IFormatterOptions } from '@cucumber/cucumber';
 import {
@@ -9,9 +9,10 @@ import {
 } from '@cucumber/messages';
 import * as messages from '@cucumber/messages';
 
+import { createApolloClient } from '../apollo-client/create-apollo-client';
 import GoogleCloudStorage from '../google-cloud-storage';
-import { REPORT_HASURA_SECRET, REPORT_GRAPHQL_URL } from './config';
 import DocumentsStorage from './documents-storage';
+import { E2e_Scenarios_Insert_Input } from './hasura/__generated__/draft/root-types';
 import featuresBob from './hasura/features-query';
 import instancesBob from './hasura/instances-query';
 import scenariosBob from './hasura/scenarios-query';
@@ -31,22 +32,13 @@ export default class MessageFormatter extends Formatter {
     gqlClient: ApolloClient<any>;
     mapPromises: { [key: string]: Promise<unknown> };
     documentsStorage: DocumentsStorage;
+
     constructor(options: IFormatterOptions) {
         super(options);
         this.documentsStorage = new DocumentsStorage();
         this.mapPromises = {};
-        const httpLink = createHttpLink({
-            uri: REPORT_GRAPHQL_URL,
-            headers: {
-                'x-hasura-admin-secret': REPORT_HASURA_SECRET,
-                'Content-Type': 'application/json',
-            },
-        });
 
-        this.gqlClient = new ApolloClient({
-            link: httpLink,
-            cache: new InMemoryCache(),
-        });
+        this.gqlClient = createApolloClient();
 
         this.googleStorage = new GoogleCloudStorage();
         const { eventBroadcaster } = options;
@@ -234,6 +226,7 @@ export default class MessageFormatter extends Formatter {
             .mutate(stepsBob.upsertSteps(mutation))
             .catch((err) => console.error('[message-formatter]: startTestCase', err));
     };
+
     finishTestStep = async (envelope: Envelope) => {
         if (!('testStepFinished' in envelope) || !envelope.testStepFinished) return false;
 
@@ -311,6 +304,7 @@ export default class MessageFormatter extends Formatter {
                 );
         }
     };
+
     updateEndTimeAndStatusForFeature(uri: string, endedAt: Date, status: TestStepResultStatus) {
         const feature = this.documentsStorage.getStorageOfFeature(uri);
         if (!feature?.endedAt || endedAt.getTime() > feature.endedAt.getTime()) {
@@ -346,22 +340,26 @@ export default class MessageFormatter extends Formatter {
             statusFeature || TestStepResultStatus.UNKNOWN
         );
 
+        const scenarioInput: E2e_Scenarios_Insert_Input = {
+            feature_id: feature.featureId,
+            scenario_id: testCaseStarted.testCaseId,
+            ended_at: endedAt,
+            tags: (pickle.tags || []).map((t) => t.name),
+            keyword: scenario?.keyword,
+            name: pickle.name,
+            steps: pickle.steps,
+            pickle,
+            test_case: testCase,
+            // will_be_retried: testCaseFinished.willBeRetried, TODO: update will be retrieve here
+            started_at: this.convertTimeStamp(testCaseStarted.timestamp),
+            status,
+            on_trunk: isOnTrunk(),
+            raw_name: scenario?.name,
+            feature_path: pickle.uri,
+        };
+
         const mutationScenario = scenariosBob.upsertScenarios({
-            arg: {
-                feature_id: feature.featureId,
-                scenario_id: testCaseStarted.testCaseId,
-                ended_at: endedAt,
-                tags: (pickle.tags || []).map((t) => t.name),
-                keyword: scenario?.keyword,
-                name: pickle.name,
-                steps: pickle.steps,
-                pickle,
-                test_case: testCase,
-                // will_be_retried: testCaseFinished.willBeRetried, TODO: update will be retrieve here
-                started_at: this.convertTimeStamp(testCaseStarted.timestamp),
-                status,
-                on_trunk: isOnTrunk(),
-            },
+            arg: scenarioInput,
         });
 
         const instance = this.documentsStorage.instance;
@@ -379,8 +377,19 @@ export default class MessageFormatter extends Formatter {
         await Promise.all([
             this.gqlClient.mutate(mutationScenario),
             this.gqlClient.mutate(mutationFeatures),
-        ]).catch((err) => console.error('[message-formatter]: finishTestCase', err));
+        ]).catch((err) => {
+            if (err.includes('Foreign key violation')) {
+                console.log(
+                    'Please make sure this scenario is available in e2e_scenario_severity table:',
+                    scenarioInput.raw_name,
+                    scenarioInput.feature_path
+                );
+            } else {
+                console.error('[message-formatter]: finishTestCase', err);
+            }
+        });
     };
+
     startInstances = async (envelope: Envelope) => {
         if (!('testRunStarted' in envelope) || !envelope.testRunStarted) return false;
         const testRunStarted = envelope.testRunStarted;
@@ -469,6 +478,7 @@ export default class MessageFormatter extends Formatter {
             ).toISOString()
         );
     }
+
     convertDuration(timestamp: messages.Duration) {
         return messages.TimeConversion.durationToMilliseconds(timestamp);
     }

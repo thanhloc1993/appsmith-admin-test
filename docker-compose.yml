@@ -69,6 +69,9 @@ services:
         volumes:
             - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
             - /var/log/:/eibanam/report/build-logs/
+            # enable here when you would like to work with VM chrome
+            # - /opt/google/chrome/:/opt/google/chrome/
+            # - ~/.cache/google-chrome/Default:/home/pwuser/.cache/google-chrome/Default 
 
     cms:
         container_name: cms

@@ -1,19 +1,5 @@
 import * as Types from '../__generated__/bob/root-types';
 
-export type User_Eibanam_GetListBankBranchQueryVariables = Types.Exact<{
-  limit?: Types.InputMaybe<Types.Scalars['Int']>;
-}>;
-
-
-export type User_Eibanam_GetListBankBranchQuery = { bank_branch: Array<{ bank_branch_id: string, bank_branch_code: string, bank_branch_name: string }> };
-
-export type User_Eibanam_GetListBankQueryVariables = Types.Exact<{
-  limit?: Types.InputMaybe<Types.Scalars['Int']>;
-}>;
-
-
-export type User_Eibanam_GetListBankQuery = { bank: Array<{ bank_id: string, bank_code: string, bank_name: string }> };
-
 export type Lesson_ClassManyByLocationIdAndCourseIdAndNameQueryVariables = Types.Exact<{
   location_id: Types.Scalars['String'];
   course_id: Types.Scalars['String'];
@@ -153,6 +139,16 @@ export type User_UserGroupListV2QueryVariables = Types.Exact<{
 
 
 export type User_UserGroupListV2Query = { user_group: Array<{ user_group_id: string, user_group_name: string }>, user_group_aggregate: { aggregate?: { count?: number | null | undefined } | null | undefined } };
+
+export type User_UserGroupsManyReferenceV2QueryVariables = Types.Exact<{
+  user_group_name?: Types.InputMaybe<Types.Scalars['String']>;
+  is_system?: Types.InputMaybe<Types.Scalars['Boolean']>;
+  limit?: Types.InputMaybe<Types.Scalars['Int']>;
+  offset?: Types.InputMaybe<Types.Scalars['Int']>;
+}>;
+
+
+export type User_UserGroupsManyReferenceV2Query = { user_group: Array<{ user_group_id: string, user_group_name: string }> };
 
 export type User_Eibanam_GetListUserTagQueryVariables = Types.Exact<{
   limit?: Types.InputMaybe<Types.Scalars['Int']>;

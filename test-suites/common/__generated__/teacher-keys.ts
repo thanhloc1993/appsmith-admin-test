@@ -34,8 +34,6 @@ export class TeacherKeys {
 
     static editUserInfoScreen = `Edit User Info Screen`;
 
-    static calendarCourseScreen = `Calendar Course Screen`;
-
     static lessonMaterialScreen = `Lesson Material Screen`;
 
     static liveLessonScreen = `Live Lesson Screen`;
@@ -43,6 +41,8 @@ export class TeacherKeys {
     static liveCourseScreen = `Live Course Screen`;
 
     static liveStreamScreen = `Live Stream Screen`;
+
+    static noCourseResultScreen = `No Course Result Screen`;
 
     // Input
     static nameTextField = `Name TextField`;
@@ -141,14 +141,6 @@ export class TeacherKeys {
 
     static joinAllButton = `Join All Button`;
 
-    static forgotPasswordButton = `Forgot Password Button`;
-
-    static forgotPasswordWithMultiTenantButton = `Forgot Password With Multi Tenant Button`;
-
-    static submitEmailButton = `Submit Email Button`;
-
-    static backToSignInButton = `Back To Sign In Button`;
-
     static filterIcon = `Filter Icon`;
 
     static retryIcon = (index: number, isRetry: boolean): string =>
@@ -162,9 +154,7 @@ export class TeacherKeys {
 
     static annotationButton = `Live Lesson Annotation Button`;
 
-    static closeAnnotationButton = `Live Lesson White Board Close Annotation Button`;
-
-    static toolPicker = `Live Lesson White Board Close Annotation Button`;
+    static toolPicker = `Live Lesson White Board Tool Picker`;
 
     static selectorTool = `Live Lesson White Board Selector Tool`;
 
@@ -184,11 +174,16 @@ export class TeacherKeys {
 
     static eraserTool = `Live Lesson White Board Eraser Tool`;
 
-    static annotationBarStrokePathKey = (size: number, selected: boolean) =>
+    static annotationBarStrokePathKey = (size: number, selected: boolean): string =>
         `Live Lesson Annotation Bar Stroke Path size ${size} selected ${selected}`;
 
-    static annotationBarColorPickerColorIndexKey = (colorIndex: number, selected: boolean) =>
+    static annotationBarColorPickerColorIndexKey = (
+        colorIndex: number,
+        selected: boolean
+    ): string =>
         `Live Lesson Annotation Bar Color Picker Color Index ${colorIndex} selected ${selected}`;
+
+    static closeAnnotationButton = `Live Lesson White Board Close Annotation Button`;
 
     static studentCommentPostButton = `Student Comment Post Button`;
 
@@ -235,6 +230,8 @@ export class TeacherKeys {
 
     static studyPlanTab = `Study Plan Tab`;
 
+    static statisticsTab = `Statistics Tab`;
+
     static studentTab = `Student Tab`;
 
     static materialTab = `Material Tab`;
@@ -242,12 +239,6 @@ export class TeacherKeys {
     static studentInfoTab = `Student Information Tab`;
 
     static studentStudyPlanTab = `Student Study Plan Tab`;
-
-    static statisticsTab = `Statistics Tab`;
-
-    static pollingStatsTabKey = `Polling Stats Tab`;
-
-    static pollingDetailTabKey = `Polling Detail Tab`;
 
     // Item
     static classItem = (name: string): string => `${name} Class Item`;
@@ -292,36 +283,20 @@ export class TeacherKeys {
     //View
     static actionBar = `Action Bar`;
 
-    static studentStudyPlanView = `Student Study Plan View`;
-
     static studentInformationView = `Student Information View`;
 
-    static videoLiveLessonView = (videoId: string): string => `Live Lesson Video View ${videoId}`;
+    static videoLiveLessonView = (videoId: string): string => `Video Live Lesson View ${videoId}`;
 
     // Screen
-    static email_login_screen = `Email Login Screen`;
-
-    static phone_login_screen = `Phone Login Screen`;
-
-    static home_screen = `Home Screen`;
-
     static toReviewScreen = `To Review Screen`;
 
-    static submissionDetailsScreen = `Submission Details Screen`;
+    static loginScreenKey = `Login Screen String`;
 
-    static login_screen_key = `Login Screen String`;
+    static forgotPasswordScreenKey = `Forgot Password Screen String`;
 
-    static forgot_password_screen_key = `Forgot Password Screen String`;
+    static submittedEmailScreenKey = `Submitted Email Screen String`;
 
-    static submitted_email_screen_key = `Submitted Email Screen String`;
-
-    static email_text_field = `Email TextField`;
-
-    static organization_text_field = `Organization TextField`;
-
-    static phone_text_field = `Phone TextField`;
-
-    static password_text_field = `Password TextField`;
+    static organizationTextField = `Organization TextField`;
 
     static conversationFilterTextField = `Conversation Filter TextField`;
 
@@ -333,22 +308,14 @@ export class TeacherKeys {
         return `Parent Conversation Item ${studentId}`;
     }
 
-    static noCourseResultScreen = `No Course Result Screen`;
-
     // Button
-    static login_button = `Login Button`;
-
-    static login_with_phone_number_button = `Login with Phone number Button`;
-
-    static login_with_email_address_button = `Login with Email address`;
+    static loginWithPhoneNumberButton = `Login with Phone number Button`;
 
     static toReviewButton = `To Review Button`;
 
     static attachYourMaterials = `Attach your materials`;
 
     static saveChangesButton = `Save Changes Button`;
-
-    static saveAndReturnButton = `Save And Return Button`;
 
     static userProfileButton = `User Profile Button`;
 
@@ -376,42 +343,27 @@ export class TeacherKeys {
 
     static handOffButton = `Hand Off Button`;
 
+    static forgotPasswordButton = `Forgot Password Button`;
+
+    static loginWithNormalFlowButton = `Login With Normal Flow Button`;
+
+    static loginWithMultiTenantButton = `Login With Multi Tenant Button`;
+
+    static forgotPasswordWithMultiTenantButton = `Forgot Password With Multi Tenant Button`;
+
+    static submitEmailButton = `Submit Email Button`;
+
+    static backToSignInButton = `Back To Sign In Button`;
+
     // Text Field
-    static gradeTextField = `Grade Text Field`;
-
-    static maxGradeTextField = (maxGrade: string): string => `Max Grade ${maxGrade}`;
-
-    static assignmentNameTextField = (name: string): string => `Assignment Name ${name}`;
-
-    static assignmentTextFeedbacksTextField = `Assignment text feedbacks`;
-
     static assignmentInstructionEmptyView = `Assignment Instruction Empty View`;
 
     static assignmentInstructionTextField = (instruction: string): string =>
         `Assignment Instruction ${instruction}`;
 
-    static assignmentStudentNoteTextField = (note: string): string =>
-        `Assignment Student Note ${note}`;
-
     // Drop Down
-    static statusDropDown = `Status Drop Down`;
-
-    static notMarkedDropDown = `Not Marked Drop Down Button`;
-
-    static inProgressDropDown = `In Progress Drop Down Button`;
-
-    static markedDropDown = `Marked Drop Down Button`;
-
-    static returnedDropDown = `Returned Drop Down Button`;
 
     static courseStudyPlanDropdown = `Course Study Plan Drop Down`;
-
-    // File Test
-    static imageTestFile = `image_test_file.jpeg`;
-
-    static pdfTestFile = `pdf_test_file.pdf`;
-
-    static videoTestFile = `video_test_file.mp4`;
 
     static submission = (index: number): string => `Submission${index}`;
 
@@ -435,27 +387,14 @@ export class TeacherKeys {
 
     static studentStudyPlanScreen = `Student Study Plan Screen`;
 
-    //Please waitFor studentStudyPlanItemList key if you need table loaded data
     static studentStudyPlanScrollView = `Student Study Plan Scroll View`;
 
     static courseStudyPlanScreen = `Course Study Plan Screen`;
 
     static courseStudyPlanAssignmentScreen = `Course Study Plan Assignment Screen`;
 
-    static scoreCourseStudyPlanAssignmentScreen = `Score Course Study Plan Assignment Screen`;
-
-    static submissionStudentName = `Submission Student Name`;
-
     // Tab
     static liveLessonTab = `Live Lesson Tab`;
-
-    // Remove file
-    static removeFile = (fileName: string): string => `remove ${fileName}`;
-
-    // Remove file
-    static removeTestFile = `Remove Test File`;
-
-    static returnButton = `Return button`;
 
     static selectCourseDropDown = `Select course drop down`;
 
@@ -499,12 +438,6 @@ export class TeacherKeys {
 
     static studyPlanTopicListEmpty = `Study Plan Topic List Empty`;
 
-    static studyPlanTopicProgress = (topicName: string, completed: number, total: number): string =>
-        `Study Plan Topic ${topicName} Progress ${completed}/${total}`;
-
-    static studentStudyPlanTopicRow = (topicName: string): string =>
-        `Student Study Plan Topic Row ${topicName}`.replace("'", '');
-
     static pageControl = `Page Control`;
 
     static firstTopic = `First Topic`;
@@ -534,18 +467,6 @@ export class TeacherKeys {
     static classMemberActionMore = (studentName: string): string =>
         `${studentName} Class Member Action More`;
 
-    static classMemberActionPopup = `Class Member Action Pop up`;
-
-    static classMemberActionGrade = `Class Member Action Grade`;
-
-    static classMemberActionChangeDueDate = `Class Member Action Change Due Date`;
-
-    static classMemberActionRemoveSubmission = `Class Member Action Remove Submission`;
-
-    static removeSubmissionConfirmDialog = `Remove Submission Confirm Dialog`;
-
-    static cancelRemoveSubmissionConfirmDialog = `Cancel Remove Submission Confirm Dialog`;
-
     static assignmentStudentSubmissionRow = (studentName: string): string =>
         `${studentName} Assignment Student Submission Row`;
 
@@ -571,48 +492,7 @@ export class TeacherKeys {
 
     static liveLessonScreenShareBar = `Live Lesson Screen Bar View`;
 
-    static studentStudyPlanDropDown = `Student Study Plan Dropdown`;
-
-    static studentStudyPlanDropDownDisable = `Student Study Plan Dropdown Disable`;
-
-    static studentStudyPlanItemList = `Student Study Plan Item List`;
-
-    static studentStudyPlanItemListInATopic = (topicName: string): string =>
-        `Student Study Plan Item List In A Topic ${topicName}`;
-
-    static studentStudyPlanTopicWithPosition = (topicName: string, position: number): string =>
-        `Student Study Plan Topic ${topicName} at ${position}`;
-
     static studentStudyPlanItemEmptyList = `Student Study Plan Item Empty List`;
-
-    static studentStudyPlanName = (studyPlanName: string): string =>
-        `Student Study Plan ${studyPlanName}`.replace("'", '');
-
-    static studentStudyPlanItemRow = (studyPlanItemName: string): string =>
-        `Student Study Plan Item Row ${studyPlanItemName}`;
-
-    static studentStudyPlanItemRowVsPosition = (index: number, itemName: string): string =>
-        `Student Study Plan Item Row ${itemName} ${index}`;
-
-    static loContentPopupScreen = `LO Content Popup Screen`;
-
-    static loContentPopupTitleText = (name: string): string => `LO Content Popup Title ${name}`;
-
-    static loContentPopupTitle = `LO Content Popup Title`;
-
-    static loContentPopupStudyGuide = (studyGuide: string): string =>
-        `LO Content Popup Study Guide ${studyGuide}`;
-
-    static loContentPopupVideo = (video: string): string => `LO Content Popup Video ${video}`;
-
-    static studentStudyPlanLOHistoryButton = (loId: string): string =>
-        `Student Study Plan LO History ${loId}`;
-
-    static studentStudyPlanItemGradeText = (studyPlanItem: string, studentName = ''): string =>
-        `Student Study Plan Item Grade ${studyPlanItem} ${studentName}`;
-
-    static studentStudyPlanItemGradeDropdownButton = (studyPlanItem: string): string =>
-        `Student Study Plan Item Grade Dropdown Button ${studyPlanItem}`;
 
     static studentStudyPlanItemStatusDefault = (studyPlanItem: string): string =>
         `Student Study Plan Item Status Default ${studyPlanItem}`;
@@ -638,27 +518,7 @@ export class TeacherKeys {
     static studentStudyPlanItemStatusInProgress = (studyPlanItem: string): string =>
         `Student Study Plan Item Status In Progress ${studyPlanItem}`;
 
-    static studentStudyPlanLOSubmissionHistoryPopup = `Student Study Plan LO Submission History Popup`;
-
-    static studentStudyPlanLOSubmissionHistoryPopupRow = `Student Study Plan LO Submission History Popup Row`;
-
-    static hideHistoryPopupMenu = `Hide history popup menu`;
-
     static selectedStudyPlanItem = `Selected Study Plan Item`;
-
-    static studentStudyPlanItemCheckBox = (studyPlanItemId: string): string =>
-        `Student Study Plan Item Check Box ${studyPlanItemId}`;
-
-    static studentAllStudyPlanItemsCheckBox = (topicId: string): string =>
-        `Student All Study Plan Items Check Box ${topicId}`;
-
-    static editStudyPlanItemTimeButton = `Edit Study Plan Item Time Button`;
-
-    static cancelEditStudyPlanItemTimeButton = `Cancel Edit Study Plan Item Time Button`;
-
-    static okEditStudyPlanItemTimeButton = `OK Edit Study Plan Item Time Button`;
-
-    static okEditStudyPlanItemTimeButtonDisabled = `OK Edit Study Plan Item Time Button Disabled`;
 
     static studentStudyPlanItemStartDate = (studyPlanItemName: string): string =>
         `Study Plan Item ${studyPlanItemName} start date`;
@@ -666,42 +526,7 @@ export class TeacherKeys {
     static studentStudyPlanItemEndDate = (studyPlanItemName: string): string =>
         `Study Plan Item ${studyPlanItemName} end date`;
 
-    static studyPlanItemCompletedDate = (name: string, completedDate: string): string =>
-        `Study Plan Item ${name} ${completedDate}`;
-
-    static editStudyPlanItemErrorMessage = `Edit Study Plan Item Error Message`;
-
     static emptyCourseParticipantList = `Empty Course Participant List`;
-
-    static questionTypeTitle = (questionType: string, questionTitle: string): string =>
-        `${questionType} ${questionTitle}`;
-
-    static answerTypeTitle = (questionType: string, answerTitle: string): string =>
-        `Answer ${questionType} ${answerTitle}`;
-
-    static quizQuestionImg = (img: string): string => `Quiz question img ${img}`;
-
-    static mcqQuestionTypePrefix = `multiple choice`;
-
-    static fibQuestionTypePrefix = `fill in the blank`;
-
-    static miqQuestionTypePrefix = `manual input`;
-
-    static maqQuestionTypePrefix = `multiple answer`;
-
-    static tadQuestionTypePrefix = `term and definition`;
-
-    static powQuestionTypePrefix = `pair of words`;
-
-    static popupReviewQuestionNextButton = `Popup review question next button`;
-
-    static popupReviewQuestionBackButton = `Popup review question back button`;
-
-    static popupReviewQuestionLearningTab = `Popup review question learning tab`;
-
-    static popupReviewQuestionQuizTab = `Popup review question quiz tab`;
-
-    static popupReviewFlashCardTab = `Popup review flash card tab`;
 
     //Tabs
     static joinedTab = `Joined Tab`;
@@ -798,17 +623,6 @@ export class TeacherKeys {
     static liveLessonPageActionBar = (page: number): string =>
         `Live Lesson Page Action Bar ${page}`;
 
-    static totalLearningProgress = `Total Learning Progress`;
-
-    static quizHistoryDropdown = `Quiz History Dropdown`;
-
-    static quizHistory = `Quiz History`;
-
-    static quizProgressItem = (index: number): string => `Quiz Progress Item index ${index}`;
-
-    static quizCorrectness = (index: number, isCorrect: boolean): string =>
-        `Quiz index ${index} is correct : ${isCorrect}`;
-
     static disconnectingScreenLiveLesson = `Disconnecting Screen Live Lesson`;
 
     static leaveGroupChatDialogButton = `Leave Group Chat Dialog Button`;
@@ -817,32 +631,9 @@ export class TeacherKeys {
 
     static courseAvatarKey = (avatar: string): string => `Course Avatar ${avatar}`;
 
-    static flashCardTotalCard = (totalCard: number): string => `Flashcard Total Card ${totalCard}`;
-
-    static flashCardListCardQuestion = (index: number, question: string): string =>
-        `Flashcard List Card ${index} ${question}`;
-
-    static flashCardListCardAnswer = (index: number, answer: string): string =>
-        `Flashcard List Card ${index} ${answer}`;
-
-    static flashCardListCardImage = (index: number, img: string): string =>
-        `Flashcard List Card ${index} ${img}`;
-
     static liveLessonConversationUnreadBadge = `Live Lesson Conversation Unread Badge`;
 
     static conversationDetailMenuPopupButton = `Conversation Detail Menu Popup Button`;
-
-    static studyPlanDetailMoreButton = `Study Plan Detail More Button`;
-
-    static editStudyPlanItemSchoolDateMenuPopupButton = `Edit Study Plan Item School Date Menu Popup Button`;
-
-    static archiveStudyPlanItemMenuPopupButton = `Archive Study Plan Item Menu Popup Button`;
-
-    static reactivateStudyPlanItemMenuPopupButton = `Reactivate Study Plan Item Menu Popup Button`;
-
-    static courseStatisticsArchiveStudyPlanItemsMenuPopupButton = `Course Statistics Archive Study Plan Items Menu Popup button`;
-
-    static courseStatisticsUnarchiveStudyPlanItemsMenuPopupButton = `Course Statistics Unarchive Study Plan Items Menu Popup button`;
 
     static studyPlanItemV2StartEndDate = (
         studyPlanName: string,
@@ -856,40 +647,9 @@ export class TeacherKeys {
     static studyPlanItemV2SchoolDate = (studyPlanName: string, schoolDate: string): string =>
         `Study Plan Item ${studyPlanName} ${schoolDate}`;
 
-    static studyPlanItemStartDatePicker = `Study Plan Item start date picker`;
-
-    static studyPlanItemStartDateClearIconButton = `Study Plan Item start date clear icon button`;
-
-    static studyPlanItemEndDatePicker = `Study Plan Item end date picker`;
-
-    static studyPlanItemEndDateClearIconButton = `Study Plan Item end date clear icon button`;
-
-    static studyPlanItemSchoolDatePicker = `Study Plan Item school date picker`;
-
-    static setUpPollingView = `Set Up Polling View`;
-
-    static setUpPollingOptionKey = (optionName: string, isCorrect: boolean): string =>
-        `SetUp Polling Option Key ${optionName} ${isCorrect}`;
-
-    static teachingPollButtonWithActiveStatus = (isActive: boolean): string =>
-        `Polling Button With Active Status ${isActive}`;
-
-    static startPollingButton = `Start Polling Button`;
-
-    static hidePollingButton = `Hide Polling Button`;
-
-    static pollingStatsPageKey = `Polling Stats Page`;
-
-    static pollingDetailPageKey = `Polling Detail Page`;
-
-    static teachingPollStopPollingButtonWithStatus = (pollingStatus: string): string =>
-        `Stop Polling Button With Status ${pollingStatus}`;
-
     static liveLessonTeacherPollAddQuizOptionButtonKey = `Live Lesson Add Quiz Option Button Key`;
 
     static liveLessonTeacherPollRemoveQuizOptionButtonKey = `Live Lesson Remove Quiz Option Button Key`;
-
-    static liveLessonEndedPollingTeacherOkButton = `Live Lesson Ended Polling Teacher Ok Button`;
 
     static participantListButton = `Participant List Button`;
 
@@ -899,21 +659,6 @@ export class TeacherKeys {
     static studentInfoName = (userId: string, name: string): string =>
         `Student Info Name - ${userId} ${name}`;
 
-    static liveLessonPollingStatsPageSubmissionTextKey = (submission: string): string =>
-        `Live Lesson Polling Stats Page Submission Text Key ${submission}`;
-
-    static liveLessonPollingStatsPageAccuracyTextKey = (accuracy: string): string =>
-        `Live Lesson Polling Stats Page Accuracy Text Key ${accuracy}`;
-
-    static liveLessonPollingListAnswerKey = `Live Lesson Polling List Answer Key`;
-
-    static liveLessonPollingDetailsLearnerAnswerKey = (
-        userId: string,
-        answer: string,
-        isLearnerAnswerCorrectAtLestOneOption: boolean
-    ): string =>
-        `Live Lesson Polling Details Learner Answer Key userId ${userId} answer ${answer} isLearnerAnswerCorrectAtLestOneOption ${isLearnerAnswerCorrectAtLestOneOption}`;
-
     static filterConversationByCoursePopupButton = `Filter Conversation By Course Popup Button`;
 
     static filterConversationByCourseItemKey = (courseId: string): string =>
@@ -921,32 +666,21 @@ export class TeacherKeys {
 
     static courseFilterScrollView = `Course Filter Scroll View`;
 
-    static studentStudyPlanTopicAvatar = (url: string): string =>
-        `Student Study Plan Topic Avatar ${url}`;
-
-    static studentStudyPlanTopicGrade = (topicName: string): string =>
-        `Student Study Plan Topic Grade ${topicName}`;
-
-    static studentStudyPlanHistoryPopupLearningRecord = (index: number): string =>
-        `Student StudyPlan History Popup Grade ${index}`;
-
-    static studentStudyPlanHistoryPopupLO = `Student StudyPlan History Popup LO`;
-
-    static pinnedUserView = (userId: string, active: boolean): string =>
-        `Pinned User View ${userId} ${active}`;
+    static pinnedUserView = (userId: string): string => `Pinned User View ${userId}`;
 
     static unpinButton = `Unpin Button`;
 
     // Location filter
 
-    static locationSettingProfilePopupButton = `Location Setting Profile Popup Button`;
-
     static locationTreeViewScrollView = `Location Tree View Scroll View`;
 
-    static locationCheckStatus = (locationId: string, status: string): string =>
-        `location check status: ${locationId} - ${status}`;
-
     static selectLocationDialogApplyButtonKey = `Select Location Dialog Apply Button Key`;
+
+    static selectLocationDialogConfirmAcceptApplyingButtonKey = `Select Location Dialog Confirm Accept Applying Button Key`;
+
+    static selectLocationDialogCloseIconAcceptApplyingButtonKey = `Select Location Dialog Close Icon Accept Applying Button Key`;
+
+    static selectLocationDialogCancelAcceptApplyingButtonKey = `Select Location Dialog Cancel Accept Applying Button Key`;
 
     static selectLocationDialogCancelButtonKey = `Select Location Dialog Cancel Button Key`;
 
@@ -957,123 +691,5 @@ export class TeacherKeys {
     static actionBarSelectedLocationFieldsKey = (locationsName: string): string =>
         `Action Bar Selected Locations Field ${locationsName}`;
 
-    static selectLocationDialogConfirmAcceptApplyingButtonKey = `Select Location Dialog Confirm Accept Applying Button Key`;
-
-    static selectLocationDialogCloseIconAcceptApplyingButtonKey = `Select Location Dialog Close Icon Accept Applying Button Key`;
-
-    static selectLocationDialogCancelAcceptApplyingButtonKey = `Select Location Dialog Cancel Accept Applying Button Key`;
-
-    static liveLessonScreenVisible = (index: number): string =>
-        `Live Lesson Screen Visible ${index}`;
-
-    static invalidURLScreen = `Invalid URL Screen`;
-
-    static taskAssignmentCompleteDateTextFormField = `Task Assignment Complete Date Text Form Field`;
-
-    static taskAssignmentDurationTextFormField = `Task Assignment Duration Text Form Field`;
-
-    static taskAssignmentCorrectTextFormField = `Task Assignment Correct Text Form Field`;
-
-    static taskAssignmentTotalTextFormField = `Task Assignment Total Text Form Field`;
-
-    static taskAssignmentTextNoteTextFormField = `Task Assignment Text Note Text Form Field`;
-
-    static taskAssignmentAttachmentButton = `Task Assignment Attachment Button`;
-
-    static taskAssignmentRemoveButton = `Task Assignment Remove Button`;
-
-    static taskAssignmentRemovePopupItem = `Task Assignment Remove Popup Item`;
-
-    static taskAssignmentRemoveOption = `Task Assignment Remove Option`;
-
-    static taskAssignmentUnderstandingLevel = (selectedUnderstandingLevel: string): string =>
-        `Task Assignment Understanding Level selected UnderstandingLevel ${selectedUnderstandingLevel}`;
-
-    static taskAssignmentStatus = (isComplete: boolean): string =>
-        `Task Assignment ${isComplete ? `complete` : `incomplete`} status`;
-
-    static taskAssignmentSaveButtonWithCondition = (isEnabled: boolean): string =>
-        `Task Assignment Save Button is enabled : ${isEnabled}`;
-
-    static taskAssignmentAttachmentFiles = (index: number): string =>
-        `Task Assignment Attachment Files ${index}`;
-
-    static taskAssignmentScrollBodyView = `Task Assignment Scroll Body View`;
-
-    static attachmentLoading = `Attachment Loading`;
-
-    static taskAssignmentAttachmentLoading = (index: number): string =>
-        `Task Assignment Attachment Loading ${index}`;
-
-    static deleteAttachmentButtonByFileName = (fileName: string): string =>
-        `Delete Attachment Button By File Name ${fileName}`;
-
-    static cameraDisplay = (userId: string, active: boolean): string =>
-        `Camera Display ${userId} ${active}`;
-
-    static liveLessonNoneCameraView = (userId: string): string =>
-        `Live Lesson None Camera View ${userId}`;
-
-    static liveLessonSpeakerStatus = (userId: string, active: boolean): string =>
-        `Live Lesson Speaker Status ${userId} ${active}`;
-
-    static flashCardStatus = (isCompleted: boolean): string =>
-        `Flashcard Status ${isCompleted ? `Completed` : `Incompleted`}`;
-
-    static cameraDisplayOptionButton = (userId: string): string =>
-        `Camera Display Option Button ${userId}`;
-
-    static cameraDisplayOptionsMenu = (options: string[]): string =>
-        `Camera Display Option Menu ${options.join(`-`)}`;
-
-    static cameraDisplayOptionItem = (text: string, enable: boolean): string =>
-        `Camera Display Option Item ${text} ${enable}`;
-
-    static courseStatisticsTopicName = (topicName: string): string =>
-        `Course Statistics Topic ${topicName}`;
-
-    static courseStatisticsTopicAverageGrade = (averageGrade: string, topicName: string): string =>
-        `Course Statistics Topic Average Grade ${topicName} ${averageGrade}`;
-
-    static courseStatisticsTopicCompletedStudent = (
-        completedStudent: string,
-        topicName: string
-    ): string => `Course Statistics Topic Completed Student ${topicName} ${completedStudent}`;
-
-    static courseStatisticsStudyPlanDropdownKey = `Course Statistics Study Plan Dropdown Key`;
-
-    static courseStatisticsClassDropdownKey = `Course Statistics Class Dropdown Key`;
-
-    static courseStatisticsStudyPlanItemName = (studyPlanItemName: string): string =>
-        `Course Statistics Study Plan Item ${studyPlanItemName}`;
-
-    static courseStatisticsStudyPlanItemAverageGrade = (
-        averageGrade: string,
-        studyPlanItemName: string
-    ): string =>
-        `Course Statistics Study Plan Item Average Grade ${studyPlanItemName} ${averageGrade}`;
-
-    static cameraDisplayContainerKey = (userId: string, isSpotlighting: boolean) =>
-        `Camera Display Container Key ${userId} ${isSpotlighting}`;
-
-    static spotlightIconKey = (userId: string) => `Spotlight Icon Key ${userId}`;
-
-    static courseStatisticsStudyPlanItemCompletedStudent = (
-        completedStudent: string,
-        studyPlanItemName: string
-    ): string =>
-        `Course Statistics Study Plan Item Completed Student ${studyPlanItemName} ${completedStudent}`;
-
-    static previewButtonKey = (active: boolean): string => `Preview Button Key ${active}`;
-
-    static previewThumbnailList = `Preview Thumbnail List`;
-
-    static itemPreviewThumbnail = (index: number, selected: boolean) =>
-        `Item Preview Thumbnail ${index} ${selected}`;
-
-    static courseStatisticsClassName = (className: string): string =>
-        `Course Statistics Class Name ${className}`;
-
-    static courseStatisticsStudyPlanName = (studyPlanName: string): string =>
-        `Course Statistics Study Plan Name ${studyPlanName}`;
+    static invalidUrlScreen = `Invalid URL Screen`;
 }

@@ -28,6 +28,13 @@ const configuration: ManabieConfiguration = {
                 schemaPath: './supports/graphql/__generated__/fatima/schema.graphql',
                 rootTypePath: './supports/graphql/__generated__/fatima/root-types.ts',
             },
+            {
+                inputDocument: './supports/graphql/invoicemgmt/*.{ts,graphql}',
+                outputType: './supports/graphql/invoicemgmt/invoicemgmt-types.ts',
+                outputQuery: './supports/graphql/__generated__/invoicemgmt/all-queries.graphql',
+                schemaPath: './supports/graphql/__generated__/invoicemgmt/schema.graphql',
+                rootTypePath: './supports/graphql/__generated__/invoicemgmt/root-types.ts',
+            },
         ],
     },
     hasura: {
@@ -65,6 +72,18 @@ const configuration: ManabieConfiguration = {
                 graphqlFilePaths: './supports/graphql/__generated__/fatima/all-queries.graphql',
                 metadataPath: './supports/graphql/__generated__/fatima/metadata',
                 logFile: './supports/graphql/__generated__/fatima/log.json',
+            },
+            {
+                hasuraUrl: 'https://admin.staging-green.manabie.io/invoicemgmt/',
+                localHasuraUrl: 'https://admin.local-green.manabie.io:31600/invoicemgmt',
+                schemaPath: './supports/graphql/__generated__/invoicemgmt/schema.graphql',
+                secretEnvName: {
+                    ADMIN_SECRET: 'MANA_ADMIN_SECRET_INVOICEMGMT',
+                },
+                graphqlFilePaths:
+                    './supports/graphql/__generated__/invoicemgmt/all-queries.graphql',
+                metadataPath: './supports/graphql/__generated__/invoicemgmt/metadata',
+                logFile: './supports/graphql/__generated__/invoicemgmt/log.json',
             },
         ],
     },

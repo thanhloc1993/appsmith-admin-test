@@ -2,7 +2,6 @@ import { sampleFlashcardCardImg } from '@supports/constants';
 
 import { genId } from '../../../step-definitions/utils';
 import shuffle from 'lodash/shuffle';
-import { UpsertQuizRequest } from 'manabie-yasuo/course_pb';
 import { RichText } from 'manabie-yasuo/quiz_pb';
 import {
     ContentBasicInfo,
@@ -18,6 +17,7 @@ import {
     UpsertSingleQuizRequest,
 } from 'manabuf/eureka/v1/quiz_modifier_pb';
 import { Int32Value } from 'manabuf/google/protobuf/wrappers_pb';
+import { UpsertFlashcardContentRequest } from 'manabuf/syllabus/v1/quiz_service_pb';
 
 // TODO: To centralize, later we update from upsertQuiz to upsertQuizV2 easy
 export interface Quiz extends Omit<QuizCoreV2.AsObject, 'info'> {
@@ -30,12 +30,23 @@ export interface Quiz extends Omit<QuizCoreV2.AsObject, 'info'> {
 }
 
 type UpsertRequest =
-    | UpsertQuizRequest.AsObject
     | UpsertQuizV2Request.AsObject
-    | UpsertSingleQuizRequest.AsObject;
+    | UpsertSingleQuizRequest.AsObject
+    | UpsertFlashcardContentRequest.AsObject;
 
-const isUpsertV2 = (media: UpsertRequest): media is UpsertQuizV2Request.AsObject => {
-    return (media as UpsertQuizV2Request.AsObject).quizzesList !== undefined;
+const isUpsertV2 = (request: UpsertRequest): request is UpsertQuizV2Request.AsObject => {
+    const upsertQuizV2Request = request as UpsertQuizV2Request.AsObject;
+    return upsertQuizV2Request.quizzesList !== undefined;
+};
+
+const isUpsertFlashcardContentRequest = (
+    request: UpsertRequest
+): request is UpsertFlashcardContentRequest.AsObject => {
+    const upsertFlashcardContentRequest = request as UpsertFlashcardContentRequest.AsObject;
+    return Boolean(
+        upsertFlashcardContentRequest.quizzesList !== undefined &&
+            upsertFlashcardContentRequest.flashcardId
+    );
 };
 
 const isUpsertSingleQuiz = (media: UpsertRequest): media is UpsertSingleQuizRequest.AsObject => {
@@ -52,6 +63,15 @@ export const convertUpsertQuizRequestToQuiz = (request: UpsertRequest): Quiz[] =
             },
         ];
     }
+
+    if (isUpsertFlashcardContentRequest(request)) {
+        const { quizzesList, flashcardId, kind } = request;
+
+        return quizzesList.map((quizCore) => {
+            return { ...quizCore, loId: flashcardId, kind, schoolId: 99999999 };
+        });
+    }
+
     if (isUpsertV2(request)) {
         const quizzes: Quiz[] = [];
         request.quizzesList.forEach(({ loId, quiz }) => {
@@ -66,15 +86,7 @@ export const convertUpsertQuizRequestToQuiz = (request: UpsertRequest): Quiz[] =
         return quizzes;
     }
 
-    const requestV1 = request as unknown as UpsertQuizRequest.AsObject;
-
-    return [
-        {
-            ...requestV1.quiz!,
-            loId: requestV1.loId,
-            questionTagIdsList: [],
-        },
-    ];
+    throw new Error('Cannot convertUpsertQuizRequestToQuiz');
 };
 
 export const toRichText = (override?: string) => {
@@ -150,7 +162,7 @@ export const constructQuizAttribute = (attr: QuizItemAttribute.AsObject): QuizIt
     return attribute;
 };
 
-const constructQuizCoreV2 = (quiz: Quiz) => {
+export const constructQuizCoreV2 = (quiz: Quiz) => {
     const { kind, attribute, schoolId, taggedLosList, optionsList, question, point } = quiz;
 
     const quizCore = new QuizCoreV2();
@@ -233,11 +245,20 @@ export const createQuizContent = (
         attribute?: Quiz['attribute'];
         // TODO: Remove this option
         shouldCreateFIBWithOneAnswer?: boolean;
+        applyHandwriting?: boolean;
     } = {}
 ): Quiz => {
-    const { shouldCreateFIBWithOneAnswer, point, ...rest } = payload;
+    const { shouldCreateFIBWithOneAnswer, applyHandwriting, point, ...rest } = payload;
+
     switch (info.kind) {
         case QuizType.QUIZ_TYPE_POW: {
+            const optionLanguage = applyHandwriting
+                ? QuizItemAttributeConfig.LANGUAGE_CONFIG_ENG
+                : QuizItemAttributeConfig.FLASHCARD_LANGUAGE_CONFIG_ENG;
+
+            const questionLanguage = applyHandwriting
+                ? QuizItemAttributeConfig.LANGUAGE_CONFIG_JP
+                : QuizItemAttributeConfig.FLASHCARD_LANGUAGE_CONFIG_JP;
             return {
                 taggedLosList: [],
                 configList: [],
@@ -248,7 +269,7 @@ export const createQuizContent = (
                         key: '',
                         label: '',
                         attribute: createDefaultQuizAttributes({
-                            configsList: [QuizItemAttributeConfig.FLASHCARD_LANGUAGE_CONFIG_ENG],
+                            configsList: [optionLanguage],
                         }),
                         content: {
                             // TODO: Please don't use answerContent we will remove
@@ -258,7 +279,7 @@ export const createQuizContent = (
                     },
                 ],
                 attribute: {
-                    configsList: [QuizItemAttributeConfig.FLASHCARD_LANGUAGE_CONFIG_JP],
+                    configsList: [questionLanguage],
                     audioLink: '',
                     imgLink: info.answerContent ? '' : sampleFlashcardCardImg, // because if there is img in learner app, cannot find the answer field key
                 },

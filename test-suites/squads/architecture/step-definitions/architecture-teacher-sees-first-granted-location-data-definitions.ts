@@ -9,6 +9,7 @@ import {
 } from '@legacy-step-definitions/alias-keys/lesson';
 import { createLessonManagementIndividualLessonWithGRPC } from '@legacy-step-definitions/lesson-teacher-submit-individual-lesson-report-definitions';
 import { TeacherKeys } from '@legacy-step-definitions/teacher-keys/teacher-keys';
+import { learnerProfileAliasWithAccountRoleSuffix } from '@user-common/alias-keys/user';
 
 import { CMSInterface, TeacherInterface } from '@supports/app-types';
 import { LocationItemCheckBoxStatus } from '@supports/enum';
@@ -106,9 +107,12 @@ export async function createStudentWithCourseUnderFirstGrantedLocation(
         locations: [firstGrantedLocation],
         studentPackageProfileLength: 1,
     });
+    const student = result.student;
+
     scenarioContext.set(aliasStudentName, result.student.name);
     scenarioContext.set(aliasCourseName, result.courses[0].name);
     scenarioContext.set(aliasCourseId, result.courses[0].id);
+    scenarioContext.set(learnerProfileAliasWithAccountRoleSuffix('student'), student);
 }
 
 export async function createLessonWithCourseUnderFirstGrantedLocation(

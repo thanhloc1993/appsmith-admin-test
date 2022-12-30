@@ -51,6 +51,7 @@ export class LessonManagementService {
             const studentInfoProto = new CreateLessonRequest.StudentInfo();
             studentInfoProto.setStudentId(studentInfo.studentId);
             studentInfoProto.setCourseId(studentInfo.courseId);
+            studentInfoProto.setLocationId(studentInfo.locationId);
             studentInfoProto.setAttendanceStatus(studentInfo.attendanceStatus);
             studentInfoProto.setAttendanceNote(studentInfo.attendanceNote);
             studentInfoProto.setAttendanceNotice(studentInfo.attendanceNotice);

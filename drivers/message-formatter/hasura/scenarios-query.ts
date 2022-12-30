@@ -20,6 +20,7 @@ const upsertScenarios = gql`
                     ended_at
                     pickle
                     test_case
+                    feature_path
                 ]
             }
         ) {

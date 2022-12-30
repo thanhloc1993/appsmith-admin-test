@@ -2,6 +2,7 @@ export enum Menu {
     STUDENTS = 'Students',
     STAFF = 'Staff Management',
     COURSES = 'Course',
+    GRADE_BOOK = 'Grade Book',
     BOOKS = 'Book',
     SCHEDULE = 'Schedule',
     NOTIFICATION = 'Notification',

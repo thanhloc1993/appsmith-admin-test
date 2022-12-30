@@ -1,4 +1,4 @@
 import { convertEnumKeys } from '../../../step-definitions/utils';
-import { QuizType } from 'manabie-yasuo/quiz_pb';
+import { QuizType } from 'manabuf/common/v1/contents_pb';
 
 export const KeyQuizType = convertEnumKeys(QuizType);

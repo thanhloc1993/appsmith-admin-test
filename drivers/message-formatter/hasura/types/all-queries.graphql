@@ -56,6 +56,7 @@ mutation mutateScenarios($arg: e2e_scenarios_insert_input!) {
                 ended_at
                 pickle
                 test_case
+                feature_path
             ]
         }
     ) {

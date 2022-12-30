@@ -136,6 +136,7 @@ export type QuizTypeTitle =
     | 'fill in the blank'
     | 'manual input'
     | 'multiple answer'
+    | 'ordering'
     | 'term and definition'
     | 'pair of words';
 

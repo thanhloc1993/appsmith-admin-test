@@ -61,6 +61,8 @@ Given('school admin has updated the teacher user group', async function (this: I
             name: staff.name,
             email: staff.email,
             userGroupIdsList: userGroupIdsList,
+            // TODO: @dvbtrung2302 update when integrate update staff with phonetic
+            full_name_phonetic: '',
         });
     });
 });

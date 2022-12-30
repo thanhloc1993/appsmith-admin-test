@@ -1,3 +1,4 @@
+import { IWorldOptions } from '@cucumber/cucumber';
 import { TestStepResultStatus } from '@cucumber/messages';
 
 import { BrowserContext, Page, Response } from 'playwright';
@@ -205,6 +206,7 @@ export interface IMasterWorld {
     unleashAdmin: UnleashAdminInterface;
     scenario: ScenarioContext;
     counter: number;
+    options: IWorldOptions;
     attachMessageAndStatusInstance: (
         message: string,
         status: TestStepResultStatus

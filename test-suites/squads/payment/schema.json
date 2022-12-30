@@ -1,0 +1,1103 @@
+{
+    "countScenarios": 122,
+    "features": {
+        "Cannot apply one-time fee to order": {
+            "countScenarios": 5,
+            "path": "test-suites/squads/payment/features/one-time-fee-order/cannot-apply-one-time-fee-to-order.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-fee-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Cannot apply <typeOfOneTimeFee> to order | expired available from and until > current date false": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Cannot apply <typeOfOneTimeFee> to order | future available from and until < current date false": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Cannot apply <typeOfOneTimeFee> to order | archived available from < current date < available until true": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Cannot submit the order after user updated one-time fee's <value> | location": {
+                    "tags": [],
+                    "line": 26,
+                    "keyword": "Scenario Outline"
+                },
+                "Cannot submit the order after user updated one-time fee's <value> | grade": {
+                    "tags": [],
+                    "line": 26,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Check product list is refreshed after change the location in one-time fee order": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/payment/features/one-time-fee-order/check-product-list-is-refreshed-after-change-location-in-one-time-fee-order.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-fee-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "One-time fee is remove after user change the location": {
+                    "tags": [],
+                    "line": 13,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Create one-time fee order with discount": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/payment/features/one-time-fee-order/create-one-time-fee-order-with-discount.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-fee-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Create order with one one-time fee and discount by <discountAmountType> | DISCOUNT_AMOUNT_TYPE_FIXED_AMOUNT": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Create order with one one-time fee and discount by <discountAmountType> | DISCOUNT_AMOUNT_TYPE_PERCENTAGE": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Create one-time fee order with inclusive tax and discount": {
+            "countScenarios": 3,
+            "path": "test-suites/squads/payment/features/one-time-fee-order/create-one-time-fee-order-with-inclusive-tax-and-discount.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-fee-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Create order with 1 one-time fee with discount by <discountAmountType> and inclusive tax | DISCOUNT_AMOUNT_TYPE_FIXED_AMOUNT": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Create order with 1 one-time fee with discount by <discountAmountType> and inclusive tax | DISCOUNT_AMOUNT_TYPE_PERCENTAGE": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Create order with 3 one-time fees with different discount and different inclusive tax": {
+                    "tags": [],
+                    "line": 30,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Create one-time fee order with inclusive tax": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/payment/features/one-time-fee-order/create-one-time-fee-order-with-inclusive-tax.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-fee-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Create order with 1 one-time fee with inclusive tax": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                },
+                "Create order with 3 one-time fees with different inclusive tax": {
+                    "tags": [],
+                    "line": 25,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Create one-time fee order with multiple one-time fees and discount": {
+            "countScenarios": 5,
+            "path": "test-suites/squads/payment/features/one-time-fee-order/create-one-time-fee-order-with-multiple-one-time-fees-and-discount.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-fee-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Create order with 2 one-time fees and discount by <discountAmountType> | DISCOUNT_AMOUNT_TYPE_FIXED_AMOUNT": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Create order with 2 one-time fees and discount by <discountAmountType> | DISCOUNT_AMOUNT_TYPE_PERCENTAGE": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Create order with 2 one-time fees and discount by <discountAmountType> | DISCOUNT_AMOUNT_TYPE_FIXED_AMOUNT and DISCOUNT_AMOUNT_TYPE_PERCENTAGE": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Create order with 2 one-time fees and only discount by <discountAmountType> for one | DISCOUNT_AMOUNT_TYPE_FIXED_AMOUNT": {
+                    "tags": [],
+                    "line": 30,
+                    "keyword": "Scenario Outline"
+                },
+                "Create order with 2 one-time fees and only discount by <discountAmountType> for one | DISCOUNT_AMOUNT_TYPE_PERCENTAGE": {
+                    "tags": [],
+                    "line": 30,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Create one-time fee order without inclusive tax and discount": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/payment/features/one-time-fee-order/create-one-time-fee-order-without-tax-and-discount.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-fee-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Create order with 1 one-time fee": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                },
+                "Create order with multiple one-time fees": {
+                    "tags": [],
+                    "line": 25,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Round off discount and tax for one-time fee order": {
+            "countScenarios": 5,
+            "path": "test-suites/squads/payment/features/one-time-fee-order/round-off-discount-and-tax-for-one-time-fee-order.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-fee-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "The <inclusiveTaxRound> in billed at order | inclusive tax is rounded up": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "The <inclusiveTaxRound> in billed at order | inclusive tax is rounded down": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "The <discountRound> in billed at order | discount is rounded up": {
+                    "tags": [],
+                    "line": 30,
+                    "keyword": "Scenario Outline"
+                },
+                "The <discountRound> in billed at order | discount is rounded down": {
+                    "tags": [],
+                    "line": 30,
+                    "keyword": "Scenario Outline"
+                },
+                "Round off discount and inclusive tax in billed at order": {
+                    "tags": [],
+                    "line": 49,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Update and submit one-time fee order successfully": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/payment/features/one-time-fee-order/update-and-submit-one-time-fee-order-successfully.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-fee-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Update and submit one-time fee order successfully": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Cannot apply discount to order": {
+            "countScenarios": 3,
+            "path": "test-suites/squads/payment/features/one-time-material-order/cannot-apply-discount-to-order.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-material-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Cannot apply <typeOfDiscount> to order | expired discount available from and until < current date is false": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Cannot apply <typeOfDiscount> to order | future discount available from and until > current date is false": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Cannot apply <typeOfDiscount> to order | archived discount available from < current date < available until is true": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Cannot apply one-time material to order": {
+            "countScenarios": 7,
+            "path": "test-suites/squads/payment/features/one-time-material-order/cannot-apply-one-time-material-to-order.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-material-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Cannot apply <typeOfOneTimeMaterial> to order | expired one-time material available from and until > current date is false": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "Cannot apply <typeOfOneTimeMaterial> to order | future one-time material available from and until < current date is false": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "Cannot apply <typeOfOneTimeMaterial> to order | archived one-time material available from < current date < available until is true": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "Cannot apply one-time material which has different location and grade with student | location L2 grade G1": {
+                    "tags": [],
+                    "line": 24,
+                    "keyword": "Scenario Outline"
+                },
+                "Cannot apply one-time material which has different location and grade with student | location L1 grade G2": {
+                    "tags": [],
+                    "line": 24,
+                    "keyword": "Scenario Outline"
+                },
+                "Cannot submit the order after user updated one-time material's <value> | location": {
+                    "tags": [],
+                    "line": 35,
+                    "keyword": "Scenario Outline"
+                },
+                "Cannot submit the order after user updated one-time material's <value> | grade": {
+                    "tags": [],
+                    "line": 35,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Check billing date and upcoming billing": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/payment/features/one-time-material-order/check-billing-date-and-upcoming-billing.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-material-order"
+            ],
+            "scenarios": {
+                "Apply custom_billing_date and not show upcoming billing for one-time-material order": {
+                    "tags": [
+                        "@ignore"
+                    ],
+                    "line": 12,
+                    "keyword": "Scenario"
+                },
+                "Apply custom_billing_date and show upcoming billing for one-time-material order": {
+                    "tags": [],
+                    "line": 24,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Check billing status for one-time material feature": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/payment/features/one-time-material-order/check-billing-status-of-one-time-material-order.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-material-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Billing status is <billingStatus> | billing date >= current date billed": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Billing status is <billingStatus> | billing date < current date pending": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Check product list is refreshed after change location": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/payment/features/one-time-material-order/check-product-list-is-refreshed-after-change-location-in-one-time-material-order.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-material-order"
+            ],
+            "scenarios": {
+                "One-time material is remove after user change the location": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Create one-time material order unsuccessfully": {
+            "countScenarios": 3,
+            "path": "test-suites/squads/payment/features/one-time-material-order/create-one-time-material-order-unsucessfully.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-material-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Create order unsuccessfully when not add one-time material": {
+                    "tags": [],
+                    "line": 13,
+                    "keyword": "Scenario"
+                },
+                "Create order unsuccessfully when not select one-time material": {
+                    "tags": [],
+                    "line": 19,
+                    "keyword": "Scenario"
+                },
+                "Create order unsuccessfully in case 1 one-time material is not selected": {
+                    "tags": [],
+                    "line": 24,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Create one-time material order with discount": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/payment/features/one-time-material-order/create-one-time-material-order-with-discount.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-material-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Create order with one one-time material and discount by <discountType> | fixed amount": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Create order with one one-time material and discount by <discountType> | percent": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Create one-time material order with inclusive tax and discount": {
+            "countScenarios": 3,
+            "path": "test-suites/squads/payment/features/one-time-material-order/create-one-time-material-order-with-inclusive-tax-and-discount.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-material-order"
+            ],
+            "scenarios": {
+                "Create order with 1 one-time material with discount by <discountAmountType> and inclusive tax | DISCOUNT_AMOUNT_TYPE_FIXED_AMOUNT": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "Create order with 1 one-time material with discount by <discountAmountType> and inclusive tax | DISCOUNT_AMOUNT_TYPE_PERCENTAGE": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario Outline"
+                },
+                "Create order with 3 one-time materials with different discount and different inclusive tax": {
+                    "tags": [],
+                    "line": 29,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Create one-time material order with inclusive tax": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/payment/features/one-time-material-order/create-one-time-material-order-with-inclusive-tax.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-material-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Create order with 1 one-time material with inclusive tax": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                },
+                "Create order with 3 one-time materials with inclusive tax": {
+                    "tags": [],
+                    "line": 21,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Create one-time material order with multiple one-time materials and discount": {
+            "countScenarios": 5,
+            "path": "test-suites/squads/payment/features/one-time-material-order/create-one-time-material-order-with-multiple-one-time-materials-and-discount.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-material-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Create order with 2 one-time materials and discount by fixed amount for both": {
+                    "tags": [],
+                    "line": 14,
+                    "keyword": "Scenario"
+                },
+                "Create order with 2 one-time materials and discount by percent for both": {
+                    "tags": [],
+                    "line": 24,
+                    "keyword": "Scenario"
+                },
+                "Create order with 2 one-time materials and discount by percent and fixed amount": {
+                    "tags": [],
+                    "line": 34,
+                    "keyword": "Scenario"
+                },
+                "Create order with 2 one-time materials and only discount by <discountType> for one | percent": {
+                    "tags": [],
+                    "line": 44,
+                    "keyword": "Scenario Outline"
+                },
+                "Create order with 2 one-time materials and only discount by <discountType> for one | fixed amount": {
+                    "tags": [],
+                    "line": 44,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Create one-time material order without tax and discount": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/payment/features/one-time-material-order/create-one-time-material-order-without-tax-and-discount.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-material-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Create order with <numberOfOneTimeMaterial> | 1 one-time material": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Create order with <numberOfOneTimeMaterial> | 2 one-time materials": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Remove one-time material on product list successfully": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/payment/features/one-time-material-order/remove-one-time-material-on-product-list.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-material-order"
+            ],
+            "scenarios": {
+                "Remove one-time material successfully": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Round off the discount and inclusive tax for one-time material order": {
+            "countScenarios": 5,
+            "path": "test-suites/squads/payment/features/one-time-material-order/round-off-discount-and-tax-for-one-time-material-order.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-material-order"
+            ],
+            "scenarios": {
+                "The <inclusiveTaxRound> in billed at order | inclusive tax is rounded up": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario Outline"
+                },
+                "The <inclusiveTaxRound> in billed at order | inclusive tax is rounded down": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario Outline"
+                },
+                "The <discountRound> in billed at order | discount is rounded up": {
+                    "tags": [],
+                    "line": 28,
+                    "keyword": "Scenario Outline"
+                },
+                "The <discountRound> in billed at order | discount is rounded down": {
+                    "tags": [],
+                    "line": 28,
+                    "keyword": "Scenario Outline"
+                },
+                "Round off discount and inclusive tax in billed at order": {
+                    "tags": [],
+                    "line": 46,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Update and submit order successfully": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/payment/features/one-time-material-order/update-and-submit-one-time-material-order-successfully.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@one-time-material-order"
+            ],
+            "scenarios": {
+                "Update and submit order successfully": {
+                    "tags": [],
+                    "line": 11,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Order detail for one-time material order": {
+            "countScenarios": 6,
+            "path": "test-suites/squads/payment/features/order-detail/order-detail-for-one-time-material.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@order-detail-one-time-material",
+                "@ignore"
+            ],
+            "scenarios": {
+                "General info, product list, billing item, action log, previous button and comment display with correct data": {
+                    "tags": [],
+                    "line": 10,
+                    "keyword": "Scenario"
+                },
+                "Display multiples products and billing items in order detail": {
+                    "tags": [],
+                    "line": 17,
+                    "keyword": "Scenario"
+                },
+                "Billing status is <billingStatus> when <conditionDate> | Billed billing date < created order date": {
+                    "tags": [],
+                    "line": 24,
+                    "keyword": "Scenario Outline"
+                },
+                "Billing status is <billingStatus> when <conditionDate> | Billed billing date = created order date": {
+                    "tags": [],
+                    "line": 24,
+                    "keyword": "Scenario Outline"
+                },
+                "Billing status is <billingStatus> when <conditionDate> | Pending billing date > created order date": {
+                    "tags": [],
+                    "line": 24,
+                    "keyword": "Scenario Outline"
+                },
+                "Round off product amount and billing amount": {
+                    "tags": [],
+                    "line": 36,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Check paging of order list": {
+            "countScenarios": 6,
+            "path": "test-suites/squads/payment/features/order-list/check-paging-of-order-list.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@order-list",
+                "@ignore"
+            ],
+            "scenarios": {
+                "The number of order is display exactly with <amount> row per page selection | 5": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "The number of order is display exactly with <amount> row per page selection | 10": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "The number of order is display exactly with <amount> row per page selection | 25": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "The number of order is display exactly with <amount> row per page selection | 50": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "The number of order is display exactly with <amount> row per page selection | 100": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "The numerical order is display exactly for each page": {
+                    "tags": [],
+                    "line": 24,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Orders show by category based on order status": {
+            "countScenarios": 5,
+            "path": "test-suites/squads/payment/features/order-list/orders-show-by-category-based-on-order-status.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@order-list",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Order with <orderStatus> status is showed on All and <orderStatus> categories | submitted": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Order with <orderStatus> status is showed on All and <orderStatus> categories | pending": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Order with <orderStatus> status is showed on All and <orderStatus> categories | rejected": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Order with <orderStatus> status is showed on All and <orderStatus> categories | voided": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Order with <orderStatus> status is showed on All and <orderStatus> categories | invoiced": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Redirect user to order detail after interact with order link": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/payment/features/order-list/redirect-user-to-order-detail-after-interact-order-link.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@order-list",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Redirect user to order detail after interact order link": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Combine search keyword and filters": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/payment/features/search-and-filter-order/combine-search-and-keyword-filters.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@search-and-filter-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Display all order match with keyword and filter": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Display all orders": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/payment/features/search-and-filter-order/display-all-orders.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@search-and-filter-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Display all orders when user access to order list": {
+                    "tags": [],
+                    "line": 13,
+                    "keyword": "Scenario"
+                },
+                "Display all orders when user reset filter": {
+                    "tags": [],
+                    "line": 17,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Remove the chip": {
+            "countScenarios": 5,
+            "path": "test-suites/squads/payment/features/search-and-filter-order/remove-the-chip.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@search-and-filter-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Update the result list when user remove <chip> chip | created from created from": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Update the result list when user remove <chip> chip | created to created to": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Update the result list when user remove <chip> chip | order type order type": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Update the result list when user remove <chip> chip | product product": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Update the result list when user remove all chips": {
+                    "tags": [],
+                    "line": 24,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Reset filter": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/payment/features/search-and-filter-order/reset-filter.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@search-and-filter-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Keep the search keyword, only reset the filter": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Search order using created date": {
+            "countScenarios": 7,
+            "path": "test-suites/squads/payment/features/search-and-filter-order/search-order-using-created-date.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@search-and-filter-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Display all order which has created date match with <condition> | created from = current date": {
+                    "tags": [],
+                    "line": 13,
+                    "keyword": "Scenario Outline"
+                },
+                "Display all order which has created date match with <condition> | created to = current date": {
+                    "tags": [],
+                    "line": 13,
+                    "keyword": "Scenario Outline"
+                },
+                "Display all order which has created date match with <condition> | created to < current date < created to": {
+                    "tags": [],
+                    "line": 13,
+                    "keyword": "Scenario Outline"
+                },
+                "Not display order which has created date does not match with <condition> | created to < current date": {
+                    "tags": [],
+                    "line": 22,
+                    "keyword": "Scenario Outline"
+                },
+                "Not display order which has created date does not match with <condition> | created from > current date": {
+                    "tags": [],
+                    "line": 22,
+                    "keyword": "Scenario Outline"
+                },
+                "Cannot set created to smaller than created from": {
+                    "tags": [],
+                    "line": 30,
+                    "keyword": "Scenario"
+                },
+                "Update created to equal with created from if user update created from bigger than created to": {
+                    "tags": [],
+                    "line": 34,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Search order using order type": {
+            "countScenarios": 10,
+            "path": "test-suites/squads/payment/features/search-and-filter-order/search-order-using-order-type.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@search-and-filter-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Display all order match with order type is <orderType> | New": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Display all order match with order type is <orderType> | Update": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Display all order match with order type is <orderType> | Cancel": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Display all order match with order type is <orderType> | Pause": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Display all order match with order type is <orderType> | Enrollment": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Display all order match with order type is <orderType> | Withdrawal": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Display all order match with order type is <orderType> | Graduate": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Display all order match with order type is <orderType> | LOA": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Display all order match with order type is <orderType> | Custom Billing": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Display all order match with multiple order types in filter": {
+                    "tags": [],
+                    "line": 28,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Search order using product name": {
+            "countScenarios": 2,
+            "path": "test-suites/squads/payment/features/search-and-filter-order/search-order-using-product-name.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@search-and-filter-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Display all order match with product name": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                },
+                "Display all order match with at least one product": {
+                    "tags": [],
+                    "line": 17,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Search order using student name": {
+            "countScenarios": 3,
+            "path": "test-suites/squads/payment/features/search-and-filter-order/search-order-using-stundent-name.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@search-and-filter-order",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Display all orders match with <keyword> | student full name": {
+                    "tags": [],
+                    "line": 13,
+                    "keyword": "Scenario Outline"
+                },
+                "Display all orders match with <keyword> | student partial name": {
+                    "tags": [],
+                    "line": 13,
+                    "keyword": "Scenario Outline"
+                },
+                "Display no result when there is no order match with search keyword": {
+                    "tags": [],
+                    "line": 21,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Amount in product list and billing history display correct for one-time material": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/payment/features/student-billing/amount-in-product-list-and-billing-history-display-correct-for-one-time-material.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@student-billing",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Amount in product list and billing history display correct data": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Check status of product and billing item in product list and billing history": {
+            "countScenarios": 3,
+            "path": "test-suites/squads/payment/features/student-billing/check-status-of-product-and-billing-item-in-product-list-and-billing-history.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@student-billing",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Product status is <productStatus> and billing status is <billingStatus> with <conditionDate> | custom_billing_date = created order date Completed Billed": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Product status is <productStatus> and billing status is <billingStatus> with <conditionDate> | custom_billing_date < created order date Completed Billed": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                },
+                "Product status is <productStatus> and billing status is <billingStatus> with <conditionDate> | custom_billing_date  > created order date Inactive Pending": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario Outline"
+                }
+            }
+        },
+        "Display multiples products and billing items for one-time material order": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/payment/features/student-billing/display-multiple-products-and-billing-items-for-one-time-material-order.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@student-billing",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Display multiples products and billing items in product list of student billing": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Location, Billing No and Billing item in product list and billing history display correct for one-time material": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/payment/features/student-billing/location-billing-number-and-billing-item-in-product-list-and-billing-history-display-correct-for-one-time-material.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@student-billing",
+                "@ignore"
+            ],
+            "scenarios": {
+                "The location, billing number and billing item display with correct data": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Round off product amount in product list and billing history of one-time material order": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/payment/features/student-billing/round-off-product-amount-in-product-list-and-billing-history-of-one-time-material.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@student-billing",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Product amount in product list and billing history of billing item is round off": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                }
+            }
+        },
+        "Student billing is display correctly for one-time material": {
+            "countScenarios": 1,
+            "path": "test-suites/squads/payment/features/student-billing/student-billing-is-display-correctly-for-one-time-material.feature",
+            "tags": [
+                "@cms",
+                "@payment",
+                "@student-billing",
+                "@ignore"
+            ],
+            "scenarios": {
+                "Student billing is display correctly for one-time material": {
+                    "tags": [],
+                    "line": 12,
+                    "keyword": "Scenario"
+                }
+            }
+        }
+    }
+}

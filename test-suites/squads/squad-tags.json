@@ -118,7 +118,16 @@
                 "tag": "@scheduled-notification"
             },
             {
-                "tag": "@support-chat"
+                "tag": "@support-chat-join-leave"
+            },
+            {
+                "tag": "@support-chat-send-message"
+            },
+            {
+                "tag": "@support-chat-filter"
+            },
+            {
+                "tag": "@support-chat-info"
             },
             {
                 "tag": "@live-lesson-chat"
@@ -128,6 +137,9 @@
             },
             {
                 "tag": "@questionnaire-notification"
+            },
+            {
+                "tag": "@notification-blocker"
             }
         ]
     },
@@ -203,6 +215,9 @@
                 "tag": "@lesson-individual-delete"
             },
             {
+                "tag": "@lesson-status"
+            },
+            {
                 "tag": "@lesson-group-delete"
             },
             {
@@ -219,28 +234,11 @@
             }
         ]
     },
-    "platform": {
-        "time": "10 15 * * 0",
-        "features": [
-            {
-                "tag": "@unleash-custom-strategies"
-            }
-        ]
-    },
     "virtual-classroom": {
         "time": "00 22 * * *",
         "features": [
             {
-                "tag": "@virtual-classroom-polling-create"
-            },
-            {
-                "tag": "@virtual-classroom-polling-join-and-leave"
-            },
-            {
-                "tag": "@virtual-classroom-polling-statistics"
-            },
-            {
-                "tag": "@virtual-classroom-polling-stop-and-end"
+                "tag": "@virtual-classroom-polling"
             },
             {
                 "tag": "@virtual-classroom-share-screen"
@@ -267,7 +265,22 @@
                 "tag": "@virtual-classroom-pin-user"
             },
             {
+                "tag": "@virtual-classroom-pin-user-streaming"
+            },
+            {
+                "tag": "@virtual-classroom-pin-user-interact-with-main-bar"
+            },
+            {
+                "tag": "@virtual-classroom-pin-user-material-and-share-screen"
+            },
+            {
                 "tag": "@virtual-classroom-spotlight"
+            },
+            {
+                "tag": "@virtual-classroom-spotlight-material-and-share-screen"
+            },
+            {
+                "tag": "@virtual-classroom-spotlight-stop-and-switch"
             },
             {
                 "tag": "@virtual-classroom-jump-page"

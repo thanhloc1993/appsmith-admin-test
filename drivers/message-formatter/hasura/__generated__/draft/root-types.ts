@@ -12,6 +12,7 @@ export type Scalars = {
   Float: number;
   _text: any;
   bigint: bigint;
+  json: any;
   jsonb: any;
   numeric: number;
   smallint: number;
@@ -286,6 +287,8 @@ export type E2e_Features_Bool_Exp = {
 
 /** unique or primary key constraints on table "e2e_features" */
 export enum E2e_Features_Constraint {
+  /** unique or primary key constraint on columns "instance_id", "uri" */
+  E2eFeaturesInstanceIdUriIdx = 'e2e_features_instance_id_uri__idx',
   /** unique or primary key constraint on columns "feature_id" */
   E2eFeaturesPkey = 'e2e_features_pkey'
 }
@@ -562,6 +565,161 @@ export type E2e_Features_Set_Input = {
   updated_at?: InputMaybe<Scalars['timestamptz']>;
   uri?: InputMaybe<Scalars['String']>;
   worker_id?: InputMaybe<Scalars['Int']>;
+};
+
+/** columns and relationships of "e2e_features_status" */
+export type E2e_Features_Status = {
+  count?: Maybe<Scalars['bigint']>;
+  feature_ids?: Maybe<Scalars['_text']>;
+  instance_ids?: Maybe<Scalars['_text']>;
+  name?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['_text']>;
+};
+
+/** aggregated selection of "e2e_features_status" */
+export type E2e_Features_Status_Aggregate = {
+  aggregate?: Maybe<E2e_Features_Status_Aggregate_Fields>;
+  nodes: Array<E2e_Features_Status>;
+};
+
+/** aggregate fields of "e2e_features_status" */
+export type E2e_Features_Status_Aggregate_Fields = {
+  avg?: Maybe<E2e_Features_Status_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<E2e_Features_Status_Max_Fields>;
+  min?: Maybe<E2e_Features_Status_Min_Fields>;
+  stddev?: Maybe<E2e_Features_Status_Stddev_Fields>;
+  stddev_pop?: Maybe<E2e_Features_Status_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<E2e_Features_Status_Stddev_Samp_Fields>;
+  sum?: Maybe<E2e_Features_Status_Sum_Fields>;
+  var_pop?: Maybe<E2e_Features_Status_Var_Pop_Fields>;
+  var_samp?: Maybe<E2e_Features_Status_Var_Samp_Fields>;
+  variance?: Maybe<E2e_Features_Status_Variance_Fields>;
+};
+
+
+/** aggregate fields of "e2e_features_status" */
+export type E2e_Features_Status_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<E2e_Features_Status_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type E2e_Features_Status_Avg_Fields = {
+  count?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "e2e_features_status". All fields are combined with a logical 'AND'. */
+export type E2e_Features_Status_Bool_Exp = {
+  _and?: InputMaybe<Array<E2e_Features_Status_Bool_Exp>>;
+  _not?: InputMaybe<E2e_Features_Status_Bool_Exp>;
+  _or?: InputMaybe<Array<E2e_Features_Status_Bool_Exp>>;
+  count?: InputMaybe<Bigint_Comparison_Exp>;
+  feature_ids?: InputMaybe<_Text_Comparison_Exp>;
+  instance_ids?: InputMaybe<_Text_Comparison_Exp>;
+  name?: InputMaybe<String_Comparison_Exp>;
+  status?: InputMaybe<_Text_Comparison_Exp>;
+};
+
+/** input type for incrementing numeric columns in table "e2e_features_status" */
+export type E2e_Features_Status_Inc_Input = {
+  count?: InputMaybe<Scalars['bigint']>;
+};
+
+/** input type for inserting data into table "e2e_features_status" */
+export type E2e_Features_Status_Insert_Input = {
+  count?: InputMaybe<Scalars['bigint']>;
+  feature_ids?: InputMaybe<Scalars['_text']>;
+  instance_ids?: InputMaybe<Scalars['_text']>;
+  name?: InputMaybe<Scalars['String']>;
+  status?: InputMaybe<Scalars['_text']>;
+};
+
+/** aggregate max on columns */
+export type E2e_Features_Status_Max_Fields = {
+  count?: Maybe<Scalars['bigint']>;
+  name?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type E2e_Features_Status_Min_Fields = {
+  count?: Maybe<Scalars['bigint']>;
+  name?: Maybe<Scalars['String']>;
+};
+
+/** response of any mutation on the table "e2e_features_status" */
+export type E2e_Features_Status_Mutation_Response = {
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data from the rows affected by the mutation */
+  returning: Array<E2e_Features_Status>;
+};
+
+/** Ordering options when selecting data from "e2e_features_status". */
+export type E2e_Features_Status_Order_By = {
+  count?: InputMaybe<Order_By>;
+  feature_ids?: InputMaybe<Order_By>;
+  instance_ids?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
+  status?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "e2e_features_status" */
+export enum E2e_Features_Status_Select_Column {
+  /** column name */
+  Count = 'count',
+  /** column name */
+  FeatureIds = 'feature_ids',
+  /** column name */
+  InstanceIds = 'instance_ids',
+  /** column name */
+  Name = 'name',
+  /** column name */
+  Status = 'status'
+}
+
+/** input type for updating data in table "e2e_features_status" */
+export type E2e_Features_Status_Set_Input = {
+  count?: InputMaybe<Scalars['bigint']>;
+  feature_ids?: InputMaybe<Scalars['_text']>;
+  instance_ids?: InputMaybe<Scalars['_text']>;
+  name?: InputMaybe<Scalars['String']>;
+  status?: InputMaybe<Scalars['_text']>;
+};
+
+/** aggregate stddev on columns */
+export type E2e_Features_Status_Stddev_Fields = {
+  count?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type E2e_Features_Status_Stddev_Pop_Fields = {
+  count?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type E2e_Features_Status_Stddev_Samp_Fields = {
+  count?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type E2e_Features_Status_Sum_Fields = {
+  count?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type E2e_Features_Status_Var_Pop_Fields = {
+  count?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type E2e_Features_Status_Var_Samp_Fields = {
+  count?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type E2e_Features_Status_Variance_Fields = {
+  count?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev on columns */
@@ -1490,6 +1648,203 @@ export type E2e_Instances_Variance_Fields = {
   total_worker?: Maybe<Scalars['Float']>;
 };
 
+/** columns and relationships of "e2e_scenario_severity" */
+export type E2e_Scenario_Severity = {
+  created_at: Scalars['timestamptz'];
+  /** An array relationship */
+  e2e_scenarios: Array<E2e_Scenarios>;
+  /** An aggregate relationship */
+  e2e_scenarios_aggregate: E2e_Scenarios_Aggregate;
+  feature_name: Scalars['String'];
+  feature_path: Scalars['String'];
+  keyword: Scalars['String'];
+  scenario_name: Scalars['String'];
+  severity_tags: Scalars['String'];
+  updated_at: Scalars['timestamptz'];
+};
+
+
+/** columns and relationships of "e2e_scenario_severity" */
+export type E2e_Scenario_SeverityE2e_ScenariosArgs = {
+  distinct_on?: InputMaybe<Array<E2e_Scenarios_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<E2e_Scenarios_Order_By>>;
+  where?: InputMaybe<E2e_Scenarios_Bool_Exp>;
+};
+
+
+/** columns and relationships of "e2e_scenario_severity" */
+export type E2e_Scenario_SeverityE2e_Scenarios_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<E2e_Scenarios_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<E2e_Scenarios_Order_By>>;
+  where?: InputMaybe<E2e_Scenarios_Bool_Exp>;
+};
+
+/** aggregated selection of "e2e_scenario_severity" */
+export type E2e_Scenario_Severity_Aggregate = {
+  aggregate?: Maybe<E2e_Scenario_Severity_Aggregate_Fields>;
+  nodes: Array<E2e_Scenario_Severity>;
+};
+
+/** aggregate fields of "e2e_scenario_severity" */
+export type E2e_Scenario_Severity_Aggregate_Fields = {
+  count: Scalars['Int'];
+  max?: Maybe<E2e_Scenario_Severity_Max_Fields>;
+  min?: Maybe<E2e_Scenario_Severity_Min_Fields>;
+};
+
+
+/** aggregate fields of "e2e_scenario_severity" */
+export type E2e_Scenario_Severity_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<E2e_Scenario_Severity_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** Boolean expression to filter rows from the table "e2e_scenario_severity". All fields are combined with a logical 'AND'. */
+export type E2e_Scenario_Severity_Bool_Exp = {
+  _and?: InputMaybe<Array<E2e_Scenario_Severity_Bool_Exp>>;
+  _not?: InputMaybe<E2e_Scenario_Severity_Bool_Exp>;
+  _or?: InputMaybe<Array<E2e_Scenario_Severity_Bool_Exp>>;
+  created_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  e2e_scenarios?: InputMaybe<E2e_Scenarios_Bool_Exp>;
+  feature_name?: InputMaybe<String_Comparison_Exp>;
+  feature_path?: InputMaybe<String_Comparison_Exp>;
+  keyword?: InputMaybe<String_Comparison_Exp>;
+  scenario_name?: InputMaybe<String_Comparison_Exp>;
+  severity_tags?: InputMaybe<String_Comparison_Exp>;
+  updated_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "e2e_scenario_severity" */
+export enum E2e_Scenario_Severity_Constraint {
+  /** unique or primary key constraint on columns "feature_path", "scenario_name" */
+  E2eScenarioSeverityPkey = 'e2e_scenario_severity_pkey'
+}
+
+/** input type for inserting data into table "e2e_scenario_severity" */
+export type E2e_Scenario_Severity_Insert_Input = {
+  created_at?: InputMaybe<Scalars['timestamptz']>;
+  e2e_scenarios?: InputMaybe<E2e_Scenarios_Arr_Rel_Insert_Input>;
+  feature_name?: InputMaybe<Scalars['String']>;
+  feature_path?: InputMaybe<Scalars['String']>;
+  keyword?: InputMaybe<Scalars['String']>;
+  scenario_name?: InputMaybe<Scalars['String']>;
+  severity_tags?: InputMaybe<Scalars['String']>;
+  updated_at?: InputMaybe<Scalars['timestamptz']>;
+};
+
+/** aggregate max on columns */
+export type E2e_Scenario_Severity_Max_Fields = {
+  created_at?: Maybe<Scalars['timestamptz']>;
+  feature_name?: Maybe<Scalars['String']>;
+  feature_path?: Maybe<Scalars['String']>;
+  keyword?: Maybe<Scalars['String']>;
+  scenario_name?: Maybe<Scalars['String']>;
+  severity_tags?: Maybe<Scalars['String']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
+};
+
+/** aggregate min on columns */
+export type E2e_Scenario_Severity_Min_Fields = {
+  created_at?: Maybe<Scalars['timestamptz']>;
+  feature_name?: Maybe<Scalars['String']>;
+  feature_path?: Maybe<Scalars['String']>;
+  keyword?: Maybe<Scalars['String']>;
+  scenario_name?: Maybe<Scalars['String']>;
+  severity_tags?: Maybe<Scalars['String']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
+};
+
+/** response of any mutation on the table "e2e_scenario_severity" */
+export type E2e_Scenario_Severity_Mutation_Response = {
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data from the rows affected by the mutation */
+  returning: Array<E2e_Scenario_Severity>;
+};
+
+/** input type for inserting object relation for remote table "e2e_scenario_severity" */
+export type E2e_Scenario_Severity_Obj_Rel_Insert_Input = {
+  data: E2e_Scenario_Severity_Insert_Input;
+  /** upsert condition */
+  on_conflict?: InputMaybe<E2e_Scenario_Severity_On_Conflict>;
+};
+
+/** on_conflict condition type for table "e2e_scenario_severity" */
+export type E2e_Scenario_Severity_On_Conflict = {
+  constraint: E2e_Scenario_Severity_Constraint;
+  update_columns?: Array<E2e_Scenario_Severity_Update_Column>;
+  where?: InputMaybe<E2e_Scenario_Severity_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "e2e_scenario_severity". */
+export type E2e_Scenario_Severity_Order_By = {
+  created_at?: InputMaybe<Order_By>;
+  e2e_scenarios_aggregate?: InputMaybe<E2e_Scenarios_Aggregate_Order_By>;
+  feature_name?: InputMaybe<Order_By>;
+  feature_path?: InputMaybe<Order_By>;
+  keyword?: InputMaybe<Order_By>;
+  scenario_name?: InputMaybe<Order_By>;
+  severity_tags?: InputMaybe<Order_By>;
+  updated_at?: InputMaybe<Order_By>;
+};
+
+/** primary key columns input for table: e2e_scenario_severity */
+export type E2e_Scenario_Severity_Pk_Columns_Input = {
+  feature_path: Scalars['String'];
+  scenario_name: Scalars['String'];
+};
+
+/** select columns of table "e2e_scenario_severity" */
+export enum E2e_Scenario_Severity_Select_Column {
+  /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
+  FeatureName = 'feature_name',
+  /** column name */
+  FeaturePath = 'feature_path',
+  /** column name */
+  Keyword = 'keyword',
+  /** column name */
+  ScenarioName = 'scenario_name',
+  /** column name */
+  SeverityTags = 'severity_tags',
+  /** column name */
+  UpdatedAt = 'updated_at'
+}
+
+/** input type for updating data in table "e2e_scenario_severity" */
+export type E2e_Scenario_Severity_Set_Input = {
+  created_at?: InputMaybe<Scalars['timestamptz']>;
+  feature_name?: InputMaybe<Scalars['String']>;
+  feature_path?: InputMaybe<Scalars['String']>;
+  keyword?: InputMaybe<Scalars['String']>;
+  scenario_name?: InputMaybe<Scalars['String']>;
+  severity_tags?: InputMaybe<Scalars['String']>;
+  updated_at?: InputMaybe<Scalars['timestamptz']>;
+};
+
+/** update columns of table "e2e_scenario_severity" */
+export enum E2e_Scenario_Severity_Update_Column {
+  /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
+  FeatureName = 'feature_name',
+  /** column name */
+  FeaturePath = 'feature_path',
+  /** column name */
+  Keyword = 'keyword',
+  /** column name */
+  ScenarioName = 'scenario_name',
+  /** column name */
+  SeverityTags = 'severity_tags',
+  /** column name */
+  UpdatedAt = 'updated_at'
+}
+
 /** columns and relationships of "e2e_scenarios" */
 export type E2e_Scenarios = {
   created_at: Scalars['timestamptz'];
@@ -1497,16 +1852,20 @@ export type E2e_Scenarios = {
   description?: Maybe<Scalars['String']>;
   /** An object relationship */
   e2e_feature?: Maybe<E2e_Features>;
+  /** An object relationship */
+  e2e_scenario_severity?: Maybe<E2e_Scenario_Severity>;
   /** An array relationship */
   e2e_steps: Array<E2e_Steps>;
   /** An aggregate relationship */
   e2e_steps_aggregate: E2e_Steps_Aggregate;
   ended_at?: Maybe<Scalars['timestamptz']>;
   feature_id: Scalars['String'];
+  feature_path?: Maybe<Scalars['String']>;
   keyword?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   on_trunk?: Maybe<Scalars['Boolean']>;
   pickle?: Maybe<Scalars['jsonb']>;
+  raw_name?: Maybe<Scalars['String']>;
   scenario_id: Scalars['String'];
   started_at?: Maybe<Scalars['timestamptz']>;
   status?: Maybe<Scalars['String']>;
@@ -1574,11 +1933,25 @@ export type E2e_Scenarios_Aggregate_FieldsCountArgs = {
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
+/** order by aggregate values of table "e2e_scenarios" */
+export type E2e_Scenarios_Aggregate_Order_By = {
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<E2e_Scenarios_Max_Order_By>;
+  min?: InputMaybe<E2e_Scenarios_Min_Order_By>;
+};
+
 /** append existing jsonb value of filtered columns with new jsonb value */
 export type E2e_Scenarios_Append_Input = {
   pickle?: InputMaybe<Scalars['jsonb']>;
   steps?: InputMaybe<Scalars['jsonb']>;
   test_case?: InputMaybe<Scalars['jsonb']>;
+};
+
+/** input type for inserting array relation for remote table "e2e_scenarios" */
+export type E2e_Scenarios_Arr_Rel_Insert_Input = {
+  data: Array<E2e_Scenarios_Insert_Input>;
+  /** upsert condition */
+  on_conflict?: InputMaybe<E2e_Scenarios_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "e2e_scenarios". All fields are combined with a logical 'AND'. */
@@ -1590,13 +1963,16 @@ export type E2e_Scenarios_Bool_Exp = {
   deleted_at?: InputMaybe<Timestamptz_Comparison_Exp>;
   description?: InputMaybe<String_Comparison_Exp>;
   e2e_feature?: InputMaybe<E2e_Features_Bool_Exp>;
+  e2e_scenario_severity?: InputMaybe<E2e_Scenario_Severity_Bool_Exp>;
   e2e_steps?: InputMaybe<E2e_Steps_Bool_Exp>;
   ended_at?: InputMaybe<Timestamptz_Comparison_Exp>;
   feature_id?: InputMaybe<String_Comparison_Exp>;
+  feature_path?: InputMaybe<String_Comparison_Exp>;
   keyword?: InputMaybe<String_Comparison_Exp>;
   name?: InputMaybe<String_Comparison_Exp>;
   on_trunk?: InputMaybe<Boolean_Comparison_Exp>;
   pickle?: InputMaybe<Jsonb_Comparison_Exp>;
+  raw_name?: InputMaybe<String_Comparison_Exp>;
   scenario_id?: InputMaybe<String_Comparison_Exp>;
   started_at?: InputMaybe<Timestamptz_Comparison_Exp>;
   status?: InputMaybe<String_Comparison_Exp>;
@@ -1639,13 +2015,16 @@ export type E2e_Scenarios_Insert_Input = {
   deleted_at?: InputMaybe<Scalars['timestamptz']>;
   description?: InputMaybe<Scalars['String']>;
   e2e_feature?: InputMaybe<E2e_Features_Obj_Rel_Insert_Input>;
+  e2e_scenario_severity?: InputMaybe<E2e_Scenario_Severity_Obj_Rel_Insert_Input>;
   e2e_steps?: InputMaybe<E2e_Steps_Arr_Rel_Insert_Input>;
   ended_at?: InputMaybe<Scalars['timestamptz']>;
   feature_id?: InputMaybe<Scalars['String']>;
+  feature_path?: InputMaybe<Scalars['String']>;
   keyword?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
   on_trunk?: InputMaybe<Scalars['Boolean']>;
   pickle?: InputMaybe<Scalars['jsonb']>;
+  raw_name?: InputMaybe<Scalars['String']>;
   scenario_id?: InputMaybe<Scalars['String']>;
   started_at?: InputMaybe<Scalars['timestamptz']>;
   status?: InputMaybe<Scalars['String']>;
@@ -1662,12 +2041,31 @@ export type E2e_Scenarios_Max_Fields = {
   description?: Maybe<Scalars['String']>;
   ended_at?: Maybe<Scalars['timestamptz']>;
   feature_id?: Maybe<Scalars['String']>;
+  feature_path?: Maybe<Scalars['String']>;
   keyword?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
+  raw_name?: Maybe<Scalars['String']>;
   scenario_id?: Maybe<Scalars['String']>;
   started_at?: Maybe<Scalars['timestamptz']>;
   status?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
+};
+
+/** order by max() on columns of table "e2e_scenarios" */
+export type E2e_Scenarios_Max_Order_By = {
+  created_at?: InputMaybe<Order_By>;
+  deleted_at?: InputMaybe<Order_By>;
+  description?: InputMaybe<Order_By>;
+  ended_at?: InputMaybe<Order_By>;
+  feature_id?: InputMaybe<Order_By>;
+  feature_path?: InputMaybe<Order_By>;
+  keyword?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
+  raw_name?: InputMaybe<Order_By>;
+  scenario_id?: InputMaybe<Order_By>;
+  started_at?: InputMaybe<Order_By>;
+  status?: InputMaybe<Order_By>;
+  updated_at?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -1677,12 +2075,31 @@ export type E2e_Scenarios_Min_Fields = {
   description?: Maybe<Scalars['String']>;
   ended_at?: Maybe<Scalars['timestamptz']>;
   feature_id?: Maybe<Scalars['String']>;
+  feature_path?: Maybe<Scalars['String']>;
   keyword?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
+  raw_name?: Maybe<Scalars['String']>;
   scenario_id?: Maybe<Scalars['String']>;
   started_at?: Maybe<Scalars['timestamptz']>;
   status?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
+};
+
+/** order by min() on columns of table "e2e_scenarios" */
+export type E2e_Scenarios_Min_Order_By = {
+  created_at?: InputMaybe<Order_By>;
+  deleted_at?: InputMaybe<Order_By>;
+  description?: InputMaybe<Order_By>;
+  ended_at?: InputMaybe<Order_By>;
+  feature_id?: InputMaybe<Order_By>;
+  feature_path?: InputMaybe<Order_By>;
+  keyword?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
+  raw_name?: InputMaybe<Order_By>;
+  scenario_id?: InputMaybe<Order_By>;
+  started_at?: InputMaybe<Order_By>;
+  status?: InputMaybe<Order_By>;
+  updated_at?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "e2e_scenarios" */
@@ -1713,13 +2130,16 @@ export type E2e_Scenarios_Order_By = {
   deleted_at?: InputMaybe<Order_By>;
   description?: InputMaybe<Order_By>;
   e2e_feature?: InputMaybe<E2e_Features_Order_By>;
+  e2e_scenario_severity?: InputMaybe<E2e_Scenario_Severity_Order_By>;
   e2e_steps_aggregate?: InputMaybe<E2e_Steps_Aggregate_Order_By>;
   ended_at?: InputMaybe<Order_By>;
   feature_id?: InputMaybe<Order_By>;
+  feature_path?: InputMaybe<Order_By>;
   keyword?: InputMaybe<Order_By>;
   name?: InputMaybe<Order_By>;
   on_trunk?: InputMaybe<Order_By>;
   pickle?: InputMaybe<Order_By>;
+  raw_name?: InputMaybe<Order_By>;
   scenario_id?: InputMaybe<Order_By>;
   started_at?: InputMaybe<Order_By>;
   status?: InputMaybe<Order_By>;
@@ -1754,6 +2174,8 @@ export enum E2e_Scenarios_Select_Column {
   /** column name */
   FeatureId = 'feature_id',
   /** column name */
+  FeaturePath = 'feature_path',
+  /** column name */
   Keyword = 'keyword',
   /** column name */
   Name = 'name',
@@ -1761,6 +2183,8 @@ export enum E2e_Scenarios_Select_Column {
   OnTrunk = 'on_trunk',
   /** column name */
   Pickle = 'pickle',
+  /** column name */
+  RawName = 'raw_name',
   /** column name */
   ScenarioId = 'scenario_id',
   /** column name */
@@ -1784,10 +2208,12 @@ export type E2e_Scenarios_Set_Input = {
   description?: InputMaybe<Scalars['String']>;
   ended_at?: InputMaybe<Scalars['timestamptz']>;
   feature_id?: InputMaybe<Scalars['String']>;
+  feature_path?: InputMaybe<Scalars['String']>;
   keyword?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
   on_trunk?: InputMaybe<Scalars['Boolean']>;
   pickle?: InputMaybe<Scalars['jsonb']>;
+  raw_name?: InputMaybe<Scalars['String']>;
   scenario_id?: InputMaybe<Scalars['String']>;
   started_at?: InputMaybe<Scalars['timestamptz']>;
   status?: InputMaybe<Scalars['String']>;
@@ -1810,6 +2236,8 @@ export enum E2e_Scenarios_Update_Column {
   /** column name */
   FeatureId = 'feature_id',
   /** column name */
+  FeaturePath = 'feature_path',
+  /** column name */
   Keyword = 'keyword',
   /** column name */
   Name = 'name',
@@ -1817,6 +2245,8 @@ export enum E2e_Scenarios_Update_Column {
   OnTrunk = 'on_trunk',
   /** column name */
   Pickle = 'pickle',
+  /** column name */
+  RawName = 'raw_name',
   /** column name */
   ScenarioId = 'scenario_id',
   /** column name */
@@ -2325,6 +2755,278 @@ export type E2e_Steps_Variance_Order_By = {
   index?: InputMaybe<Order_By>;
 };
 
+/** columns and relationships of "fourkeys_commit_data" */
+export type Fourkeys_Commit_Data = {
+  author_email: Scalars['String'];
+  commit_hash: Scalars['String'];
+  created_at: Scalars['timestamptz'];
+  deployed_at: Scalars['timestamptz'];
+  feature: Scalars['String'];
+  folder: Scalars['String'];
+};
+
+/** aggregated selection of "fourkeys_commit_data" */
+export type Fourkeys_Commit_Data_Aggregate = {
+  aggregate?: Maybe<Fourkeys_Commit_Data_Aggregate_Fields>;
+  nodes: Array<Fourkeys_Commit_Data>;
+};
+
+/** aggregate fields of "fourkeys_commit_data" */
+export type Fourkeys_Commit_Data_Aggregate_Fields = {
+  count: Scalars['Int'];
+  max?: Maybe<Fourkeys_Commit_Data_Max_Fields>;
+  min?: Maybe<Fourkeys_Commit_Data_Min_Fields>;
+};
+
+
+/** aggregate fields of "fourkeys_commit_data" */
+export type Fourkeys_Commit_Data_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Fourkeys_Commit_Data_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** Boolean expression to filter rows from the table "fourkeys_commit_data". All fields are combined with a logical 'AND'. */
+export type Fourkeys_Commit_Data_Bool_Exp = {
+  _and?: InputMaybe<Array<Fourkeys_Commit_Data_Bool_Exp>>;
+  _not?: InputMaybe<Fourkeys_Commit_Data_Bool_Exp>;
+  _or?: InputMaybe<Array<Fourkeys_Commit_Data_Bool_Exp>>;
+  author_email?: InputMaybe<String_Comparison_Exp>;
+  commit_hash?: InputMaybe<String_Comparison_Exp>;
+  created_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  deployed_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  feature?: InputMaybe<String_Comparison_Exp>;
+  folder?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "fourkeys_commit_data" */
+export enum Fourkeys_Commit_Data_Constraint {
+  /** unique or primary key constraint on columns "feature", "folder", "commit_hash" */
+  FourkeysCommitFeatureFolder = 'fourkeys_commit_feature_folder'
+}
+
+/** input type for inserting data into table "fourkeys_commit_data" */
+export type Fourkeys_Commit_Data_Insert_Input = {
+  author_email?: InputMaybe<Scalars['String']>;
+  commit_hash?: InputMaybe<Scalars['String']>;
+  created_at?: InputMaybe<Scalars['timestamptz']>;
+  deployed_at?: InputMaybe<Scalars['timestamptz']>;
+  feature?: InputMaybe<Scalars['String']>;
+  folder?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregate max on columns */
+export type Fourkeys_Commit_Data_Max_Fields = {
+  author_email?: Maybe<Scalars['String']>;
+  commit_hash?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['timestamptz']>;
+  deployed_at?: Maybe<Scalars['timestamptz']>;
+  feature?: Maybe<Scalars['String']>;
+  folder?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Fourkeys_Commit_Data_Min_Fields = {
+  author_email?: Maybe<Scalars['String']>;
+  commit_hash?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['timestamptz']>;
+  deployed_at?: Maybe<Scalars['timestamptz']>;
+  feature?: Maybe<Scalars['String']>;
+  folder?: Maybe<Scalars['String']>;
+};
+
+/** response of any mutation on the table "fourkeys_commit_data" */
+export type Fourkeys_Commit_Data_Mutation_Response = {
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Fourkeys_Commit_Data>;
+};
+
+/** on_conflict condition type for table "fourkeys_commit_data" */
+export type Fourkeys_Commit_Data_On_Conflict = {
+  constraint: Fourkeys_Commit_Data_Constraint;
+  update_columns?: Array<Fourkeys_Commit_Data_Update_Column>;
+  where?: InputMaybe<Fourkeys_Commit_Data_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "fourkeys_commit_data". */
+export type Fourkeys_Commit_Data_Order_By = {
+  author_email?: InputMaybe<Order_By>;
+  commit_hash?: InputMaybe<Order_By>;
+  created_at?: InputMaybe<Order_By>;
+  deployed_at?: InputMaybe<Order_By>;
+  feature?: InputMaybe<Order_By>;
+  folder?: InputMaybe<Order_By>;
+};
+
+/** primary key columns input for table: fourkeys_commit_data */
+export type Fourkeys_Commit_Data_Pk_Columns_Input = {
+  commit_hash: Scalars['String'];
+  feature: Scalars['String'];
+  folder: Scalars['String'];
+};
+
+/** select columns of table "fourkeys_commit_data" */
+export enum Fourkeys_Commit_Data_Select_Column {
+  /** column name */
+  AuthorEmail = 'author_email',
+  /** column name */
+  CommitHash = 'commit_hash',
+  /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
+  DeployedAt = 'deployed_at',
+  /** column name */
+  Feature = 'feature',
+  /** column name */
+  Folder = 'folder'
+}
+
+/** input type for updating data in table "fourkeys_commit_data" */
+export type Fourkeys_Commit_Data_Set_Input = {
+  author_email?: InputMaybe<Scalars['String']>;
+  commit_hash?: InputMaybe<Scalars['String']>;
+  created_at?: InputMaybe<Scalars['timestamptz']>;
+  deployed_at?: InputMaybe<Scalars['timestamptz']>;
+  feature?: InputMaybe<Scalars['String']>;
+  folder?: InputMaybe<Scalars['String']>;
+};
+
+/** update columns of table "fourkeys_commit_data" */
+export enum Fourkeys_Commit_Data_Update_Column {
+  /** column name */
+  AuthorEmail = 'author_email',
+  /** column name */
+  CommitHash = 'commit_hash',
+  /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
+  DeployedAt = 'deployed_at',
+  /** column name */
+  Feature = 'feature',
+  /** column name */
+  Folder = 'folder'
+}
+
+/** columns and relationships of "fourkeys_feature_data" */
+export type Fourkeys_Feature_Data = {
+  feature: Scalars['String'];
+  folder: Scalars['String'];
+  last_deployed_commit_hash: Scalars['String'];
+};
+
+/** aggregated selection of "fourkeys_feature_data" */
+export type Fourkeys_Feature_Data_Aggregate = {
+  aggregate?: Maybe<Fourkeys_Feature_Data_Aggregate_Fields>;
+  nodes: Array<Fourkeys_Feature_Data>;
+};
+
+/** aggregate fields of "fourkeys_feature_data" */
+export type Fourkeys_Feature_Data_Aggregate_Fields = {
+  count: Scalars['Int'];
+  max?: Maybe<Fourkeys_Feature_Data_Max_Fields>;
+  min?: Maybe<Fourkeys_Feature_Data_Min_Fields>;
+};
+
+
+/** aggregate fields of "fourkeys_feature_data" */
+export type Fourkeys_Feature_Data_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Fourkeys_Feature_Data_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** Boolean expression to filter rows from the table "fourkeys_feature_data". All fields are combined with a logical 'AND'. */
+export type Fourkeys_Feature_Data_Bool_Exp = {
+  _and?: InputMaybe<Array<Fourkeys_Feature_Data_Bool_Exp>>;
+  _not?: InputMaybe<Fourkeys_Feature_Data_Bool_Exp>;
+  _or?: InputMaybe<Array<Fourkeys_Feature_Data_Bool_Exp>>;
+  feature?: InputMaybe<String_Comparison_Exp>;
+  folder?: InputMaybe<String_Comparison_Exp>;
+  last_deployed_commit_hash?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "fourkeys_feature_data" */
+export enum Fourkeys_Feature_Data_Constraint {
+  /** unique or primary key constraint on columns "feature", "folder" */
+  FourkeysFeatureFolder = 'fourkeys_feature_folder'
+}
+
+/** input type for inserting data into table "fourkeys_feature_data" */
+export type Fourkeys_Feature_Data_Insert_Input = {
+  feature?: InputMaybe<Scalars['String']>;
+  folder?: InputMaybe<Scalars['String']>;
+  last_deployed_commit_hash?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregate max on columns */
+export type Fourkeys_Feature_Data_Max_Fields = {
+  feature?: Maybe<Scalars['String']>;
+  folder?: Maybe<Scalars['String']>;
+  last_deployed_commit_hash?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Fourkeys_Feature_Data_Min_Fields = {
+  feature?: Maybe<Scalars['String']>;
+  folder?: Maybe<Scalars['String']>;
+  last_deployed_commit_hash?: Maybe<Scalars['String']>;
+};
+
+/** response of any mutation on the table "fourkeys_feature_data" */
+export type Fourkeys_Feature_Data_Mutation_Response = {
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Fourkeys_Feature_Data>;
+};
+
+/** on_conflict condition type for table "fourkeys_feature_data" */
+export type Fourkeys_Feature_Data_On_Conflict = {
+  constraint: Fourkeys_Feature_Data_Constraint;
+  update_columns?: Array<Fourkeys_Feature_Data_Update_Column>;
+  where?: InputMaybe<Fourkeys_Feature_Data_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "fourkeys_feature_data". */
+export type Fourkeys_Feature_Data_Order_By = {
+  feature?: InputMaybe<Order_By>;
+  folder?: InputMaybe<Order_By>;
+  last_deployed_commit_hash?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "fourkeys_feature_data" */
+export enum Fourkeys_Feature_Data_Select_Column {
+  /** column name */
+  Feature = 'feature',
+  /** column name */
+  Folder = 'folder',
+  /** column name */
+  LastDeployedCommitHash = 'last_deployed_commit_hash'
+}
+
+/** input type for updating data in table "fourkeys_feature_data" */
+export type Fourkeys_Feature_Data_Set_Input = {
+  feature?: InputMaybe<Scalars['String']>;
+  folder?: InputMaybe<Scalars['String']>;
+  last_deployed_commit_hash?: InputMaybe<Scalars['String']>;
+};
+
+/** update columns of table "fourkeys_feature_data" */
+export enum Fourkeys_Feature_Data_Update_Column {
+  /** column name */
+  Feature = 'feature',
+  /** column name */
+  Folder = 'folder',
+  /** column name */
+  LastDeployedCommitHash = 'last_deployed_commit_hash'
+}
+
+export type Get_E2e_Feature_Status_Count_In_Last_N_Days_Args = {
+  _nday?: InputMaybe<Scalars['Int']>;
+  _on_trunk?: InputMaybe<Scalars['Boolean']>;
+  _tags?: InputMaybe<Scalars['String']>;
+};
+
 export type Get_Instance_Filter_By_Tags_Args = {
   _feature_tag?: InputMaybe<Scalars['_text']>;
   _run_id?: InputMaybe<Scalars['String']>;
@@ -2339,6 +3041,24 @@ export type Get_Instances_With_Filters_Args = {
   _on_trunk?: InputMaybe<Scalars['Boolean']>;
   _squad_tags?: InputMaybe<Scalars['_text']>;
   _status?: InputMaybe<Scalars['String']>;
+};
+
+export type Json_Cast_Exp = {
+  String?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** Boolean expression to compare columns of type "json". All fields are combined with logical 'AND'. */
+export type Json_Comparison_Exp = {
+  _cast?: InputMaybe<Json_Cast_Exp>;
+  _eq?: InputMaybe<Scalars['json']>;
+  _gt?: InputMaybe<Scalars['json']>;
+  _gte?: InputMaybe<Scalars['json']>;
+  _in?: InputMaybe<Array<Scalars['json']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _lt?: InputMaybe<Scalars['json']>;
+  _lte?: InputMaybe<Scalars['json']>;
+  _neq?: InputMaybe<Scalars['json']>;
+  _nin?: InputMaybe<Array<Scalars['json']>>;
 };
 
 export type Jsonb_Cast_Exp = {
@@ -2369,12 +3089,481 @@ export type Jsonb_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['jsonb']>>;
 };
 
+/** columns and relationships of "mfe_import_map_versions" */
+export type Mfe_Import_Map_Versions = {
+  deployed_at?: Maybe<Scalars['timestamptz']>;
+  environment: Scalars['String'];
+  id: Scalars['Int'];
+  import_map: Scalars['json'];
+  organization: Scalars['String'];
+  type?: Maybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "mfe_import_map_versions" */
+export type Mfe_Import_Map_VersionsImport_MapArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregated selection of "mfe_import_map_versions" */
+export type Mfe_Import_Map_Versions_Aggregate = {
+  aggregate?: Maybe<Mfe_Import_Map_Versions_Aggregate_Fields>;
+  nodes: Array<Mfe_Import_Map_Versions>;
+};
+
+/** aggregate fields of "mfe_import_map_versions" */
+export type Mfe_Import_Map_Versions_Aggregate_Fields = {
+  avg?: Maybe<Mfe_Import_Map_Versions_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Mfe_Import_Map_Versions_Max_Fields>;
+  min?: Maybe<Mfe_Import_Map_Versions_Min_Fields>;
+  stddev?: Maybe<Mfe_Import_Map_Versions_Stddev_Fields>;
+  stddev_pop?: Maybe<Mfe_Import_Map_Versions_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Mfe_Import_Map_Versions_Stddev_Samp_Fields>;
+  sum?: Maybe<Mfe_Import_Map_Versions_Sum_Fields>;
+  var_pop?: Maybe<Mfe_Import_Map_Versions_Var_Pop_Fields>;
+  var_samp?: Maybe<Mfe_Import_Map_Versions_Var_Samp_Fields>;
+  variance?: Maybe<Mfe_Import_Map_Versions_Variance_Fields>;
+};
+
+
+/** aggregate fields of "mfe_import_map_versions" */
+export type Mfe_Import_Map_Versions_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Mfe_Import_Map_Versions_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Mfe_Import_Map_Versions_Avg_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "mfe_import_map_versions". All fields are combined with a logical 'AND'. */
+export type Mfe_Import_Map_Versions_Bool_Exp = {
+  _and?: InputMaybe<Array<Mfe_Import_Map_Versions_Bool_Exp>>;
+  _not?: InputMaybe<Mfe_Import_Map_Versions_Bool_Exp>;
+  _or?: InputMaybe<Array<Mfe_Import_Map_Versions_Bool_Exp>>;
+  deployed_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  environment?: InputMaybe<String_Comparison_Exp>;
+  id?: InputMaybe<Int_Comparison_Exp>;
+  import_map?: InputMaybe<Json_Comparison_Exp>;
+  organization?: InputMaybe<String_Comparison_Exp>;
+  type?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "mfe_import_map_versions" */
+export enum Mfe_Import_Map_Versions_Constraint {
+  /** unique or primary key constraint on columns "id" */
+  MfeImportMapVersionsPkey = 'mfe_import_map_versions_pkey'
+}
+
+/** input type for incrementing numeric columns in table "mfe_import_map_versions" */
+export type Mfe_Import_Map_Versions_Inc_Input = {
+  id?: InputMaybe<Scalars['Int']>;
+};
+
+/** input type for inserting data into table "mfe_import_map_versions" */
+export type Mfe_Import_Map_Versions_Insert_Input = {
+  deployed_at?: InputMaybe<Scalars['timestamptz']>;
+  environment?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['Int']>;
+  import_map?: InputMaybe<Scalars['json']>;
+  organization?: InputMaybe<Scalars['String']>;
+  type?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregate max on columns */
+export type Mfe_Import_Map_Versions_Max_Fields = {
+  deployed_at?: Maybe<Scalars['timestamptz']>;
+  environment?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  organization?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Mfe_Import_Map_Versions_Min_Fields = {
+  deployed_at?: Maybe<Scalars['timestamptz']>;
+  environment?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  organization?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** response of any mutation on the table "mfe_import_map_versions" */
+export type Mfe_Import_Map_Versions_Mutation_Response = {
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Mfe_Import_Map_Versions>;
+};
+
+/** on_conflict condition type for table "mfe_import_map_versions" */
+export type Mfe_Import_Map_Versions_On_Conflict = {
+  constraint: Mfe_Import_Map_Versions_Constraint;
+  update_columns?: Array<Mfe_Import_Map_Versions_Update_Column>;
+  where?: InputMaybe<Mfe_Import_Map_Versions_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "mfe_import_map_versions". */
+export type Mfe_Import_Map_Versions_Order_By = {
+  deployed_at?: InputMaybe<Order_By>;
+  environment?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  import_map?: InputMaybe<Order_By>;
+  organization?: InputMaybe<Order_By>;
+  type?: InputMaybe<Order_By>;
+};
+
+/** primary key columns input for table: mfe_import_map_versions */
+export type Mfe_Import_Map_Versions_Pk_Columns_Input = {
+  id: Scalars['Int'];
+};
+
+/** select columns of table "mfe_import_map_versions" */
+export enum Mfe_Import_Map_Versions_Select_Column {
+  /** column name */
+  DeployedAt = 'deployed_at',
+  /** column name */
+  Environment = 'environment',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  ImportMap = 'import_map',
+  /** column name */
+  Organization = 'organization',
+  /** column name */
+  Type = 'type'
+}
+
+/** input type for updating data in table "mfe_import_map_versions" */
+export type Mfe_Import_Map_Versions_Set_Input = {
+  deployed_at?: InputMaybe<Scalars['timestamptz']>;
+  environment?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['Int']>;
+  import_map?: InputMaybe<Scalars['json']>;
+  organization?: InputMaybe<Scalars['String']>;
+  type?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregate stddev on columns */
+export type Mfe_Import_Map_Versions_Stddev_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Mfe_Import_Map_Versions_Stddev_Pop_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Mfe_Import_Map_Versions_Stddev_Samp_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Mfe_Import_Map_Versions_Sum_Fields = {
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** update columns of table "mfe_import_map_versions" */
+export enum Mfe_Import_Map_Versions_Update_Column {
+  /** column name */
+  DeployedAt = 'deployed_at',
+  /** column name */
+  Environment = 'environment',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  ImportMap = 'import_map',
+  /** column name */
+  Organization = 'organization',
+  /** column name */
+  Type = 'type'
+}
+
+/** aggregate var_pop on columns */
+export type Mfe_Import_Map_Versions_Var_Pop_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Mfe_Import_Map_Versions_Var_Samp_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Mfe_Import_Map_Versions_Variance_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** columns and relationships of "mfe_services_versions" */
+export type Mfe_Services_Versions = {
+  created_at?: Maybe<Scalars['timestamptz']>;
+  deployed_at?: Maybe<Scalars['timestamptz']>;
+  environment: Scalars['String'];
+  id: Scalars['Int'];
+  link?: Maybe<Scalars['String']>;
+  organization: Scalars['String'];
+  rollback_at?: Maybe<Scalars['timestamptz']>;
+  service_name: Scalars['String'];
+  squad_name: Scalars['String'];
+  type?: Maybe<Scalars['String']>;
+  version: Scalars['String'];
+};
+
+/** aggregated selection of "mfe_services_versions" */
+export type Mfe_Services_Versions_Aggregate = {
+  aggregate?: Maybe<Mfe_Services_Versions_Aggregate_Fields>;
+  nodes: Array<Mfe_Services_Versions>;
+};
+
+/** aggregate fields of "mfe_services_versions" */
+export type Mfe_Services_Versions_Aggregate_Fields = {
+  avg?: Maybe<Mfe_Services_Versions_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Mfe_Services_Versions_Max_Fields>;
+  min?: Maybe<Mfe_Services_Versions_Min_Fields>;
+  stddev?: Maybe<Mfe_Services_Versions_Stddev_Fields>;
+  stddev_pop?: Maybe<Mfe_Services_Versions_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Mfe_Services_Versions_Stddev_Samp_Fields>;
+  sum?: Maybe<Mfe_Services_Versions_Sum_Fields>;
+  var_pop?: Maybe<Mfe_Services_Versions_Var_Pop_Fields>;
+  var_samp?: Maybe<Mfe_Services_Versions_Var_Samp_Fields>;
+  variance?: Maybe<Mfe_Services_Versions_Variance_Fields>;
+};
+
+
+/** aggregate fields of "mfe_services_versions" */
+export type Mfe_Services_Versions_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Mfe_Services_Versions_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Mfe_Services_Versions_Avg_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "mfe_services_versions". All fields are combined with a logical 'AND'. */
+export type Mfe_Services_Versions_Bool_Exp = {
+  _and?: InputMaybe<Array<Mfe_Services_Versions_Bool_Exp>>;
+  _not?: InputMaybe<Mfe_Services_Versions_Bool_Exp>;
+  _or?: InputMaybe<Array<Mfe_Services_Versions_Bool_Exp>>;
+  created_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  deployed_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  environment?: InputMaybe<String_Comparison_Exp>;
+  id?: InputMaybe<Int_Comparison_Exp>;
+  link?: InputMaybe<String_Comparison_Exp>;
+  organization?: InputMaybe<String_Comparison_Exp>;
+  rollback_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  service_name?: InputMaybe<String_Comparison_Exp>;
+  squad_name?: InputMaybe<String_Comparison_Exp>;
+  type?: InputMaybe<String_Comparison_Exp>;
+  version?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "mfe_services_versions" */
+export enum Mfe_Services_Versions_Constraint {
+  /** unique or primary key constraint on columns "id" */
+  MfeServicesVersionsPkey = 'mfe_services_versions_pkey'
+}
+
+/** input type for incrementing numeric columns in table "mfe_services_versions" */
+export type Mfe_Services_Versions_Inc_Input = {
+  id?: InputMaybe<Scalars['Int']>;
+};
+
+/** input type for inserting data into table "mfe_services_versions" */
+export type Mfe_Services_Versions_Insert_Input = {
+  created_at?: InputMaybe<Scalars['timestamptz']>;
+  deployed_at?: InputMaybe<Scalars['timestamptz']>;
+  environment?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['Int']>;
+  link?: InputMaybe<Scalars['String']>;
+  organization?: InputMaybe<Scalars['String']>;
+  rollback_at?: InputMaybe<Scalars['timestamptz']>;
+  service_name?: InputMaybe<Scalars['String']>;
+  squad_name?: InputMaybe<Scalars['String']>;
+  type?: InputMaybe<Scalars['String']>;
+  version?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregate max on columns */
+export type Mfe_Services_Versions_Max_Fields = {
+  created_at?: Maybe<Scalars['timestamptz']>;
+  deployed_at?: Maybe<Scalars['timestamptz']>;
+  environment?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  link?: Maybe<Scalars['String']>;
+  organization?: Maybe<Scalars['String']>;
+  rollback_at?: Maybe<Scalars['timestamptz']>;
+  service_name?: Maybe<Scalars['String']>;
+  squad_name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  version?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Mfe_Services_Versions_Min_Fields = {
+  created_at?: Maybe<Scalars['timestamptz']>;
+  deployed_at?: Maybe<Scalars['timestamptz']>;
+  environment?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  link?: Maybe<Scalars['String']>;
+  organization?: Maybe<Scalars['String']>;
+  rollback_at?: Maybe<Scalars['timestamptz']>;
+  service_name?: Maybe<Scalars['String']>;
+  squad_name?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  version?: Maybe<Scalars['String']>;
+};
+
+/** response of any mutation on the table "mfe_services_versions" */
+export type Mfe_Services_Versions_Mutation_Response = {
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Mfe_Services_Versions>;
+};
+
+/** on_conflict condition type for table "mfe_services_versions" */
+export type Mfe_Services_Versions_On_Conflict = {
+  constraint: Mfe_Services_Versions_Constraint;
+  update_columns?: Array<Mfe_Services_Versions_Update_Column>;
+  where?: InputMaybe<Mfe_Services_Versions_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "mfe_services_versions". */
+export type Mfe_Services_Versions_Order_By = {
+  created_at?: InputMaybe<Order_By>;
+  deployed_at?: InputMaybe<Order_By>;
+  environment?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  link?: InputMaybe<Order_By>;
+  organization?: InputMaybe<Order_By>;
+  rollback_at?: InputMaybe<Order_By>;
+  service_name?: InputMaybe<Order_By>;
+  squad_name?: InputMaybe<Order_By>;
+  type?: InputMaybe<Order_By>;
+  version?: InputMaybe<Order_By>;
+};
+
+/** primary key columns input for table: mfe_services_versions */
+export type Mfe_Services_Versions_Pk_Columns_Input = {
+  id: Scalars['Int'];
+};
+
+/** select columns of table "mfe_services_versions" */
+export enum Mfe_Services_Versions_Select_Column {
+  /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
+  DeployedAt = 'deployed_at',
+  /** column name */
+  Environment = 'environment',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Link = 'link',
+  /** column name */
+  Organization = 'organization',
+  /** column name */
+  RollbackAt = 'rollback_at',
+  /** column name */
+  ServiceName = 'service_name',
+  /** column name */
+  SquadName = 'squad_name',
+  /** column name */
+  Type = 'type',
+  /** column name */
+  Version = 'version'
+}
+
+/** input type for updating data in table "mfe_services_versions" */
+export type Mfe_Services_Versions_Set_Input = {
+  created_at?: InputMaybe<Scalars['timestamptz']>;
+  deployed_at?: InputMaybe<Scalars['timestamptz']>;
+  environment?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['Int']>;
+  link?: InputMaybe<Scalars['String']>;
+  organization?: InputMaybe<Scalars['String']>;
+  rollback_at?: InputMaybe<Scalars['timestamptz']>;
+  service_name?: InputMaybe<Scalars['String']>;
+  squad_name?: InputMaybe<Scalars['String']>;
+  type?: InputMaybe<Scalars['String']>;
+  version?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregate stddev on columns */
+export type Mfe_Services_Versions_Stddev_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Mfe_Services_Versions_Stddev_Pop_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Mfe_Services_Versions_Stddev_Samp_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Mfe_Services_Versions_Sum_Fields = {
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** update columns of table "mfe_services_versions" */
+export enum Mfe_Services_Versions_Update_Column {
+  /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
+  DeployedAt = 'deployed_at',
+  /** column name */
+  Environment = 'environment',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Link = 'link',
+  /** column name */
+  Organization = 'organization',
+  /** column name */
+  RollbackAt = 'rollback_at',
+  /** column name */
+  ServiceName = 'service_name',
+  /** column name */
+  SquadName = 'squad_name',
+  /** column name */
+  Type = 'type',
+  /** column name */
+  Version = 'version'
+}
+
+/** aggregate var_pop on columns */
+export type Mfe_Services_Versions_Var_Pop_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Mfe_Services_Versions_Var_Samp_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Mfe_Services_Versions_Variance_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
 /** mutation root */
 export type Mutation_Root = {
   /** delete data from the table: "e2e_features" */
   delete_e2e_features?: Maybe<E2e_Features_Mutation_Response>;
   /** delete single row from the table: "e2e_features" */
   delete_e2e_features_by_pk?: Maybe<E2e_Features>;
+  /** delete data from the table: "e2e_features_status" */
+  delete_e2e_features_status?: Maybe<E2e_Features_Status_Mutation_Response>;
   /** delete data from the table: "e2e_instances" */
   delete_e2e_instances?: Maybe<E2e_Instances_Mutation_Response>;
   /** delete single row from the table: "e2e_instances" */
@@ -2383,6 +3572,10 @@ export type Mutation_Root = {
   delete_e2e_instances_group_by_date?: Maybe<E2e_Instances_Group_By_Date_Mutation_Response>;
   /** delete data from the table: "e2e_instances_status_count" */
   delete_e2e_instances_status_count?: Maybe<E2e_Instances_Status_Count_Mutation_Response>;
+  /** delete data from the table: "e2e_scenario_severity" */
+  delete_e2e_scenario_severity?: Maybe<E2e_Scenario_Severity_Mutation_Response>;
+  /** delete single row from the table: "e2e_scenario_severity" */
+  delete_e2e_scenario_severity_by_pk?: Maybe<E2e_Scenario_Severity>;
   /** delete data from the table: "e2e_scenarios" */
   delete_e2e_scenarios?: Maybe<E2e_Scenarios_Mutation_Response>;
   /** delete single row from the table: "e2e_scenarios" */
@@ -2391,10 +3584,28 @@ export type Mutation_Root = {
   delete_e2e_steps?: Maybe<E2e_Steps_Mutation_Response>;
   /** delete single row from the table: "e2e_steps" */
   delete_e2e_steps_by_pk?: Maybe<E2e_Steps>;
+  /** delete data from the table: "fourkeys_commit_data" */
+  delete_fourkeys_commit_data?: Maybe<Fourkeys_Commit_Data_Mutation_Response>;
+  /** delete single row from the table: "fourkeys_commit_data" */
+  delete_fourkeys_commit_data_by_pk?: Maybe<Fourkeys_Commit_Data>;
+  /** delete data from the table: "fourkeys_feature_data" */
+  delete_fourkeys_feature_data?: Maybe<Fourkeys_Feature_Data_Mutation_Response>;
+  /** delete data from the table: "mfe_import_map_versions" */
+  delete_mfe_import_map_versions?: Maybe<Mfe_Import_Map_Versions_Mutation_Response>;
+  /** delete single row from the table: "mfe_import_map_versions" */
+  delete_mfe_import_map_versions_by_pk?: Maybe<Mfe_Import_Map_Versions>;
+  /** delete data from the table: "mfe_services_versions" */
+  delete_mfe_services_versions?: Maybe<Mfe_Services_Versions_Mutation_Response>;
+  /** delete single row from the table: "mfe_services_versions" */
+  delete_mfe_services_versions_by_pk?: Maybe<Mfe_Services_Versions>;
   /** insert data into the table: "e2e_features" */
   insert_e2e_features?: Maybe<E2e_Features_Mutation_Response>;
   /** insert a single row into the table: "e2e_features" */
   insert_e2e_features_one?: Maybe<E2e_Features>;
+  /** insert data into the table: "e2e_features_status" */
+  insert_e2e_features_status?: Maybe<E2e_Features_Status_Mutation_Response>;
+  /** insert a single row into the table: "e2e_features_status" */
+  insert_e2e_features_status_one?: Maybe<E2e_Features_Status>;
   /** insert data into the table: "e2e_instances" */
   insert_e2e_instances?: Maybe<E2e_Instances_Mutation_Response>;
   /** insert data into the table: "e2e_instances_group_by_date" */
@@ -2407,6 +3618,10 @@ export type Mutation_Root = {
   insert_e2e_instances_status_count?: Maybe<E2e_Instances_Status_Count_Mutation_Response>;
   /** insert a single row into the table: "e2e_instances_status_count" */
   insert_e2e_instances_status_count_one?: Maybe<E2e_Instances_Status_Count>;
+  /** insert data into the table: "e2e_scenario_severity" */
+  insert_e2e_scenario_severity?: Maybe<E2e_Scenario_Severity_Mutation_Response>;
+  /** insert a single row into the table: "e2e_scenario_severity" */
+  insert_e2e_scenario_severity_one?: Maybe<E2e_Scenario_Severity>;
   /** insert data into the table: "e2e_scenarios" */
   insert_e2e_scenarios?: Maybe<E2e_Scenarios_Mutation_Response>;
   /** insert a single row into the table: "e2e_scenarios" */
@@ -2415,10 +3630,28 @@ export type Mutation_Root = {
   insert_e2e_steps?: Maybe<E2e_Steps_Mutation_Response>;
   /** insert a single row into the table: "e2e_steps" */
   insert_e2e_steps_one?: Maybe<E2e_Steps>;
+  /** insert data into the table: "fourkeys_commit_data" */
+  insert_fourkeys_commit_data?: Maybe<Fourkeys_Commit_Data_Mutation_Response>;
+  /** insert a single row into the table: "fourkeys_commit_data" */
+  insert_fourkeys_commit_data_one?: Maybe<Fourkeys_Commit_Data>;
+  /** insert data into the table: "fourkeys_feature_data" */
+  insert_fourkeys_feature_data?: Maybe<Fourkeys_Feature_Data_Mutation_Response>;
+  /** insert a single row into the table: "fourkeys_feature_data" */
+  insert_fourkeys_feature_data_one?: Maybe<Fourkeys_Feature_Data>;
+  /** insert data into the table: "mfe_import_map_versions" */
+  insert_mfe_import_map_versions?: Maybe<Mfe_Import_Map_Versions_Mutation_Response>;
+  /** insert a single row into the table: "mfe_import_map_versions" */
+  insert_mfe_import_map_versions_one?: Maybe<Mfe_Import_Map_Versions>;
+  /** insert data into the table: "mfe_services_versions" */
+  insert_mfe_services_versions?: Maybe<Mfe_Services_Versions_Mutation_Response>;
+  /** insert a single row into the table: "mfe_services_versions" */
+  insert_mfe_services_versions_one?: Maybe<Mfe_Services_Versions>;
   /** update data of the table: "e2e_features" */
   update_e2e_features?: Maybe<E2e_Features_Mutation_Response>;
   /** update single row of the table: "e2e_features" */
   update_e2e_features_by_pk?: Maybe<E2e_Features>;
+  /** update data of the table: "e2e_features_status" */
+  update_e2e_features_status?: Maybe<E2e_Features_Status_Mutation_Response>;
   /** update data of the table: "e2e_instances" */
   update_e2e_instances?: Maybe<E2e_Instances_Mutation_Response>;
   /** update single row of the table: "e2e_instances" */
@@ -2427,6 +3660,10 @@ export type Mutation_Root = {
   update_e2e_instances_group_by_date?: Maybe<E2e_Instances_Group_By_Date_Mutation_Response>;
   /** update data of the table: "e2e_instances_status_count" */
   update_e2e_instances_status_count?: Maybe<E2e_Instances_Status_Count_Mutation_Response>;
+  /** update data of the table: "e2e_scenario_severity" */
+  update_e2e_scenario_severity?: Maybe<E2e_Scenario_Severity_Mutation_Response>;
+  /** update single row of the table: "e2e_scenario_severity" */
+  update_e2e_scenario_severity_by_pk?: Maybe<E2e_Scenario_Severity>;
   /** update data of the table: "e2e_scenarios" */
   update_e2e_scenarios?: Maybe<E2e_Scenarios_Mutation_Response>;
   /** update single row of the table: "e2e_scenarios" */
@@ -2435,6 +3672,20 @@ export type Mutation_Root = {
   update_e2e_steps?: Maybe<E2e_Steps_Mutation_Response>;
   /** update single row of the table: "e2e_steps" */
   update_e2e_steps_by_pk?: Maybe<E2e_Steps>;
+  /** update data of the table: "fourkeys_commit_data" */
+  update_fourkeys_commit_data?: Maybe<Fourkeys_Commit_Data_Mutation_Response>;
+  /** update single row of the table: "fourkeys_commit_data" */
+  update_fourkeys_commit_data_by_pk?: Maybe<Fourkeys_Commit_Data>;
+  /** update data of the table: "fourkeys_feature_data" */
+  update_fourkeys_feature_data?: Maybe<Fourkeys_Feature_Data_Mutation_Response>;
+  /** update data of the table: "mfe_import_map_versions" */
+  update_mfe_import_map_versions?: Maybe<Mfe_Import_Map_Versions_Mutation_Response>;
+  /** update single row of the table: "mfe_import_map_versions" */
+  update_mfe_import_map_versions_by_pk?: Maybe<Mfe_Import_Map_Versions>;
+  /** update data of the table: "mfe_services_versions" */
+  update_mfe_services_versions?: Maybe<Mfe_Services_Versions_Mutation_Response>;
+  /** update single row of the table: "mfe_services_versions" */
+  update_mfe_services_versions_by_pk?: Maybe<Mfe_Services_Versions>;
 };
 
 
@@ -2447,6 +3698,12 @@ export type Mutation_RootDelete_E2e_FeaturesArgs = {
 /** mutation root */
 export type Mutation_RootDelete_E2e_Features_By_PkArgs = {
   feature_id: Scalars['String'];
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_E2e_Features_StatusArgs = {
+  where: E2e_Features_Status_Bool_Exp;
 };
 
 
@@ -2475,6 +3732,19 @@ export type Mutation_RootDelete_E2e_Instances_Status_CountArgs = {
 
 
 /** mutation root */
+export type Mutation_RootDelete_E2e_Scenario_SeverityArgs = {
+  where: E2e_Scenario_Severity_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_E2e_Scenario_Severity_By_PkArgs = {
+  feature_path: Scalars['String'];
+  scenario_name: Scalars['String'];
+};
+
+
+/** mutation root */
 export type Mutation_RootDelete_E2e_ScenariosArgs = {
   where: E2e_Scenarios_Bool_Exp;
 };
@@ -2499,6 +3769,50 @@ export type Mutation_RootDelete_E2e_Steps_By_PkArgs = {
 
 
 /** mutation root */
+export type Mutation_RootDelete_Fourkeys_Commit_DataArgs = {
+  where: Fourkeys_Commit_Data_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Fourkeys_Commit_Data_By_PkArgs = {
+  commit_hash: Scalars['String'];
+  feature: Scalars['String'];
+  folder: Scalars['String'];
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Fourkeys_Feature_DataArgs = {
+  where: Fourkeys_Feature_Data_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Mfe_Import_Map_VersionsArgs = {
+  where: Mfe_Import_Map_Versions_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Mfe_Import_Map_Versions_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Mfe_Services_VersionsArgs = {
+  where: Mfe_Services_Versions_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Mfe_Services_Versions_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+/** mutation root */
 export type Mutation_RootInsert_E2e_FeaturesArgs = {
   objects: Array<E2e_Features_Insert_Input>;
   on_conflict?: InputMaybe<E2e_Features_On_Conflict>;
@@ -2509,6 +3823,18 @@ export type Mutation_RootInsert_E2e_FeaturesArgs = {
 export type Mutation_RootInsert_E2e_Features_OneArgs = {
   object: E2e_Features_Insert_Input;
   on_conflict?: InputMaybe<E2e_Features_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_E2e_Features_StatusArgs = {
+  objects: Array<E2e_Features_Status_Insert_Input>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_E2e_Features_Status_OneArgs = {
+  object: E2e_Features_Status_Insert_Input;
 };
 
 
@@ -2551,6 +3877,20 @@ export type Mutation_RootInsert_E2e_Instances_Status_Count_OneArgs = {
 
 
 /** mutation root */
+export type Mutation_RootInsert_E2e_Scenario_SeverityArgs = {
+  objects: Array<E2e_Scenario_Severity_Insert_Input>;
+  on_conflict?: InputMaybe<E2e_Scenario_Severity_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_E2e_Scenario_Severity_OneArgs = {
+  object: E2e_Scenario_Severity_Insert_Input;
+  on_conflict?: InputMaybe<E2e_Scenario_Severity_On_Conflict>;
+};
+
+
+/** mutation root */
 export type Mutation_RootInsert_E2e_ScenariosArgs = {
   objects: Array<E2e_Scenarios_Insert_Input>;
   on_conflict?: InputMaybe<E2e_Scenarios_On_Conflict>;
@@ -2579,6 +3919,62 @@ export type Mutation_RootInsert_E2e_Steps_OneArgs = {
 
 
 /** mutation root */
+export type Mutation_RootInsert_Fourkeys_Commit_DataArgs = {
+  objects: Array<Fourkeys_Commit_Data_Insert_Input>;
+  on_conflict?: InputMaybe<Fourkeys_Commit_Data_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Fourkeys_Commit_Data_OneArgs = {
+  object: Fourkeys_Commit_Data_Insert_Input;
+  on_conflict?: InputMaybe<Fourkeys_Commit_Data_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Fourkeys_Feature_DataArgs = {
+  objects: Array<Fourkeys_Feature_Data_Insert_Input>;
+  on_conflict?: InputMaybe<Fourkeys_Feature_Data_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Fourkeys_Feature_Data_OneArgs = {
+  object: Fourkeys_Feature_Data_Insert_Input;
+  on_conflict?: InputMaybe<Fourkeys_Feature_Data_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Mfe_Import_Map_VersionsArgs = {
+  objects: Array<Mfe_Import_Map_Versions_Insert_Input>;
+  on_conflict?: InputMaybe<Mfe_Import_Map_Versions_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Mfe_Import_Map_Versions_OneArgs = {
+  object: Mfe_Import_Map_Versions_Insert_Input;
+  on_conflict?: InputMaybe<Mfe_Import_Map_Versions_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Mfe_Services_VersionsArgs = {
+  objects: Array<Mfe_Services_Versions_Insert_Input>;
+  on_conflict?: InputMaybe<Mfe_Services_Versions_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Mfe_Services_Versions_OneArgs = {
+  object: Mfe_Services_Versions_Insert_Input;
+  on_conflict?: InputMaybe<Mfe_Services_Versions_On_Conflict>;
+};
+
+
+/** mutation root */
 export type Mutation_RootUpdate_E2e_FeaturesArgs = {
   _append?: InputMaybe<E2e_Features_Append_Input>;
   _delete_at_path?: InputMaybe<E2e_Features_Delete_At_Path_Input>;
@@ -2601,6 +3997,14 @@ export type Mutation_RootUpdate_E2e_Features_By_PkArgs = {
   _prepend?: InputMaybe<E2e_Features_Prepend_Input>;
   _set?: InputMaybe<E2e_Features_Set_Input>;
   pk_columns: E2e_Features_Pk_Columns_Input;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_E2e_Features_StatusArgs = {
+  _inc?: InputMaybe<E2e_Features_Status_Inc_Input>;
+  _set?: InputMaybe<E2e_Features_Status_Set_Input>;
+  where: E2e_Features_Status_Bool_Exp;
 };
 
 
@@ -2643,6 +4047,20 @@ export type Mutation_RootUpdate_E2e_Instances_Status_CountArgs = {
   _inc?: InputMaybe<E2e_Instances_Status_Count_Inc_Input>;
   _set?: InputMaybe<E2e_Instances_Status_Count_Set_Input>;
   where: E2e_Instances_Status_Count_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_E2e_Scenario_SeverityArgs = {
+  _set?: InputMaybe<E2e_Scenario_Severity_Set_Input>;
+  where: E2e_Scenario_Severity_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_E2e_Scenario_Severity_By_PkArgs = {
+  _set?: InputMaybe<E2e_Scenario_Severity_Set_Input>;
+  pk_columns: E2e_Scenario_Severity_Pk_Columns_Input;
 };
 
 
@@ -2695,6 +4113,59 @@ export type Mutation_RootUpdate_E2e_Steps_By_PkArgs = {
   pk_columns: E2e_Steps_Pk_Columns_Input;
 };
 
+
+/** mutation root */
+export type Mutation_RootUpdate_Fourkeys_Commit_DataArgs = {
+  _set?: InputMaybe<Fourkeys_Commit_Data_Set_Input>;
+  where: Fourkeys_Commit_Data_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Fourkeys_Commit_Data_By_PkArgs = {
+  _set?: InputMaybe<Fourkeys_Commit_Data_Set_Input>;
+  pk_columns: Fourkeys_Commit_Data_Pk_Columns_Input;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Fourkeys_Feature_DataArgs = {
+  _set?: InputMaybe<Fourkeys_Feature_Data_Set_Input>;
+  where: Fourkeys_Feature_Data_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Mfe_Import_Map_VersionsArgs = {
+  _inc?: InputMaybe<Mfe_Import_Map_Versions_Inc_Input>;
+  _set?: InputMaybe<Mfe_Import_Map_Versions_Set_Input>;
+  where: Mfe_Import_Map_Versions_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Mfe_Import_Map_Versions_By_PkArgs = {
+  _inc?: InputMaybe<Mfe_Import_Map_Versions_Inc_Input>;
+  _set?: InputMaybe<Mfe_Import_Map_Versions_Set_Input>;
+  pk_columns: Mfe_Import_Map_Versions_Pk_Columns_Input;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Mfe_Services_VersionsArgs = {
+  _inc?: InputMaybe<Mfe_Services_Versions_Inc_Input>;
+  _set?: InputMaybe<Mfe_Services_Versions_Set_Input>;
+  where: Mfe_Services_Versions_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Mfe_Services_Versions_By_PkArgs = {
+  _inc?: InputMaybe<Mfe_Services_Versions_Inc_Input>;
+  _set?: InputMaybe<Mfe_Services_Versions_Set_Input>;
+  pk_columns: Mfe_Services_Versions_Pk_Columns_Input;
+};
+
 export type Numeric_Cast_Exp = {
   String?: InputMaybe<String_Comparison_Exp>;
 };
@@ -2744,6 +4215,10 @@ export type Query_Root = {
   e2e_features_aggregate: E2e_Features_Aggregate;
   /** fetch data from the table: "e2e_features" using primary key columns */
   e2e_features_by_pk?: Maybe<E2e_Features>;
+  /** fetch data from the table: "e2e_features_status" */
+  e2e_features_status: Array<E2e_Features_Status>;
+  /** fetch aggregated fields from the table: "e2e_features_status" */
+  e2e_features_status_aggregate: E2e_Features_Status_Aggregate;
   /** fetch data from the table: "e2e_instances" */
   e2e_instances: Array<E2e_Instances>;
   /** fetch aggregated fields from the table: "e2e_instances" */
@@ -2766,9 +4241,15 @@ export type Query_Root = {
   e2e_instances_status_count: Array<E2e_Instances_Status_Count>;
   /** fetch aggregated fields from the table: "e2e_instances_status_count" */
   e2e_instances_status_count_aggregate: E2e_Instances_Status_Count_Aggregate;
-  /** fetch data from the table: "e2e_scenarios" */
+  /** fetch data from the table: "e2e_scenario_severity" */
+  e2e_scenario_severity: Array<E2e_Scenario_Severity>;
+  /** fetch aggregated fields from the table: "e2e_scenario_severity" */
+  e2e_scenario_severity_aggregate: E2e_Scenario_Severity_Aggregate;
+  /** fetch data from the table: "e2e_scenario_severity" using primary key columns */
+  e2e_scenario_severity_by_pk?: Maybe<E2e_Scenario_Severity>;
+  /** An array relationship */
   e2e_scenarios: Array<E2e_Scenarios>;
-  /** fetch aggregated fields from the table: "e2e_scenarios" */
+  /** An aggregate relationship */
   e2e_scenarios_aggregate: E2e_Scenarios_Aggregate;
   /** fetch data from the table: "e2e_scenarios" using primary key columns */
   e2e_scenarios_by_pk?: Maybe<E2e_Scenarios>;
@@ -2778,6 +4259,20 @@ export type Query_Root = {
   e2e_steps_aggregate: E2e_Steps_Aggregate;
   /** fetch data from the table: "e2e_steps" using primary key columns */
   e2e_steps_by_pk?: Maybe<E2e_Steps>;
+  /** fetch data from the table: "fourkeys_commit_data" */
+  fourkeys_commit_data: Array<Fourkeys_Commit_Data>;
+  /** fetch aggregated fields from the table: "fourkeys_commit_data" */
+  fourkeys_commit_data_aggregate: Fourkeys_Commit_Data_Aggregate;
+  /** fetch data from the table: "fourkeys_commit_data" using primary key columns */
+  fourkeys_commit_data_by_pk?: Maybe<Fourkeys_Commit_Data>;
+  /** fetch data from the table: "fourkeys_feature_data" */
+  fourkeys_feature_data: Array<Fourkeys_Feature_Data>;
+  /** fetch aggregated fields from the table: "fourkeys_feature_data" */
+  fourkeys_feature_data_aggregate: Fourkeys_Feature_Data_Aggregate;
+  /** execute function "get_e2e_feature_status_count_in_last_n_days" which returns "e2e_features_status" */
+  get_e2e_feature_status_count_in_last_n_days: Array<E2e_Features_Status>;
+  /** execute function "get_e2e_feature_status_count_in_last_n_days" and query aggregates on result of table type "e2e_features_status" */
+  get_e2e_feature_status_count_in_last_n_days_aggregate: E2e_Features_Status_Aggregate;
   /** execute function "get_instance_filter_by_tags" which returns "e2e_instances" */
   get_instance_filter_by_tags: Array<E2e_Instances>;
   /** execute function "get_instance_filter_by_tags" and query aggregates on result of table type "e2e_instances" */
@@ -2786,6 +4281,18 @@ export type Query_Root = {
   get_instances_with_filters: Array<E2e_Instances>;
   /** execute function "get_instances_with_filters" and query aggregates on result of table type "e2e_instances" */
   get_instances_with_filters_aggregate: E2e_Instances_Aggregate;
+  /** fetch data from the table: "mfe_import_map_versions" */
+  mfe_import_map_versions: Array<Mfe_Import_Map_Versions>;
+  /** fetch aggregated fields from the table: "mfe_import_map_versions" */
+  mfe_import_map_versions_aggregate: Mfe_Import_Map_Versions_Aggregate;
+  /** fetch data from the table: "mfe_import_map_versions" using primary key columns */
+  mfe_import_map_versions_by_pk?: Maybe<Mfe_Import_Map_Versions>;
+  /** fetch data from the table: "mfe_services_versions" */
+  mfe_services_versions: Array<Mfe_Services_Versions>;
+  /** fetch aggregated fields from the table: "mfe_services_versions" */
+  mfe_services_versions_aggregate: Mfe_Services_Versions_Aggregate;
+  /** fetch data from the table: "mfe_services_versions" using primary key columns */
+  mfe_services_versions_by_pk?: Maybe<Mfe_Services_Versions>;
 };
 
 
@@ -2849,6 +4356,24 @@ export type Query_RootE2e_Features_AggregateArgs = {
 
 export type Query_RootE2e_Features_By_PkArgs = {
   feature_id: Scalars['String'];
+};
+
+
+export type Query_RootE2e_Features_StatusArgs = {
+  distinct_on?: InputMaybe<Array<E2e_Features_Status_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<E2e_Features_Status_Order_By>>;
+  where?: InputMaybe<E2e_Features_Status_Bool_Exp>;
+};
+
+
+export type Query_RootE2e_Features_Status_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<E2e_Features_Status_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<E2e_Features_Status_Order_By>>;
+  where?: InputMaybe<E2e_Features_Status_Bool_Exp>;
 };
 
 
@@ -2947,6 +4472,30 @@ export type Query_RootE2e_Instances_Status_Count_AggregateArgs = {
 };
 
 
+export type Query_RootE2e_Scenario_SeverityArgs = {
+  distinct_on?: InputMaybe<Array<E2e_Scenario_Severity_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<E2e_Scenario_Severity_Order_By>>;
+  where?: InputMaybe<E2e_Scenario_Severity_Bool_Exp>;
+};
+
+
+export type Query_RootE2e_Scenario_Severity_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<E2e_Scenario_Severity_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<E2e_Scenario_Severity_Order_By>>;
+  where?: InputMaybe<E2e_Scenario_Severity_Bool_Exp>;
+};
+
+
+export type Query_RootE2e_Scenario_Severity_By_PkArgs = {
+  feature_path: Scalars['String'];
+  scenario_name: Scalars['String'];
+};
+
+
 export type Query_RootE2e_ScenariosArgs = {
   distinct_on?: InputMaybe<Array<E2e_Scenarios_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2993,6 +4542,69 @@ export type Query_RootE2e_Steps_By_PkArgs = {
 };
 
 
+export type Query_RootFourkeys_Commit_DataArgs = {
+  distinct_on?: InputMaybe<Array<Fourkeys_Commit_Data_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Fourkeys_Commit_Data_Order_By>>;
+  where?: InputMaybe<Fourkeys_Commit_Data_Bool_Exp>;
+};
+
+
+export type Query_RootFourkeys_Commit_Data_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Fourkeys_Commit_Data_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Fourkeys_Commit_Data_Order_By>>;
+  where?: InputMaybe<Fourkeys_Commit_Data_Bool_Exp>;
+};
+
+
+export type Query_RootFourkeys_Commit_Data_By_PkArgs = {
+  commit_hash: Scalars['String'];
+  feature: Scalars['String'];
+  folder: Scalars['String'];
+};
+
+
+export type Query_RootFourkeys_Feature_DataArgs = {
+  distinct_on?: InputMaybe<Array<Fourkeys_Feature_Data_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Fourkeys_Feature_Data_Order_By>>;
+  where?: InputMaybe<Fourkeys_Feature_Data_Bool_Exp>;
+};
+
+
+export type Query_RootFourkeys_Feature_Data_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Fourkeys_Feature_Data_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Fourkeys_Feature_Data_Order_By>>;
+  where?: InputMaybe<Fourkeys_Feature_Data_Bool_Exp>;
+};
+
+
+export type Query_RootGet_E2e_Feature_Status_Count_In_Last_N_DaysArgs = {
+  args: Get_E2e_Feature_Status_Count_In_Last_N_Days_Args;
+  distinct_on?: InputMaybe<Array<E2e_Features_Status_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<E2e_Features_Status_Order_By>>;
+  where?: InputMaybe<E2e_Features_Status_Bool_Exp>;
+};
+
+
+export type Query_RootGet_E2e_Feature_Status_Count_In_Last_N_Days_AggregateArgs = {
+  args: Get_E2e_Feature_Status_Count_In_Last_N_Days_Args;
+  distinct_on?: InputMaybe<Array<E2e_Features_Status_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<E2e_Features_Status_Order_By>>;
+  where?: InputMaybe<E2e_Features_Status_Bool_Exp>;
+};
+
+
 export type Query_RootGet_Instance_Filter_By_TagsArgs = {
   args: Get_Instance_Filter_By_Tags_Args;
   distinct_on?: InputMaybe<Array<E2e_Instances_Select_Column>>;
@@ -3032,6 +4644,52 @@ export type Query_RootGet_Instances_With_Filters_AggregateArgs = {
   where?: InputMaybe<E2e_Instances_Bool_Exp>;
 };
 
+
+export type Query_RootMfe_Import_Map_VersionsArgs = {
+  distinct_on?: InputMaybe<Array<Mfe_Import_Map_Versions_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Mfe_Import_Map_Versions_Order_By>>;
+  where?: InputMaybe<Mfe_Import_Map_Versions_Bool_Exp>;
+};
+
+
+export type Query_RootMfe_Import_Map_Versions_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Mfe_Import_Map_Versions_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Mfe_Import_Map_Versions_Order_By>>;
+  where?: InputMaybe<Mfe_Import_Map_Versions_Bool_Exp>;
+};
+
+
+export type Query_RootMfe_Import_Map_Versions_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Query_RootMfe_Services_VersionsArgs = {
+  distinct_on?: InputMaybe<Array<Mfe_Services_Versions_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Mfe_Services_Versions_Order_By>>;
+  where?: InputMaybe<Mfe_Services_Versions_Bool_Exp>;
+};
+
+
+export type Query_RootMfe_Services_Versions_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Mfe_Services_Versions_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Mfe_Services_Versions_Order_By>>;
+  where?: InputMaybe<Mfe_Services_Versions_Bool_Exp>;
+};
+
+
+export type Query_RootMfe_Services_Versions_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
 export type Smallint_Cast_Exp = {
   String?: InputMaybe<String_Comparison_Exp>;
 };
@@ -3065,6 +4723,10 @@ export type Subscription_Root = {
   e2e_features_aggregate: E2e_Features_Aggregate;
   /** fetch data from the table: "e2e_features" using primary key columns */
   e2e_features_by_pk?: Maybe<E2e_Features>;
+  /** fetch data from the table: "e2e_features_status" */
+  e2e_features_status: Array<E2e_Features_Status>;
+  /** fetch aggregated fields from the table: "e2e_features_status" */
+  e2e_features_status_aggregate: E2e_Features_Status_Aggregate;
   /** fetch data from the table: "e2e_instances" */
   e2e_instances: Array<E2e_Instances>;
   /** fetch aggregated fields from the table: "e2e_instances" */
@@ -3087,9 +4749,15 @@ export type Subscription_Root = {
   e2e_instances_status_count: Array<E2e_Instances_Status_Count>;
   /** fetch aggregated fields from the table: "e2e_instances_status_count" */
   e2e_instances_status_count_aggregate: E2e_Instances_Status_Count_Aggregate;
-  /** fetch data from the table: "e2e_scenarios" */
+  /** fetch data from the table: "e2e_scenario_severity" */
+  e2e_scenario_severity: Array<E2e_Scenario_Severity>;
+  /** fetch aggregated fields from the table: "e2e_scenario_severity" */
+  e2e_scenario_severity_aggregate: E2e_Scenario_Severity_Aggregate;
+  /** fetch data from the table: "e2e_scenario_severity" using primary key columns */
+  e2e_scenario_severity_by_pk?: Maybe<E2e_Scenario_Severity>;
+  /** An array relationship */
   e2e_scenarios: Array<E2e_Scenarios>;
-  /** fetch aggregated fields from the table: "e2e_scenarios" */
+  /** An aggregate relationship */
   e2e_scenarios_aggregate: E2e_Scenarios_Aggregate;
   /** fetch data from the table: "e2e_scenarios" using primary key columns */
   e2e_scenarios_by_pk?: Maybe<E2e_Scenarios>;
@@ -3099,6 +4767,20 @@ export type Subscription_Root = {
   e2e_steps_aggregate: E2e_Steps_Aggregate;
   /** fetch data from the table: "e2e_steps" using primary key columns */
   e2e_steps_by_pk?: Maybe<E2e_Steps>;
+  /** fetch data from the table: "fourkeys_commit_data" */
+  fourkeys_commit_data: Array<Fourkeys_Commit_Data>;
+  /** fetch aggregated fields from the table: "fourkeys_commit_data" */
+  fourkeys_commit_data_aggregate: Fourkeys_Commit_Data_Aggregate;
+  /** fetch data from the table: "fourkeys_commit_data" using primary key columns */
+  fourkeys_commit_data_by_pk?: Maybe<Fourkeys_Commit_Data>;
+  /** fetch data from the table: "fourkeys_feature_data" */
+  fourkeys_feature_data: Array<Fourkeys_Feature_Data>;
+  /** fetch aggregated fields from the table: "fourkeys_feature_data" */
+  fourkeys_feature_data_aggregate: Fourkeys_Feature_Data_Aggregate;
+  /** execute function "get_e2e_feature_status_count_in_last_n_days" which returns "e2e_features_status" */
+  get_e2e_feature_status_count_in_last_n_days: Array<E2e_Features_Status>;
+  /** execute function "get_e2e_feature_status_count_in_last_n_days" and query aggregates on result of table type "e2e_features_status" */
+  get_e2e_feature_status_count_in_last_n_days_aggregate: E2e_Features_Status_Aggregate;
   /** execute function "get_instance_filter_by_tags" which returns "e2e_instances" */
   get_instance_filter_by_tags: Array<E2e_Instances>;
   /** execute function "get_instance_filter_by_tags" and query aggregates on result of table type "e2e_instances" */
@@ -3107,6 +4789,18 @@ export type Subscription_Root = {
   get_instances_with_filters: Array<E2e_Instances>;
   /** execute function "get_instances_with_filters" and query aggregates on result of table type "e2e_instances" */
   get_instances_with_filters_aggregate: E2e_Instances_Aggregate;
+  /** fetch data from the table: "mfe_import_map_versions" */
+  mfe_import_map_versions: Array<Mfe_Import_Map_Versions>;
+  /** fetch aggregated fields from the table: "mfe_import_map_versions" */
+  mfe_import_map_versions_aggregate: Mfe_Import_Map_Versions_Aggregate;
+  /** fetch data from the table: "mfe_import_map_versions" using primary key columns */
+  mfe_import_map_versions_by_pk?: Maybe<Mfe_Import_Map_Versions>;
+  /** fetch data from the table: "mfe_services_versions" */
+  mfe_services_versions: Array<Mfe_Services_Versions>;
+  /** fetch aggregated fields from the table: "mfe_services_versions" */
+  mfe_services_versions_aggregate: Mfe_Services_Versions_Aggregate;
+  /** fetch data from the table: "mfe_services_versions" using primary key columns */
+  mfe_services_versions_by_pk?: Maybe<Mfe_Services_Versions>;
 };
 
 
@@ -3170,6 +4864,24 @@ export type Subscription_RootE2e_Features_AggregateArgs = {
 
 export type Subscription_RootE2e_Features_By_PkArgs = {
   feature_id: Scalars['String'];
+};
+
+
+export type Subscription_RootE2e_Features_StatusArgs = {
+  distinct_on?: InputMaybe<Array<E2e_Features_Status_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<E2e_Features_Status_Order_By>>;
+  where?: InputMaybe<E2e_Features_Status_Bool_Exp>;
+};
+
+
+export type Subscription_RootE2e_Features_Status_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<E2e_Features_Status_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<E2e_Features_Status_Order_By>>;
+  where?: InputMaybe<E2e_Features_Status_Bool_Exp>;
 };
 
 
@@ -3268,6 +4980,30 @@ export type Subscription_RootE2e_Instances_Status_Count_AggregateArgs = {
 };
 
 
+export type Subscription_RootE2e_Scenario_SeverityArgs = {
+  distinct_on?: InputMaybe<Array<E2e_Scenario_Severity_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<E2e_Scenario_Severity_Order_By>>;
+  where?: InputMaybe<E2e_Scenario_Severity_Bool_Exp>;
+};
+
+
+export type Subscription_RootE2e_Scenario_Severity_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<E2e_Scenario_Severity_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<E2e_Scenario_Severity_Order_By>>;
+  where?: InputMaybe<E2e_Scenario_Severity_Bool_Exp>;
+};
+
+
+export type Subscription_RootE2e_Scenario_Severity_By_PkArgs = {
+  feature_path: Scalars['String'];
+  scenario_name: Scalars['String'];
+};
+
+
 export type Subscription_RootE2e_ScenariosArgs = {
   distinct_on?: InputMaybe<Array<E2e_Scenarios_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3314,6 +5050,69 @@ export type Subscription_RootE2e_Steps_By_PkArgs = {
 };
 
 
+export type Subscription_RootFourkeys_Commit_DataArgs = {
+  distinct_on?: InputMaybe<Array<Fourkeys_Commit_Data_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Fourkeys_Commit_Data_Order_By>>;
+  where?: InputMaybe<Fourkeys_Commit_Data_Bool_Exp>;
+};
+
+
+export type Subscription_RootFourkeys_Commit_Data_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Fourkeys_Commit_Data_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Fourkeys_Commit_Data_Order_By>>;
+  where?: InputMaybe<Fourkeys_Commit_Data_Bool_Exp>;
+};
+
+
+export type Subscription_RootFourkeys_Commit_Data_By_PkArgs = {
+  commit_hash: Scalars['String'];
+  feature: Scalars['String'];
+  folder: Scalars['String'];
+};
+
+
+export type Subscription_RootFourkeys_Feature_DataArgs = {
+  distinct_on?: InputMaybe<Array<Fourkeys_Feature_Data_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Fourkeys_Feature_Data_Order_By>>;
+  where?: InputMaybe<Fourkeys_Feature_Data_Bool_Exp>;
+};
+
+
+export type Subscription_RootFourkeys_Feature_Data_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Fourkeys_Feature_Data_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Fourkeys_Feature_Data_Order_By>>;
+  where?: InputMaybe<Fourkeys_Feature_Data_Bool_Exp>;
+};
+
+
+export type Subscription_RootGet_E2e_Feature_Status_Count_In_Last_N_DaysArgs = {
+  args: Get_E2e_Feature_Status_Count_In_Last_N_Days_Args;
+  distinct_on?: InputMaybe<Array<E2e_Features_Status_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<E2e_Features_Status_Order_By>>;
+  where?: InputMaybe<E2e_Features_Status_Bool_Exp>;
+};
+
+
+export type Subscription_RootGet_E2e_Feature_Status_Count_In_Last_N_Days_AggregateArgs = {
+  args: Get_E2e_Feature_Status_Count_In_Last_N_Days_Args;
+  distinct_on?: InputMaybe<Array<E2e_Features_Status_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<E2e_Features_Status_Order_By>>;
+  where?: InputMaybe<E2e_Features_Status_Bool_Exp>;
+};
+
+
 export type Subscription_RootGet_Instance_Filter_By_TagsArgs = {
   args: Get_Instance_Filter_By_Tags_Args;
   distinct_on?: InputMaybe<Array<E2e_Instances_Select_Column>>;
@@ -3351,6 +5150,52 @@ export type Subscription_RootGet_Instances_With_Filters_AggregateArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<E2e_Instances_Order_By>>;
   where?: InputMaybe<E2e_Instances_Bool_Exp>;
+};
+
+
+export type Subscription_RootMfe_Import_Map_VersionsArgs = {
+  distinct_on?: InputMaybe<Array<Mfe_Import_Map_Versions_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Mfe_Import_Map_Versions_Order_By>>;
+  where?: InputMaybe<Mfe_Import_Map_Versions_Bool_Exp>;
+};
+
+
+export type Subscription_RootMfe_Import_Map_Versions_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Mfe_Import_Map_Versions_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Mfe_Import_Map_Versions_Order_By>>;
+  where?: InputMaybe<Mfe_Import_Map_Versions_Bool_Exp>;
+};
+
+
+export type Subscription_RootMfe_Import_Map_Versions_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Subscription_RootMfe_Services_VersionsArgs = {
+  distinct_on?: InputMaybe<Array<Mfe_Services_Versions_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Mfe_Services_Versions_Order_By>>;
+  where?: InputMaybe<Mfe_Services_Versions_Bool_Exp>;
+};
+
+
+export type Subscription_RootMfe_Services_Versions_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Mfe_Services_Versions_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Mfe_Services_Versions_Order_By>>;
+  where?: InputMaybe<Mfe_Services_Versions_Bool_Exp>;
+};
+
+
+export type Subscription_RootMfe_Services_Versions_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 export type Timestamptz_Cast_Exp = {

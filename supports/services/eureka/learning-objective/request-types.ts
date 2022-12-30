@@ -9,7 +9,7 @@ declare namespace NsLearningObjectiveModifierServiceRequest {
 
     interface InsertLearningObjective
         extends InsertLearningMaterialBase,
-            Omit<LearningObjectiveBase.AsObject, 'base' | 'videoScript'> {}
+            Omit<LearningObjectiveBase.AsObject, 'base' | 'videoScript' | 'totalQuestion'> {}
 }
 
 export default NsLearningObjectiveModifierServiceRequest;

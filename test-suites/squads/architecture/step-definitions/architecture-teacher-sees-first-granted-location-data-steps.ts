@@ -184,6 +184,8 @@ Given('school admin has edited teacher user group', async function (this: IMaste
             name: staff.name,
             userGroupIdsList: userGroupIdsList,
             email: staff.email,
+            // TODO: @dvbtrung2302 update when integrate update staff with phonetic
+            full_name_phonetic: '',
         });
 
         await teacher.instruction(`Teacher reloads the screen`, async () => {
