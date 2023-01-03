@@ -45,7 +45,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: develop #should be develop
+          ref: develop
           repository: manabie-com/backend
           token: ${{ secrets.BUILD_GITHUB_TOKEN }}
 
