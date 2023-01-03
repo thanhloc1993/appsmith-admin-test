@@ -1,4 +1,4 @@
-name: e2e.trigger
+name: e2e.record_run
 
 on:
   pull_request:
@@ -76,49 +76,49 @@ jobs:
         with:
           BUILD_GITHUB_TOKEN: ${{ secrets.BUILD_GITHUB_TOKEN }}
 
-  run-e2e:
-    needs: [pr-description, runners]
-    runs-on: ${{ fromJson(needs.runners.outputs.runners)['run-e2e'] }}
-    strategy:
-      fail-fast: false
-      matrix:
-        name: ["@extra-tests"]
-        include:
-          - name: "@extra-tests"
-            tags: "${{ needs.pr-description.outputs.tags }}"
-            featureFiles: "${{ needs.pr-description.outputs.featureFiles }}"
-            environment: "${{ needs.pr-description.outputs.environment }}"
-            organization: "${{ needs.pr-description.outputs.organization }}"
-            fe_ref: "${{ needs.pr-description.outputs.feRef }}"
-            me_ref: "${{ needs.pr-description.outputs.meRef }}"
-            skip: ${{ needs.pr-description.outputs.tags == '' && needs.pr-description.outputs.featureFiles == '' }}
-    steps:
-      - uses: actions/checkout@v3
-        if: matrix.skip != true
+  # run-e2e:
+  #   needs: [pr-description, runners]
+  #   runs-on: ${{ fromJson(needs.runners.outputs.runners)['run-e2e'] }}
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       name: ["@extra-tests"]
+  #       include:
+  #         - name: "@extra-tests"
+  #           tags: "${{ needs.pr-description.outputs.tags }}"
+  #           featureFiles: "${{ needs.pr-description.outputs.featureFiles }}"
+  #           environment: "${{ needs.pr-description.outputs.environment }}"
+  #           organization: "${{ needs.pr-description.outputs.organization }}"
+  #           fe_ref: "${{ needs.pr-description.outputs.feRef }}"
+  #           me_ref: "${{ needs.pr-description.outputs.meRef }}"
+  #           skip: ${{ needs.pr-description.outputs.tags == '' && needs.pr-description.outputs.featureFiles == '' }}
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #       if: matrix.skip != true
 
-      - name: run-e2e
-        if: matrix.skip != true
-        uses: ./.github/actions/reuse.recorder
-        timeout-minutes: 15
-        with:
-          EIBANAM_REF: "${{ needs.pr-description.outputs.eibanamRef }}"
-          FE_REF: "${{ matrix.fe_ref }}"
-          ME_REF: "${{ matrix.me_ref }}"
-          TAGS: "${{ matrix.tags }}"
-          FEATURE_FILES: "${{ matrix.featureFiles }}"
-          ENV: ${{ matrix.environment }}
-          ORGANIZATION: ${{ matrix.organization }}
-          DURATION_LIMIT: 3000000 # 50 mins
-          RUN_ID: ${{ github.run_id }}
+  #     - name: run-e2e
+  #       if: matrix.skip != true
+  #       uses: ./.github/actions/reuse.recorder
+  #       timeout-minutes: 15
+  #       with:
+  #         EIBANAM_REF: "${{ needs.pr-description.outputs.eibanamRef }}"
+  #         FE_REF: "${{ matrix.fe_ref }}"
+  #         ME_REF: "${{ matrix.me_ref }}"
+  #         TAGS: "${{ matrix.tags }}"
+  #         FEATURE_FILES: "${{ matrix.featureFiles }}"
+  #         ENV: ${{ matrix.environment }}
+  #         ORGANIZATION: ${{ matrix.organization }}
+  #         DURATION_LIMIT: 3000000 # 50 mins
+  #         RUN_ID: ${{ github.run_id }}
 
-          REPO: "${{ needs.pr-description.outputs.repo }}"
-          OWNER: "${{ needs.pr-description.outputs.owner }}"
-          ISSUE_NUMBER: "${{ needs.pr-description.outputs.pullNumber }}"
+  #         REPO: "${{ needs.pr-description.outputs.repo }}"
+  #         OWNER: "${{ needs.pr-description.outputs.owner }}"
+  #         ISSUE_NUMBER: "${{ needs.pr-description.outputs.pullNumber }}"
 
-          GCR_JSON_KEY: ${{ secrets.GCR_JSON_KEY }}
-          BUILD_GITHUB_TOKEN: ${{ secrets.BUILD_GITHUB_TOKEN }}
-          OTLP_ACCESS_TOKEN: ${{ secrets.OTLP_ACCESS_TOKEN }}
-          REPORT_HASURA_SECRET: ${{ secrets.REPORT_HASURA_SECRET }}
-          UNLEASH_CLIENT_KEY: ${{ secrets.UNLEASH_CLIENT_KEY }}
-          UNLEASH_CREDENTIAL: ${{ secrets.UNLEASH_CREDENTIAL }}
-          FAIL_FAST: false
+  #         GCR_JSON_KEY: ${{ secrets.GCR_JSON_KEY }}
+  #         BUILD_GITHUB_TOKEN: ${{ secrets.BUILD_GITHUB_TOKEN }}
+  #         OTLP_ACCESS_TOKEN: ${{ secrets.OTLP_ACCESS_TOKEN }}
+  #         REPORT_HASURA_SECRET: ${{ secrets.REPORT_HASURA_SECRET }}
+  #         UNLEASH_CLIENT_KEY: ${{ secrets.UNLEASH_CLIENT_KEY }}
+  #         UNLEASH_CREDENTIAL: ${{ secrets.UNLEASH_CREDENTIAL }}
+  #         FAIL_FAST: false
