@@ -37,9 +37,9 @@ if [[ $1 != "" ]]; then
     fi
 fi
 
-docker-compose $PROFILE down
+docker compose $PROFILE down
 bash ./scripts/clean-up-docker.sh
 
 if [[ $2 == "up" ]]; then
-    COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 PLATFORM=$PLATFORM docker-compose $PROFILE up --exit-code-from cucumber --build
+    COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 PLATFORM=$PLATFORM docker compose $PROFILE up --exit-code-from cucumber --build
 fi
