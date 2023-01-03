@@ -8,7 +8,7 @@ jobs:
   record-test:
     if: ${{ contains(github.event.label.name, 'Trigger record test') }}
 
-    runs-on: [self-hosted, custom-runner, small-runner]
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
