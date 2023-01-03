@@ -33,8 +33,7 @@ env:
   GOOGLE_IDENTITY_AUTH_DOMAIN: "staging-manabie-online.firebaseapp.com"
   GOOGLE_PROJECT_ID: "staging-manabie-online"
   REPORT_GRAPHQL_URL: "https://admin.staging-green.manabie.io/draft/v1/graphql"
-
-  # This one for login to unleash admin when run e2e test
+  
   UNLEASH_CREDENTIAL: "${{secrets.UNLEASH_CREDENTIAL}}"
 
 jobs:
